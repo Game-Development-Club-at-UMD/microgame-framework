@@ -1,3 +1,145 @@
-# Godot 4+ specific ignores
+# ===========================
+# GODOT 4+ ENGINE
+# ===========================
 .godot/
-/android/
+.nomedia
+.import/
+export.cfg
+export_credentials.cfg
+*.translation
+
+# Mono/C#
+.mono/
+data_*/
+mono_crash.*.json
+
+# ===========================
+# 3D ASSET PIPELINE (BLENDER)
+# ===========================
+# Godot 4 imports .blend files directly by calling a local Blender
+# install in the background. The resulting import cache is written
+# to .godot/imported/, already covered by the .godot/ rule above.
+# Only Blender's own local backup and in-progress save files need
+# to be ignored here.
+*.blend[0-9]
+*.blend@
+
+# ===========================
+# GODOT ANDROID BUILD
+# ===========================
+.bfg-report/
+android/build/
+android/.build_version
+old_android/build/
+old_android/.build_version
+*.aar
+
+# ===========================
+# MACOS / APPLE
+# ===========================
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+*.icloud
+
+# ===========================
+# WINDOWS
+# ===========================
+Thumbs.db
+Thumbs.db:encdata
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# Windows image file caches
+[Dd]esktop.ini
+
+# ===========================
+# EDITORS — VISUAL STUDIO
+# ===========================
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# ===========================
+# EDITORS — VSCODE
+# ===========================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ===========================
+# EDITORS — JETBRAINS / RIDER
+# ===========================
+.idea/
+*.sln
+*.csproj.user
+
+# ===========================
+# EDITORS — XCODE
+# ===========================
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# ===========================
+# BUILD OUTPUTS
+# ===========================
+builds/
+build/
+dist/
+*.apk
+*.aab
+*.ipa
+*.exe
+*.app
+*.zip
+*.tar.gz
+
+# ===========================
+# LOGS & TEMP FILES
+# ===========================
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# ===========================
+# SYSTEM / NETWORK
+# ===========================
+.nfs*
+.fuse_hidden*
