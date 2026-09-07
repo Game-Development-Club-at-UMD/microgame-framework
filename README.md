@@ -105,6 +105,8 @@ between your fork and the
    the dropdowns to correct them before continuing. You should see a green
    **Able to merge** message once the base and head are set correctly and your
    branch has real differences from `main`.
+   NOTE: If there are merge conflicts in the PR and you're unsure of what to do,
+   create the PR and let a contributor fix it!
 4. Scroll down to confirm the diff shown is actually your intended changes.
 5. Write a clear title and description explaining what you changed and why.
 6. Click **Create pull request**.
