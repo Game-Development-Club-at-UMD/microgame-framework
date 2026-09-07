@@ -96,11 +96,11 @@ between your fork and the
 2. At the top of the PR page are two dropdowns. This is the part that trips
    people up, so check both carefully:
    - **Base repository** (left side): this must be set to the original repo, not
-     your fork, on branch `main`. This is the destination, where your changes
-     will end up if merged.
+	 your fork, on branch `main`. This is the destination, where your changes
+	 will end up if merged.
    - **Head repository** (right side): this should already be set to your fork,
-     on the branch you just pushed. This is the source, where your changes are
-     coming from.
+	 on the branch you just pushed. This is the source, where your changes are
+	 coming from.
 3. If GitHub Desktop opened the comparison against the wrong repo or branch, use
    the dropdowns to correct them before continuing. You should see a green
    **Able to merge** message once the base and head are set correctly and your
@@ -108,6 +108,9 @@ between your fork and the
 4. Scroll down to confirm the diff shown is actually your intended changes.
 5. Write a clear title and description explaining what you changed and why.
 6. Click **Create pull request**.
+
+NOTE: If there are merge conflicts in the PR and you're unsure of what to do,
+create the PR and let a contributor fix it!
 
 Your pull request now exists on the original repo, not your fork. A maintainer
 will review it there, may leave comments or request changes, and will merge it
