@@ -47,6 +47,7 @@ func win() -> void:
 	_switch_to_next_microgame()
 	unpause_game()
 
+
 func _switch_to_next_microgame() -> void:
 	fade_to_black.do_tween()
 	await fade_to_black.tween.finished
