@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://bh166ecxqy5qu"]
+
+[ext_resource type="Script" uid="uid://c302lviukvkgv" path="res://ExampleGame/Instructions/introduction_screen.gd" id="1_4l27e"]
+[ext_resource type="Texture2D" uid="uid://bri1hg8pxkjhc" path="res://ExampleGame/Instructions/Assets/Pop.png" id="1_esqfm"]
+[ext_resource type="Texture2D" uid="uid://dqmnmg0w6evba" path="res://ExampleGame/Instructions/Assets/mouse-Sheet.png" id="4_4l27e"]
+[ext_resource type="Texture2D" uid="uid://deeqg48ya3c8e" path="res://ExampleGame/Instructions/Assets/Pop-Sheet.png" id="4_m1c35"]
+[ext_resource type="Script" uid="uid://cct0slx0ktj60" path="res://Framework/Addons/Effect_Components/Scripts/TweenResources/transform_tween.gd" id="5_q2dc5"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Framework/Addons/Effect_Components/Scripts/Components/node2D_tween.gd" id="5_w43w7"]
+[ext_resource type="Script" uid="uid://dby7depabb4fv" path="res://Framework/Addons/Effect_Components/Scripts/TweenResources/canvas_item_tween.gd" id="6_q2dc5"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/Effect_Components/Scripts/Components/control_tween.gd" id="7_w86pw"]
+
+[sub_resource type="Animation" id="Animation_q2dc5"]
+resource_name = "POP"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_m1c35")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_w86pw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_esqfm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xav54"]
+_data = {
+&"POP": SubResource("Animation_q2dc5"),
+&"RESET": SubResource("Animation_w86pw")
+}
+
+[sub_resource type="Resource" id="Resource_w43w7"]
+script = ExtResource("5_q2dc5")
+start_scale = Vector2(4, 4)
+end_scale = Vector2(4.4, 4.4)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Animation" id="Animation_m1c35"]
+resource_name = "MOUSE"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4l27e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_w43w7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_4l27e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2dc5"]
+_data = {
+&"MOUSE": SubResource("Animation_m1c35"),
+&"RESET": SubResource("Animation_w43w7")
+}
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("5_q2dc5")
+start_position = Vector2(5, inf)
+end_position = Vector2(-5, inf)
+start_rotation = 15.0
+end_rotation = -5.0
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("6_q2dc5")
+end_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[node name="IntroductionScreen" type="Control" unique_id=1051301669]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_4l27e")
+
+[node name="Pop" type="Sprite2D" parent="." unique_id=776488977]
+texture_filter = 1
+position = Vector2(0, 164)
+scale = Vector2(4, 4)
+texture = ExtResource("1_esqfm")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pop" unique_id=975030789]
+libraries/ = SubResource("AnimationLibrary_xav54")
+
+[node name="Scale" type="Node" parent="Pop" unique_id=1359831731 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_w43w7")
+affected_node = NodePath("..")
+transform_tween = SubResource("Resource_w43w7")
+loop = true
+autostart = true
+trans_type = 8
+ease_type = 2
+tween_duration = 0.8
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Mouse" type="Sprite2D" parent="." unique_id=991308480]
+texture_filter = 1
+position = Vector2(-8, -124)
+scale = Vector2(4, 4)
+texture = ExtResource("4_4l27e")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mouse" unique_id=1951215795]
+libraries/ = SubResource("AnimationLibrary_q2dc5")
+
+[node name="Rotate" type="Node" parent="Mouse" unique_id=710943498 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_w43w7")
+affected_node = NodePath("..")
+transform_tween = SubResource("Resource_yf5fn")
+loop = true
+autostart = true
+trans_type = 1
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=954733009]
+z_index = -3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12156863, 0.12156863, 0.11764706, 1)
+
+[node name="Disappear" type="Node" parent="." unique_id=239162563 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("7_w86pw")
+affected_node = NodePath("..")
+canvas_item_tween = SubResource("Resource_g4v7s")
+trans_type = 5
+ease_type = 2
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"

@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://ddd6ayr1ipn0g"]
+
+[ext_resource type="Script" uid="uid://ouqwk841gx2s" path="res://ExampleGame/SceneSwitcher/bubble_scene_switcher.gd" id="1_68gg5"]
+[ext_resource type="Texture2D" uid="uid://d1xjc3hfyd6fh" path="res://ExampleGame/Bubble/Assets/EvilBubble.png" id="2_v7vl2"]
+[ext_resource type="Texture2D" uid="uid://dn07pniqwbehm" path="res://ExampleGame/Bubble/Assets/Bubble.png" id="3_6qeol"]
+[ext_resource type="Script" uid="uid://cbrntoax56ix8" path="res://Framework/Addons/Effect_Components/Scripts/Effect Sequencers/control_tween_sequencer.gd" id="4_tparj"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/Effect_Components/Scripts/Components/control_tween.gd" id="5_wwvra"]
+[ext_resource type="Script" uid="uid://cct0slx0ktj60" path="res://Framework/Addons/Effect_Components/Scripts/TweenResources/transform_tween.gd" id="6_xgf0e"]
+[ext_resource type="PackedScene" uid="uid://bh166ecxqy5qu" path="res://ExampleGame/Instructions/introduction_screen.tscn" id="8_w435o"]
+[ext_resource type="Script" uid="uid://dby7depabb4fv" path="res://Framework/Addons/Effect_Components/Scripts/TweenResources/canvas_item_tween.gd" id="8_xncxh"]
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("6_xgf0e")
+start_scale = Vector2(1, 1)
+end_scale = Vector2(1.2, 1.2)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("6_xgf0e")
+start_scale = Vector2(1.2, 1.2)
+end_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_57qmd"]
+script = ExtResource("8_xncxh")
+start_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[sub_resource type="Resource" id="Resource_d0u6y"]
+script = ExtResource("8_xncxh")
+end_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[node name="BubbleSceneSwitcher" type="Node2D" unique_id=1869873102]
+script = ExtResource("1_68gg5")
+
+[node name="Timer" type="Timer" parent="." unique_id=1021661306]
+process_mode = 1
+one_shot = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1675345068]
+offset_left = 966.0
+offset_top = 457.0
+offset_right = 1101.0
+offset_bottom = 592.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("2_v7vl2")
+texture_progress = ExtResource("3_6qeol")
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeLeftNotifier" type="Node" parent="TextureProgressBar" unique_id=177820285 node_paths=PackedStringArray("affected_node", "tween_array")]
+script = ExtResource("4_tparj")
+affected_node = NodePath("..")
+tween_array = [NodePath("TimeLeftNotifierStart"), NodePath("TimeLeftNotifierEnd")]
+metadata/_custom_type_script = "uid://cbrntoax56ix8"
+
+[node name="TimeLeftNotifierStart" type="Node" parent="TextureProgressBar/TimeLeftNotifier" unique_id=1973168782 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_wwvra")
+affected_node = NodePath("../..")
+transform_tween = SubResource("Resource_g4v7s")
+trans_type = 9
+ease_type = 2
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="TimeLeftNotifierEnd" type="Node" parent="TextureProgressBar/TimeLeftNotifier" unique_id=182970630 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_wwvra")
+affected_node = NodePath("../..")
+transform_tween = SubResource("Resource_yf5fn")
+ease_type = 2
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="FadeScreen" type="ColorRect" parent="." unique_id=2046308171]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_right = 1152.0
+offset_bottom = 640.0
+mouse_filter = 2
+color = Color(0.12156863, 0.12156863, 0.11764706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FadePlayer" type="Node" parent="FadeScreen" unique_id=357342416 node_paths=PackedStringArray("affected_node", "tween_array")]
+script = ExtResource("4_tparj")
+affected_node = NodePath("..")
+tween_array = [NodePath("Appear"), NodePath("Disappear")]
+metadata/_custom_type_script = "uid://cbrntoax56ix8"
+
+[node name="Appear" type="Node" parent="FadeScreen/FadePlayer" unique_id=278451518 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_wwvra")
+affected_node = NodePath("../..")
+canvas_item_tween = SubResource("Resource_57qmd")
+trans_type = 7
+ease_type = 2
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="Disappear" type="Node" parent="FadeScreen/FadePlayer" unique_id=1116164669 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_wwvra")
+affected_node = NodePath("../..")
+canvas_item_tween = SubResource("Resource_d0u6y")
+trans_type = 8
+ease_type = 2
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="IntroductionScreen" parent="." unique_id=773554877 instance=ExtResource("8_w435o")]
+z_index = 4
+offset_left = 576.0
+offset_top = 320.0
+offset_right = 576.0
+offset_bottom = 320.0
+mouse_filter = 0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1463896122]
+z_index = -5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 1152.0
+offset_bottom = 644.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12156863, 0.12156863, 0.11764706, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
