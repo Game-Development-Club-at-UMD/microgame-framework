@@ -19,6 +19,15 @@ config/icon="uid://dowbc4oitb623"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[file_customization]
+
+folder_colors={
+"res://Framework/": "gray",
+"res://Framework/Assets/": "purple",
+"res://Framework/Content/": "teal",
+"res://Framework/Systems/": "yellow"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

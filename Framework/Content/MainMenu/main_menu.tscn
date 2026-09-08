@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://da4hhvghhnoi8"]
+
+[ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_lvsdj"]
+[ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/Content/MainMenu/main_menu.gd" id="2_exuho"]
+[ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://warioware_icon.png" id="3_1h2ds"]
+
+[node name="MainMenu" type="Control" unique_id=1023252626]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lvsdj")
+script = ExtResource("2_exuho")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=435587520]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1333581683]
+layout_mode = 2
+alignment = 1
+
+[node name="MainIcon" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=516882999]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_1h2ds")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=304299713]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=95744182]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start"
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=322014075]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=308416393]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
