@@ -68,6 +68,6 @@ func _switch_to_next_microgame() -> void:
 
 
 # TODO: replace this with saving highscore
-func _notification(what):
+func _notification(what : int):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		get_tree().quit()
