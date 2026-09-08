@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://da4hhvghhnoi8"]
 
 [ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_lvsdj"]
-[ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/Content/MainMenu/main_menu.gd" id="2_exuho"]
+[ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/MainMenu/main_menu.gd" id="2_exuho"]
 [ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://warioware_icon.png" id="3_1h2ds"]
 
 [node name="MainMenu" type="Control" unique_id=1023252626]

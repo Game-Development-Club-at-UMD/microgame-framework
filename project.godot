@@ -14,6 +14,10 @@ config/name="Microgame Framework"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://dowbc4oitb623"
 
+[autoload]
+
+GameManager="*uid://caxigcjbd3chd"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -22,10 +26,14 @@ window/stretch/aspect="expand"
 [file_customization]
 
 folder_colors={
+"res://Examples/": "pink",
 "res://Framework/": "gray",
 "res://Framework/Assets/": "purple",
-"res://Framework/Content/": "teal",
-"res://Framework/Systems/": "yellow"
+"res://Framework/Credits/": "orange",
+"res://Framework/GameManager/": "yellow",
+"res://Framework/LevelSelect/": "teal",
+"res://Framework/MainMenu/": "green",
+"res://Framework/Microgame/": "blue"
 }
 
 [physics]

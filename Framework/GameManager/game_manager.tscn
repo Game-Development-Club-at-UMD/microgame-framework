@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://caxigcjbd3chd"]
+
+[ext_resource type="Script" uid="uid://b78wr31d7rbea" path="res://Framework/GameManager/game_manager.gd" id="1_avyrk"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/Effect_Components/Scripts/Components/control_tween.gd" id="2_t61i1"]
+[ext_resource type="Script" uid="uid://dby7depabb4fv" path="res://Framework/Addons/Effect_Components/Scripts/TweenResources/canvas_item_tween.gd" id="3_bl30x"]
+[ext_resource type="Script" uid="uid://kbtywq5101wv" path="res://Framework/GameManager/Subsystems/microgame_queue.gd" id="4_fvqjh"]
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("3_bl30x")
+start_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("3_bl30x")
+end_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[node name="GameManager" type="Node" unique_id=1254119700]
+script = ExtResource("1_avyrk")
+
+[node name="BigAssBlackRectangle" type="ColorRect" parent="." unique_id=1104671842]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_right = 1.0002778
+anchor_bottom = 1.0002717
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+offset_transform_enabled = true
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FadeToBlack" type="Node" parent="BigAssBlackRectangle" unique_id=2104804170 node_paths=PackedStringArray("affected_node")]
+unique_name_in_owner = true
+script = ExtResource("2_t61i1")
+affected_node = NodePath("..")
+canvas_item_tween = SubResource("Resource_yf5fn")
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="FadeFromBlack" type="Node" parent="BigAssBlackRectangle" unique_id=112060540 node_paths=PackedStringArray("affected_node")]
+unique_name_in_owner = true
+script = ExtResource("2_t61i1")
+affected_node = NodePath("..")
+canvas_item_tween = SubResource("Resource_g4v7s")
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="MicrogameQueue" type="Node" parent="." unique_id=1538349654]
+script = ExtResource("4_fvqjh")
+microgames = Array[PackedScene]([null, null, null])
