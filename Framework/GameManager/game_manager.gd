@@ -11,12 +11,15 @@ func _ready() -> void:
 	microgame_queue.stage_finished.connect(difficulty_manager._on_microgame_stage_finished)
 
 
+# TODO: Unpause game
 func unpause_game() -> void:
 	pass
 
 
+# TODO: Pause game
 func pause_game() -> void:
-	get_tree().root.process_mode = Node.PROCESS_MODE_DISABLED
+	pass
+	#get_tree().root.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func switch_scene_to_packed(scene : PackedScene) -> void:
