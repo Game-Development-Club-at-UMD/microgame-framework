@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://da4hhvghhnoi8"]
 
-[ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_lvsdj"]
-[ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/MainMenu/main_menu.gd" id="2_exuho"]
-[ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://warioware_icon.png" id="3_1h2ds"]
+[ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_dek6e"]
+[ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/MainMenu/main_menu.gd" id="2_o0nup"]
+[ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://warioware_icon.png" id="3_cyff0"]
 
 [node name="MainMenu" type="Control" unique_id=1023252626]
 layout_mode = 3
@@ -11,8 +11,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_lvsdj")
-script = ExtResource("2_exuho")
+theme = ExtResource("1_dek6e")
+script = ExtResource("2_o0nup")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=435587520]
 layout_mode = 1
@@ -35,7 +35,7 @@ alignment = 1
 [node name="MainIcon" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=516882999]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("3_1h2ds")
+texture = ExtResource("3_cyff0")
 expand_mode = 3
 stretch_mode = 5
 
