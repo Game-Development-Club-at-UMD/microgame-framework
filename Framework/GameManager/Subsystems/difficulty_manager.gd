@@ -5,7 +5,7 @@ const DIFFICULTY_PLATEAU_NUM : int = 20
 @export var difficulty_curve : Curve
 
 ## Current difficulty for a stage, based on the [member DIFFICULTY_PLATEAU_NUM] value
-## and the [member difficulty_curve]
+## and the [member difficulty_curve]. Always clamped to range of [0.0, 1.0]
 var current_difficulty : float = 0:
 	set(value):
 		current_difficulty = clampf(value, 0.0, 1.0)
@@ -14,7 +14,7 @@ var current_difficulty : float = 0:
 func _on_microgame_stage_finished(num_completed : int) -> void:
 	# remaps number of stages completed to range of [0.0, 1.0] depending
 	# on how many games we want the player to complete before the difficulty
-	# plateaus (DIFFICULTY_PLATEAU_NUM)
+	# plateaus on DIFFICULTY_PLATEAU_NUM
 	var difficulty_offset : float = remap(num_completed, 0, DIFFICULTY_PLATEAU_NUM, 0.0, 1.0)
 	
 	# set current_difficulty to sampled curve
