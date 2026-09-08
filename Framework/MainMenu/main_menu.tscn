@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_dek6e"]
 [ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/MainMenu/main_menu.gd" id="2_o0nup"]
-[ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://warioware_icon.png" id="3_cyff0"]
+[ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://Framework/Assets/warioware_icon.png" id="3_cyff0"]
 
 [node name="MainMenu" type="Control" unique_id=1023252626]
 layout_mode = 3
