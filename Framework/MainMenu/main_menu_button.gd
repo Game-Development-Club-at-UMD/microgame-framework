@@ -2,8 +2,9 @@ class_name MainMenuButton extends Button
 
 enum HoverState{ CAN_BE_HOVERED, CANNOT_BE_HOVERED }
 
-var ready_to_quit : bool = false
-var quit_queued : bool = false
+
+var ready_to_quit : bool = false ## flag set to true when tween_out has finished
+var quit_queued : bool = false ## flag set to true when tween_out has started
 var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED
 
 @export var tween_in : ControlTween
@@ -24,11 +25,7 @@ func _ready() -> void:
 	self.button_down.connect(_on_pressed)
 	self.button_up.connect(_on_released)
 	
-	# do starter tween
 	self.offset_transform_position_ratio = Vector2(-1, 0)
-	tween_in.do_tween()
-	await tween_in.tween.finished
-	hover_state = HoverState.CAN_BE_HOVERED
 
 
 func tweens_are_valid() -> bool:
@@ -48,17 +45,6 @@ func tweens_are_valid() -> bool:
 	return true
 
 
-func await_all_tweens_finished() -> void:
-	if tween_in.tween != null && tween_in.tween.is_running():
-		await tween_in.tween.finished
-	if tween_out.tween != null && tween_out.tween.is_running():
-		await tween_out.tween.finished
-	if start_hover_effect.tween != null && start_hover_effect.tween.is_running():
-		await start_hover_effect.tween.finished
-	if end_hover_effect.tween != null && end_hover_effect.tween.is_running():
-		await end_hover_effect.tween.finished
-
-
 func cancel_all_tweens() -> void:
 	if tween_in.tween != null && tween_in.tween.is_running():
 		tween_in.tween.kill()
@@ -70,16 +56,10 @@ func cancel_all_tweens() -> void:
 		end_hover_effect.tween.kill()
 
 
-func _on_hover_begin() -> void:
-	if hover_state == HoverState.CANNOT_BE_HOVERED || quit_queued:
-		return
-	play_hover_tween(start_hover_effect)
-
-
-func _on_hover_end() -> void:
-	if quit_queued:
-		return
-	play_hover_tween(end_hover_effect)
+func play_tween_in() -> void:
+	tween_in.do_tween()
+	await tween_in.tween.finished
+	hover_state = HoverState.CAN_BE_HOVERED
 
 
 func play_hover_tween(tween : ControlTween) -> void:
@@ -101,6 +81,18 @@ func do_tween_out() -> void:
 	tween_out.do_tween()
 	await tween_out.tween.finished
 	ready_to_quit = true
+
+
+func _on_hover_begin() -> void:
+	if hover_state == HoverState.CANNOT_BE_HOVERED || quit_queued:
+		return
+	play_hover_tween(start_hover_effect)
+
+
+func _on_hover_end() -> void:
+	if quit_queued:
+		return
+	play_hover_tween(end_hover_effect)
 
 
 func _on_pressed() -> void:
