@@ -10,6 +10,8 @@ var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED
 @export var tween_out : ControlTween
 @export var start_hover_effect : ControlTween
 @export var end_hover_effect : ControlTween
+@export var press_effect : ControlTween
+@export var release_effect : ControlTween
 
 
 func _ready() -> void:
@@ -19,6 +21,8 @@ func _ready() -> void:
 	# connect mouse entered/exit funcs
 	self.mouse_entered.connect(_on_hover_begin)
 	self.mouse_exited.connect(_on_hover_end)
+	self.button_down.connect(_on_pressed)
+	self.button_up.connect(_on_released)
 	
 	# do starter tween
 	self.offset_transform_position_ratio = Vector2(-1, 0)
@@ -95,3 +99,14 @@ func do_tween_out() -> void:
 	tween_out.do_tween()
 	await tween_out.tween.finished
 	ready_to_quit = true
+
+
+func _on_pressed() -> void:
+	hover_state = HoverState.CANNOT_BE_HOVERED
+	if release_effect.tween != null: release_effect.tween.kill()
+	press_effect.do_tween()
+
+
+func _on_released() -> void:
+	if press_effect.tween != null: press_effect.tween.kill()
+	release_effect.do_tween()

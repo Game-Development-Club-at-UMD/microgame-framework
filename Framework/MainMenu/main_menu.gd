@@ -28,15 +28,21 @@ func tween_out_all_buttons() -> void:
 
 
 func _on_start_pressed() -> void:
+	if start.release_effect.tween != null && start.release_effect.tween.is_running():
+		await start.release_effect.tween.finished
 	await tween_out_all_buttons()
 	get_tree().quit()
 
 
 func _on_settings_pressed() -> void:
+	if settings.release_effect.tween != null && settings.release_effect.tween.is_running():
+		await settings.release_effect.tween.finished
 	await tween_out_all_buttons()
 	get_tree().quit()
 
 
 func _on_exit_pressed() -> void:
+	if exit.release_effect.tween != null && exit.release_effect.tween.is_running():
+		await exit.release_effect.tween.finished
 	await tween_out_all_buttons()
 	get_tree().quit()

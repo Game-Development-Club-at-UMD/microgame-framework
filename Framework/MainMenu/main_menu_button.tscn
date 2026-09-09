@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://c57jn4q2xe3vy"]
+
+[ext_resource type="Script" uid="uid://no0u287dsx60" path="res://Framework/MainMenu/main_menu_button.gd" id="1_bskqj"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/Effect_Components/Scripts/Components/control_tween.gd" id="2_lqlyn"]
+[ext_resource type="Script" uid="uid://cdere083tmmuo" path="res://Framework/Addons/Effect_Components/Scripts/TweenResources/offset_transform_tween.gd" id="3_hiv1w"]
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("3_hiv1w")
+end_offset_position_ratio = Vector2(0, inf)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Curve" id="Curve_3gngh"]
+_data = [Vector2(0, 0), 0.0, -1.8473228, 0, 0, Vector2(0.7069767, 1), 1.2561804, 1.2561804, 0, 0, Vector2(1, 1), -0.95165175, 1.2561804, 0, 0]
+point_count = 3
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("3_hiv1w")
+end_offset_position_ratio = Vector2(-1, inf)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Resource" id="Resource_cyff0"]
+script = ExtResource("3_hiv1w")
+end_offset_position_ratio = Vector2(0.1, inf)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Resource" id="Resource_7gh76"]
+script = ExtResource("3_hiv1w")
+end_offset_position_ratio = Vector2(0, inf)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Resource" id="Resource_d0u6y"]
+script = ExtResource("3_hiv1w")
+end_offset_scale = Vector2(0.9, 0.9)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Curve" id="Curve_cyff0"]
+_data = [Vector2(0, 0), 0.0, -0.1907155, 0, 0, Vector2(0.5116279, 1), 2.1137652, 2.1137652, 0, 0, Vector2(1, 1), -0.95165175, 1.2561804, 0, 0]
+point_count = 3
+
+[sub_resource type="Resource" id="Resource_3gngh"]
+script = ExtResource("3_hiv1w")
+end_offset_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[node name="Start" type="Button" unique_id=1854378265 node_paths=PackedStringArray("tween_in", "tween_out", "start_hover_effect", "end_hover_effect", "press_effect", "release_effect")]
+size_flags_vertical = 3
+offset_transform_enabled = true
+offset_transform_visual_only = false
+text = "Start"
+alignment = 2
+script = ExtResource("1_bskqj")
+tween_in = NodePath("TweenIn")
+tween_out = NodePath("TweenOut")
+start_hover_effect = NodePath("StartHoverEffect")
+end_hover_effect = NodePath("EndHoverEffect")
+press_effect = NodePath("PressEffect")
+release_effect = NodePath("ReleaseEffect")
+
+[node name="TweenIn" type="Node" parent="." unique_id=732214244 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_lqlyn")
+affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_g4v7s")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="TweenOut" type="Node" parent="." unique_id=706263597 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_lqlyn")
+affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_yf5fn")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="StartHoverEffect" type="Node" parent="." unique_id=1077334133 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_lqlyn")
+affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_cyff0")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="EndHoverEffect" type="Node" parent="." unique_id=1189971192 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_lqlyn")
+affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_7gh76")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="PressEffect" type="Node" parent="." unique_id=1939152764 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_lqlyn")
+affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_d0u6y")
+use_custom_curve = true
+transition_curve = SubResource("Curve_cyff0")
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="ReleaseEffect" type="Node" parent="." unique_id=1328180362 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_lqlyn")
+affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_3gngh")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
