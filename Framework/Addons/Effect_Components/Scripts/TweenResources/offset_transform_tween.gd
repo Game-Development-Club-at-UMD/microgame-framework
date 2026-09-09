@@ -43,6 +43,7 @@ var current_offset_rotation : float
 ## The current rotate of the node in rotation_degrees, stored in a variable
 var current_offset_scale : Vector2
 
+@export_group("Offset Pivot Position")
 
 @export var start_offset_position_ratio : Vector2 = Vector2.INF
 
