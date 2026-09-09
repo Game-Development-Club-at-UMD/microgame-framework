@@ -15,11 +15,16 @@ class_name MainMenu extends Control
 # on select: larger size, shift others up/down depending
 # on click: flash color as other options slide away, then slide away
 
-func tween_out_all_buttons() -> void:
+func tween_out_all_buttons(exception : MainMenuButton) -> void:
 	for button in all_buttons:
+		#button.quit_queued = true
+		if button == exception:
+			continue
 		button.do_tween_out()
 	
 	for button in all_buttons:
+		if button == exception:
+			continue
 		if button.tween_out.tween == null:
 			continue
 		if !button.tween_out.tween.is_running():
@@ -28,21 +33,27 @@ func tween_out_all_buttons() -> void:
 
 
 func _on_start_pressed() -> void:
+	await tween_out_all_buttons(start)
 	if start.release_effect.tween != null && start.release_effect.tween.is_running():
 		await start.release_effect.tween.finished
-	await tween_out_all_buttons()
+	start.do_tween_out()
+	await start.tween_out.tween.finished
 	get_tree().quit()
 
 
 func _on_settings_pressed() -> void:
+	await tween_out_all_buttons(settings)
 	if settings.release_effect.tween != null && settings.release_effect.tween.is_running():
 		await settings.release_effect.tween.finished
-	await tween_out_all_buttons()
+	settings.do_tween_out()
+	await settings.tween_out.tween.finished
 	get_tree().quit()
 
 
 func _on_exit_pressed() -> void:
+	await tween_out_all_buttons(exit)
 	if exit.release_effect.tween != null && exit.release_effect.tween.is_running():
 		await exit.release_effect.tween.finished
-	await tween_out_all_buttons()
+	exit.do_tween_out()
+	await exit.tween_out.tween.finished
 	get_tree().quit()

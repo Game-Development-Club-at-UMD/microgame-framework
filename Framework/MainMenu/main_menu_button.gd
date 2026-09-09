@@ -93,6 +93,8 @@ func play_hover_tween(tween : ControlTween) -> void:
 
 
 func do_tween_out() -> void:
+	if quit_queued:
+		return
 	hover_state = HoverState.CANNOT_BE_HOVERED
 	quit_queued = true
 	cancel_all_tweens()
