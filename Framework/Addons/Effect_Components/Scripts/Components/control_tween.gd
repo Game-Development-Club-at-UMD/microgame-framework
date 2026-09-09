@@ -43,8 +43,6 @@ func _ready() -> void:
 	
 	if autostart: do_tween()
 	
-	# Sets the pivot offset to be the center of the control node
-	affected_node.pivot_offset_ratio = Vector2(0.5, 0.5)
 	# Sets the affected control node to be able to use offset transform
 	affected_node.offset_transform_enabled = true
 
