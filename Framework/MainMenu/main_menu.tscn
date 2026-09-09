@@ -5,11 +5,11 @@
 [ext_resource type="Script" uid="uid://no0u287dsx60" path="res://Framework/MainMenu/main_menu_button.gd" id="3_cyff0"]
 [ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/Effect_Components/Scripts/Components/control_tween.gd" id="3_o0nup"]
 [ext_resource type="Script" uid="uid://cdere083tmmuo" path="res://Framework/Addons/Effect_Components/Scripts/TweenResources/offset_transform_tween.gd" id="4_cyff0"]
+[ext_resource type="Script" uid="uid://mbemlabsnfms" path="res://Framework/Addons/Effect_Components/Scripts/Components/button_tween.gd" id="6_7gh76"]
 
 [sub_resource type="Resource" id="Resource_g4v7s"]
 script = ExtResource("4_cyff0")
-start_offset_position = Vector2(-500, inf)
-end_offset_position = Vector2(0, inf)
+end_offset_position_ratio = Vector2(0, inf)
 metadata/_custom_type_script = "uid://cdere083tmmuo"
 
 [sub_resource type="Curve" id="Curve_3gngh"]
@@ -18,10 +18,21 @@ point_count = 3
 
 [sub_resource type="Resource" id="Resource_yf5fn"]
 script = ExtResource("4_cyff0")
-start_offset_position = Vector2(0, inf)
-end_offset_position = Vector2(-500, inf)
-start_offset_position_ratio = Vector2(0, inf)
 end_offset_position_ratio = Vector2(-1, inf)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Resource" id="Resource_cyff0"]
+script = ExtResource("4_cyff0")
+end_offset_position_ratio = Vector2(0.1, inf)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Resource" id="Resource_7gh76"]
+script = ExtResource("4_cyff0")
+end_offset_position_ratio = Vector2(0, inf)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Resource" id="Resource_57qmd"]
+script = ExtResource("4_cyff0")
 metadata/_custom_type_script = "uid://cdere083tmmuo"
 
 [node name="MainMenu" type="Control" unique_id=1023252626]
@@ -56,7 +67,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
-offset_transform_pivot_ratio = Vector2(-1, 0)
+offset_transform_visual_only = false
 text = "Start"
 alignment = 2
 script = ExtResource("3_cyff0")
@@ -86,12 +97,29 @@ metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 [node name="StartHoverEffect" type="Node" parent="VBoxContainer/Start" unique_id=344955049 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
 affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_cyff0")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="EndHoverEffect" type="Node" parent="VBoxContainer/Start" unique_id=1965578550 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
 affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_7gh76")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="PressEffect" type="Node" parent="VBoxContainer/Start" unique_id=345332483 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("6_7gh76")
+affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_57qmd")
+trans_type = 9
+ease_type = 2
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://mbemlabsnfms"
 
 [node name="Settings" type="Button" parent="VBoxContainer" unique_id=322014075 node_paths=PackedStringArray("tween_in", "tween_out", "start_hover_effect", "end_hover_effect")]
 unique_name_in_owner = true
@@ -99,6 +127,7 @@ layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 offset_transform_pivot_ratio = Vector2(-1, 0)
+offset_transform_visual_only = false
 text = "Settings"
 alignment = 2
 script = ExtResource("3_cyff0")
@@ -128,11 +157,19 @@ metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 [node name="StartHoverEffect" type="Node" parent="VBoxContainer/Settings" unique_id=956537804 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
 affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_cyff0")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="EndHoverEffect" type="Node" parent="VBoxContainer/Settings" unique_id=1329186825 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
 affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_7gh76")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=308416393 node_paths=PackedStringArray("tween_in", "tween_out", "start_hover_effect", "end_hover_effect")]
@@ -141,6 +178,7 @@ layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
 offset_transform_pivot_ratio = Vector2(-1, 0)
+offset_transform_visual_only = false
 text = "Exit"
 alignment = 2
 script = ExtResource("3_cyff0")
@@ -170,11 +208,19 @@ metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 [node name="StartHoverEffect" type="Node" parent="VBoxContainer/Exit" unique_id=877016512 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
 affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_cyff0")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="EndHoverEffect" type="Node" parent="VBoxContainer/Exit" unique_id=128656640 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
 affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_7gh76")
+use_custom_curve = true
+transition_curve = SubResource("Curve_3gngh")
+tween_duration = 0.2
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

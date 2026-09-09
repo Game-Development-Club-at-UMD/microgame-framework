@@ -2,17 +2,9 @@ class_name MainMenuButton extends Button
 
 enum HoverState{ CAN_BE_HOVERED, CANNOT_BE_HOVERED }
 
-var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED:
-	set(value):
-		if value == HoverState.CAN_BE_HOVERED:
-			hover_state = value
-			return
-		if tween_out == null:
-			return
-		hover_state = HoverState.CANNOT_BE_HOVERED
-		await await_all_tweens_finished()
-		tween_out.do_tween()
-
+var ready_to_quit : bool = false
+var quit_queued : bool = false
+var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED
 
 @export var tween_in : ControlTween
 @export var tween_out : ControlTween
@@ -25,11 +17,11 @@ func _ready() -> void:
 		return
 	
 	# connect mouse entered/exit funcs
-	self.mouse_entered.connect(_on_mouse_state_changed.bind(true))
-	self.mouse_exited.connect(_on_mouse_state_changed.bind(false))
+	self.mouse_entered.connect(_on_hover_begin)
+	self.mouse_exited.connect(_on_hover_end)
 	
 	# do starter tween
-	self.pivot_offset = Vector2(-500, 0)
+	self.offset_transform_position_ratio = Vector2(-1, 0)
 	tween_in.do_tween()
 	await tween_in.tween.finished
 	hover_state = HoverState.CAN_BE_HOVERED
@@ -53,31 +45,53 @@ func tweens_are_valid() -> bool:
 
 
 func await_all_tweens_finished() -> void:
-	if tween_in.tween.is_running():
-		await tween_in.finished
-	if tween_out.tween.is_running():
-		await tween_out.finished
-	if start_hover_effect.tween.is_running():
-		await start_hover_effect.finished
-	if end_hover_effect.tween.is_running():
-		await end_hover_effect.finished
+	if tween_in.tween != null && tween_in.tween.is_running():
+		await tween_in.tween.finished
+	if tween_out.tween != null && tween_out.tween.is_running():
+		await tween_out.tween.finished
+	if start_hover_effect.tween != null && start_hover_effect.tween.is_running():
+		await start_hover_effect.tween.finished
+	if end_hover_effect.tween != null && end_hover_effect.tween.is_running():
+		await end_hover_effect.tween.finished
 
 
-func _on_mouse_state_changed(has_mouse : bool) -> void:
-	if hover_state == HoverState.CANNOT_BE_HOVERED:
+func cancel_all_tweens() -> void:
+	if tween_in.tween != null && tween_in.tween.is_running():
+		tween_in.tween.kill()
+	if tween_out.tween != null && tween_out.tween.is_running():
+		tween_out.tween.kill()
+	if start_hover_effect.tween != null && start_hover_effect.tween.is_running():
+		start_hover_effect.tween.kill()
+	if end_hover_effect.tween != null && end_hover_effect.tween.is_running():
+		end_hover_effect.tween.kill()
+
+
+func _on_hover_begin() -> void:
+	if hover_state == HoverState.CANNOT_BE_HOVERED || quit_queued:
 		return
-	
-	await await_all_tweens_finished()
-	
-	var tween_to_play : ControlTween
-	
-	match has_mouse:
-		true:
-			tween_to_play = start_hover_effect
-		false:
-			tween_to_play = end_hover_effect
-	
+	play_hover_tween(start_hover_effect)
+
+
+func _on_hover_end() -> void:
+	if quit_queued:
+		return
+	play_hover_tween(end_hover_effect)
+
+
+func play_hover_tween(tween : ControlTween) -> void:
+	cancel_all_tweens()
 	hover_state = HoverState.CANNOT_BE_HOVERED
-	tween_to_play.do_tween()
-	await tween_to_play.tween.finished
+	tween.do_tween()
+	# this looks fucked but it creates a small cooldown where the tweens cant 
+	# rapidly toggle hover on -> hover off -> hover on
+	await get_tree().create_timer(0.05).timeout
 	hover_state = HoverState.CAN_BE_HOVERED
+
+
+func do_tween_out() -> void:
+	hover_state = HoverState.CANNOT_BE_HOVERED
+	quit_queued = true
+	cancel_all_tweens()
+	tween_out.do_tween()
+	await tween_out.tween.finished
+	ready_to_quit = true
