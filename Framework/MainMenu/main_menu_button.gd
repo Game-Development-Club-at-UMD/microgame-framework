@@ -2,7 +2,6 @@ class_name MainMenuButton extends Button
 
 enum HoverState{ CAN_BE_HOVERED, CANNOT_BE_HOVERED }
 
-
 var ready_to_quit : bool = false ## flag set to true when tween_out has finished
 var quit_queued : bool = false ## flag set to true when tween_out has started
 var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED

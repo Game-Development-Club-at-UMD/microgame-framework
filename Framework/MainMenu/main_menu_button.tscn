@@ -10,7 +10,7 @@ end_offset_position_ratio = Vector2(0, inf)
 metadata/_custom_type_script = "uid://cdere083tmmuo"
 
 [sub_resource type="Curve" id="Curve_3gngh"]
-_data = [Vector2(0, 0), 0.0, -1.8473228, 0, 0, Vector2(0.7069767, 1), 1.2561804, 1.2561804, 0, 0, Vector2(1, 1), -0.95165175, 1.2561804, 0, 0]
+_data = [Vector2(0, 0), 0.0, -2.0559406, 0, 0, Vector2(0.7069767, 1), 1.2561804, 1.2561804, 0, 0, Vector2(1, 1), -0.95165175, 1.2561804, 0, 0]
 point_count = 3
 
 [sub_resource type="Resource" id="Resource_yf5fn"]
@@ -43,8 +43,14 @@ end_offset_scale = Vector2(1, 1)
 metadata/_custom_type_script = "uid://cdere083tmmuo"
 
 [node name="Start" type="Button" unique_id=1854378265 node_paths=PackedStringArray("tween_in", "tween_out", "start_hover_effect", "end_hover_effect", "press_effect", "release_effect")]
+anchors_preset = -1
+anchor_right = 0.22200002
+anchor_bottom = 0.074
+offset_right = 0.25598145
+offset_bottom = 0.048000336
 size_flags_vertical = 3
 offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-1, 0)
 offset_transform_visual_only = false
 text = "Start"
 alignment = 2
@@ -55,6 +61,7 @@ start_hover_effect = NodePath("StartHoverEffect")
 end_hover_effect = NodePath("EndHoverEffect")
 press_effect = NodePath("PressEffect")
 release_effect = NodePath("ReleaseEffect")
+metadata/_edit_use_anchors_ = true
 
 [node name="TweenIn" type="Node" parent="." unique_id=732214244 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("2_lqlyn")
