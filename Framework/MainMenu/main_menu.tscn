@@ -18,7 +18,10 @@ point_count = 3
 
 [sub_resource type="Resource" id="Resource_yf5fn"]
 script = ExtResource("4_cyff0")
+start_offset_position = Vector2(0, inf)
 end_offset_position = Vector2(-500, inf)
+start_offset_position_ratio = Vector2(0, inf)
+end_offset_position_ratio = Vector2(-1, inf)
 metadata/_custom_type_script = "uid://cdere083tmmuo"
 
 [node name="MainMenu" type="Control" unique_id=1023252626]
@@ -48,14 +51,19 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=95744182]
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=95744182 node_paths=PackedStringArray("tween_in", "tween_out", "start_hover_effect", "end_hover_effect")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(-1, 0)
 text = "Start"
 alignment = 2
 script = ExtResource("3_cyff0")
+tween_in = NodePath("TweenIn")
+tween_out = NodePath("TweenOut")
+start_hover_effect = NodePath("StartHoverEffect")
+end_hover_effect = NodePath("EndHoverEffect")
 
 [node name="TweenIn" type="Node" parent="VBoxContainer/Start" unique_id=375652758 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
@@ -75,12 +83,29 @@ transition_curve = SubResource("Curve_3gngh")
 tween_duration = 0.5
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=322014075]
+[node name="StartHoverEffect" type="Node" parent="VBoxContainer/Start" unique_id=344955049 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_o0nup")
+affected_node = NodePath("..")
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="EndHoverEffect" type="Node" parent="VBoxContainer/Start" unique_id=1965578550 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_o0nup")
+affected_node = NodePath("..")
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=322014075 node_paths=PackedStringArray("tween_in", "tween_out", "start_hover_effect", "end_hover_effect")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(-1, 0)
 text = "Settings"
 alignment = 2
+script = ExtResource("3_cyff0")
+tween_in = NodePath("TweenIn")
+tween_out = NodePath("TweenOut")
+start_hover_effect = NodePath("StartHoverEffect")
+end_hover_effect = NodePath("EndHoverEffect")
 
 [node name="TweenIn" type="Node" parent="VBoxContainer/Settings" unique_id=1939419527 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
@@ -100,13 +125,29 @@ transition_curve = SubResource("Curve_3gngh")
 tween_duration = 0.5
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
-[node name="Exit" type="Button" parent="VBoxContainer" unique_id=308416393]
+[node name="StartHoverEffect" type="Node" parent="VBoxContainer/Settings" unique_id=956537804 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_o0nup")
+affected_node = NodePath("..")
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="EndHoverEffect" type="Node" parent="VBoxContainer/Settings" unique_id=1329186825 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_o0nup")
+affected_node = NodePath("..")
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=308416393 node_paths=PackedStringArray("tween_in", "tween_out", "start_hover_effect", "end_hover_effect")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(-1, 0)
 text = "Exit"
 alignment = 2
+script = ExtResource("3_cyff0")
+tween_in = NodePath("TweenIn")
+tween_out = NodePath("TweenOut")
+start_hover_effect = NodePath("StartHoverEffect")
+end_hover_effect = NodePath("EndHoverEffect")
 
 [node name="TweenIn" type="Node" parent="VBoxContainer/Exit" unique_id=1443705731 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("3_o0nup")
@@ -124,6 +165,16 @@ offset_transform_tween = SubResource("Resource_yf5fn")
 use_custom_curve = true
 transition_curve = SubResource("Curve_3gngh")
 tween_duration = 0.5
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="StartHoverEffect" type="Node" parent="VBoxContainer/Exit" unique_id=877016512 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_o0nup")
+affected_node = NodePath("..")
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="EndHoverEffect" type="Node" parent="VBoxContainer/Exit" unique_id=128656640 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_o0nup")
+affected_node = NodePath("..")
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
