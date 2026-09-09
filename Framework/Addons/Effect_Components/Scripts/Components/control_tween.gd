@@ -43,6 +43,7 @@ func _ready() -> void:
 	
 	if autostart: do_tween()
 	
+	
 	# Sets the affected control node to be able to use offset transform
 	affected_node.offset_transform_enabled = true
 
@@ -69,7 +70,7 @@ func do_tween(forward : bool = true) -> void:
 	
 	
 	# Await for tween to finish so that it can loop
-	await tween.finished
+	await tween_finished
 	return
 
 
