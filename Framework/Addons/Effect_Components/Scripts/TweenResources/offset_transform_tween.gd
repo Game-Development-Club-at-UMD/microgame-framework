@@ -253,7 +253,7 @@ func _custom_tween_offset_position_ratio(tween : Tween, tween_duration : float, 
 			var curve_progress : float = curve.sample_baked(progress)
 			var target_pos_ratio_x : float = (end_offset_position_ratio.x if end_offset_position_ratio.x != INF else current_offset_position_ratio.x) if forward else (start_offset_position_ratio.x if start_offset_position_ratio.x != INF else current_offset_position_ratio.x)
 			var target_pos_ratio_y : float = (end_offset_position_ratio.y if end_offset_position_ratio.y != INF else current_offset_position_ratio.y) if forward else (start_offset_position_ratio.y if start_offset_position_ratio.y != INF else current_offset_position_ratio.y)
-			(_affected_node as Control).offset_transform_scale = (Vector2(starting_pos_ratio_x, starting_pos_ratio_y)).lerp(Vector2(target_pos_ratio_x, target_pos_ratio_y), curve_progress)
+			(_affected_node as Control).offset_transform_pivot_ratio = (Vector2(starting_pos_ratio_x, starting_pos_ratio_y)).lerp(Vector2(target_pos_ratio_x, target_pos_ratio_y), curve_progress)
 			,
 		curve.min_domain,
 		curve.max_domain,
