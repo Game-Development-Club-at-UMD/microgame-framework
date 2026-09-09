@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dcsrmlrnv8ulg"]
+
+[ext_resource type="Script" uid="uid://bk6iqdpwoi5hx" path="res://ExampleGame/BubbleGameMain/bubble_game.gd" id="1_n1cwi"]
+[ext_resource type="Script" uid="uid://clp235kdxvy5f" path="res://ExampleGame/ParticlePathing/particle_pathing.gd" id="2_f42ln"]
+[ext_resource type="PackedScene" uid="uid://bjygjlqt7kmgu" path="res://ExampleGame/Bubble/Scenes/bubble.tscn" id="3_nci8d"]
+[ext_resource type="PackedScene" uid="uid://cvtaw7nuoc0p5" path="res://ExampleGame/Bubble/Scenes/evil_bubble.tscn" id="4_6hwxw"]
+
+[sub_resource type="Curve2D" id="Curve2D_wqi4e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 941, 478, 0, 0, 0, 0, 765, 257, 0, 0, 0, 0, 596, 481, 0, 0, 0, 0, 407, 253, 0, 0, 0, 0, 225, 472)
+}
+point_count = 5
+
+[node name="Level1" type="Node2D" unique_id=1987467343]
+process_mode = 1
+script = ExtResource("1_n1cwi")
+metadata/_custom_type_script = "uid://bk6iqdpwoi5hx"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1769902598]
+z_index = -3
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.12156863, 0.12156863, 0.11764706, 1)
+
+[node name="ParticlePathing" type="Path2D" parent="." unique_id=917131145]
+position = Vector2(-9, -35)
+curve = SubResource("Curve2D_wqi4e")
+script = ExtResource("2_f42ln")
+metadata/_custom_type_script = "uid://clp235kdxvy5f"
+
+[node name="Bubble" parent="ParticlePathing" unique_id=1868589107 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble2" parent="ParticlePathing" unique_id=1583851579 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble3" parent="ParticlePathing" unique_id=240182026 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble4" parent="ParticlePathing" unique_id=1124121187 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble5" parent="ParticlePathing" unique_id=909306533 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble6" parent="ParticlePathing" unique_id=757288243 instance=ExtResource("3_nci8d")]
+
+[node name="EvilBubble4" parent="ParticlePathing" unique_id=1846073141 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble5" parent="ParticlePathing" unique_id=1982941169 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble6" parent="ParticlePathing" unique_id=1707728718 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble7" parent="ParticlePathing" unique_id=302002700 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble8" parent="ParticlePathing" unique_id=1772705972 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble9" parent="ParticlePathing" unique_id=1882406732 instance=ExtResource("4_6hwxw")]
+
+[node name="Bubble10" parent="ParticlePathing" unique_id=1511344684 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble11" parent="ParticlePathing" unique_id=25329163 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble12" parent="ParticlePathing" unique_id=808165283 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble13" parent="ParticlePathing" unique_id=1940868078 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble14" parent="ParticlePathing" unique_id=1809150671 instance=ExtResource("3_nci8d")]
+
+[node name="Bubble15" parent="ParticlePathing" unique_id=1087993596 instance=ExtResource("3_nci8d")]
+
+[node name="EvilBubble13" parent="ParticlePathing" unique_id=1826187863 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble14" parent="ParticlePathing" unique_id=713369104 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble15" parent="ParticlePathing" unique_id=1628288321 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble16" parent="ParticlePathing" unique_id=1122854157 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble17" parent="ParticlePathing" unique_id=780656144 instance=ExtResource("4_6hwxw")]
+
+[node name="EvilBubble18" parent="ParticlePathing" unique_id=446169162 instance=ExtResource("4_6hwxw")]

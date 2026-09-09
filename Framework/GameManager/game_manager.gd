@@ -9,17 +9,15 @@ extends Node
 func _ready() -> void:
 	# connecting the microgame_queue to the difficult_manager
 	microgame_queue.stage_finished.connect(difficulty_manager._on_microgame_stage_finished)
+	#_switch_to_next_microgame()
 
 
-# TODO: Unpause game
 func unpause_game() -> void:
-	pass
+	get_tree().paused = false
 
 
-# TODO: Pause game
 func pause_game() -> void:
-	pass
-	#get_tree().root.process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().paused = true
 
 
 func switch_scene_to_packed(scene : PackedScene) -> void:
@@ -49,6 +47,9 @@ func win() -> void:
 
 
 func _switch_to_next_microgame() -> void:
+	# Reset the mouse cursor to default (so each game can have their own)
+	Input.set_custom_mouse_cursor(null)
+	
 	fade_to_black.do_tween()
 	await fade_to_black.tween.finished
 	

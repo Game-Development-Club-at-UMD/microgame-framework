@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bjygjlqt7kmgu"]
+
+[ext_resource type="Script" uid="uid://dvyjvqvxs6h41" path="res://ExampleGame/Bubble/scripts/good_bubble.gd" id="1_b6f3w"]
+[ext_resource type="Texture2D" uid="uid://cboqb28b80p8s" path="res://ExampleGame/Bubble/Assets/circle.png" id="2_7hpun"]
+[ext_resource type="Texture2D" uid="uid://c61aau1jumg7e" path="res://ExampleGame/Assets/Bubble.png" id="3_cvmcy"]
+[ext_resource type="AudioStream" uid="uid://bynuw81gk8ys7" path="res://ExampleGame/Sounds/Abstract2.wav" id="4_lha68"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Framework/Addons/Effect_Components/Scripts/Components/node2D_tween.gd" id="5_acylx"]
+[ext_resource type="Script" uid="uid://cct0slx0ktj60" path="res://Framework/Addons/Effect_Components/Scripts/TweenResources/transform_tween.gd" id="6_g7nf8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1jbh"]
+radius = 23.021729
+
+[sub_resource type="Curve" id="Curve_tp8j2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7282609, 0.68235296), -1.3119433, -1.3119433, 0, 0, Vector2(1, 0.2941177), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_iy37w"]
+random_pitch = 1.1892071
+streams_count = 1
+stream_0/stream = ExtResource("4_lha68")
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("6_g7nf8")
+end_scale = Vector2(0, 0)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[node name="Bubble" type="Node2D" unique_id=1868589107]
+script = ExtResource("1_b6f3w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1287075855]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=985432519]
+shape = SubResource("CircleShape2D_b1jbh")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1210722781]
+emitting = false
+amount = 16
+texture = ExtResource("2_7hpun")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 140.6
+initial_velocity_max = 249.5
+scale_amount_min = 0.3
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_tp8j2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780554466]
+texture_filter = 1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_cvmcy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=159422966]
+stream = SubResource("AudioStreamRandomizer_iy37w")
+volume_db = 6.386
+
+[node name="Shrink" type="Node" parent="." unique_id=1184202802 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_acylx")
+affected_node = NodePath("..")
+transform_tween = SubResource("Resource_g4v7s")
+trans_type = 7
+ease_type = 2
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bu0fq1a3hl3p6"]
+
+[ext_resource type="Script" uid="uid://clp235kdxvy5f" path="res://ExampleGame/ParticlePathing/particle_pathing.gd" id="1_uvmi8"]
+
+[sub_resource type="Curve2D" id="Curve2D_peftd"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 666, 211, 0, 0, 0, 0, 514, 114, 0, 0, 0, 0, 306, 86, 0, 0, 0, 0, 225, 220, 0, 0, 0, 0, 205, 433, 0, 0, 0, 0, 423, 476, 0, 0, 0, 0, 643, 433, 0, 0, 0, 0, 688, 326, 0, 0, 0, 0, 666, 210)
+}
+point_count = 9
+
+[node name="ParticlePathing" type="Path2D" unique_id=248845500]
+curve = SubResource("Curve2D_peftd")
+script = ExtResource("1_uvmi8")
