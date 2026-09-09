@@ -2,10 +2,10 @@ class_name MainMenuButton extends Button
 
 enum HoverState{ CAN_BE_HOVERED, CANNOT_BE_HOVERED }
 
-signal tween_out_finished
+signal outro_finished
 
-var tween_out_queued : bool = false ## flag set to true when tween_out has started
-var tween_out_already_finished : bool = false
+var outro_queued : bool = false ## flag set to true when outro has started
+var outro_already_finished : bool = false
 var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED
 
 ## need this var because the tween doing the actual anim for the release effect gets recycled veryyyy
@@ -13,8 +13,8 @@ var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED
 ## watched for when one of these tweens successfully finishes (denotes outro being queued)
 var watched_release_tween : Tween
 
-@export var tween_in : ControlTween
-@export var tween_out : ControlTween
+@export var intro : ControlTween
+@export var outro : ControlTween
 @export var start_hover_effect : ControlTween
 @export var end_hover_effect : ControlTween
 @export var press_effect : ControlTween
@@ -36,11 +36,11 @@ func _ready() -> void:
 
 
 func tweens_are_valid() -> bool:
-	if tween_in == null:
-		printerr("%s: tween_in export var is null" % self)
+	if intro == null:
+		printerr("%s: intro export var is null" % self)
 		return false
-	if tween_out == null:
-		printerr("%s: tween_out export var is null" % self)
+	if outro == null:
+		printerr("%s: outro export var is null" % self)
 		return false
 	if start_hover_effect == null:
 		printerr("%s: start_hover_effect export var is null" % self)
@@ -59,8 +59,8 @@ func cancel_hover_tweens() -> void:
 		end_hover_effect.tween.kill()
 
 
-func play_tween_in() -> void:
-	await tween_in.do_tween()
+func play_intro() -> void:
+	await intro.do_tween()
 	hover_state = HoverState.CAN_BE_HOVERED
 
 
@@ -74,32 +74,32 @@ func play_hover_tween(tween : ControlTween) -> void:
 	hover_state = HoverState.CAN_BE_HOVERED
 
 
-func do_tween_out() -> void:
-	if tween_out_queued:
+func do_outro() -> void:
+	if outro_queued:
 		return
 	hover_state = HoverState.CANNOT_BE_HOVERED
-	tween_out_queued = true
-	tween_out.do_tween()
-	if tween_out.tween != null && tween_out.tween.is_running():
-		await tween_out.tween.finished
-	tween_out_finished.emit()
-	tween_out_already_finished = true
+	outro_queued = true
+	outro.do_tween()
+	if outro.tween != null && outro.tween.is_running():
+		await outro.tween.finished
+	outro_finished.emit()
+	outro_already_finished = true
 
 
 func _on_hover_begin() -> void:
-	if hover_state == HoverState.CANNOT_BE_HOVERED || tween_out_queued:
+	if hover_state == HoverState.CANNOT_BE_HOVERED || outro_queued:
 		return
 	play_hover_tween(start_hover_effect)
 
 
 func _on_hover_end() -> void:
-	if tween_out_queued:
+	if outro_queued:
 		return
 	play_hover_tween(end_hover_effect)
 
 
 func _on_button_down() -> void:
-	if tween_out_queued:
+	if outro_queued:
 		return
 	hover_state = HoverState.CANNOT_BE_HOVERED
 	if release_effect.tween != null:
@@ -108,7 +108,7 @@ func _on_button_down() -> void:
 
 
 func _on_button_up() -> void:
-	if tween_out_queued:
+	if outro_queued:
 		return
 	if press_effect.tween != null: 
 		press_effect.tween.kill()
@@ -117,11 +117,11 @@ func _on_button_up() -> void:
 
 
 func _on_button_pressed() -> void:
-	if tween_out_queued:
+	if outro_queued:
 		return
 	
 	await get_tree().process_frame
 	if watched_release_tween != null:
 		await watched_release_tween.finished
 	
-	do_tween_out()
+	do_outro()

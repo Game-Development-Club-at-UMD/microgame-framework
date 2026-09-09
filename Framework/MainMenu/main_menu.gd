@@ -16,42 +16,42 @@ func _ready() -> void:
 		# dont delay first button tween
 		if button != all_buttons.get(0):
 			await get_tree().create_timer(0.3).timeout
-		button.play_tween_in()
+		button.play_intro()
 
 
-func tween_out_all_buttons(exception : MainMenuButton) -> void:
-	if !exception.tween_out_queued:
+func outro_all_buttons(exception : MainMenuButton) -> void:
+	if !exception.outro_queued:
 		await get_tree().process_frame
 		await exception.watched_release_tween.finished
 	
 	for button in all_buttons:
 		if button == exception:
 			continue
-		button.do_tween_out()
+		button.do_outro()
 	
 	for button in all_buttons:
 		if button == exception:
 			continue
-		if button.tween_out.tween == null:
+		if button.outro.tween == null:
 			continue
-		if !button.tween_out.tween.is_running():
+		if !button.outro.tween.is_running():
 			continue
-		await button.tween_out.tween.finished
+		await button.outro.tween.finished
 	
-	if !exception.tween_out_already_finished:
-		await exception.tween_out_finished
+	if !exception.outro_already_finished:
+		await exception.outro_finished
 
 
 func _on_start_pressed() -> void:
-	await tween_out_all_buttons(start)
+	await outro_all_buttons(start)
 	get_tree().quit()
 
 
 func _on_settings_pressed() -> void:
-	await tween_out_all_buttons(settings)
+	await outro_all_buttons(settings)
 	get_tree().quit()
 
 
 func _on_exit_pressed() -> void:
-	await tween_out_all_buttons(exit)
+	await outro_all_buttons(exit)
 	get_tree().quit()
