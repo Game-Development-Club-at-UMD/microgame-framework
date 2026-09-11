@@ -2,6 +2,8 @@ class_name MainMenuButton extends Button
 
 enum HoverState{ CAN_BE_HOVERED, CANNOT_BE_HOVERED }
 
+const INTRO_SEQUENCE_COOLDOWN : float = 0.3
+
 signal outro_finished
 
 var outro_queued : bool = false ## flag set to true when outro has started
@@ -33,6 +35,36 @@ func _ready() -> void:
 	self.pressed.connect(_on_button_pressed)
 	
 	self.offset_transform_position_ratio = Vector2(-1, 0)
+
+
+static func outro_all_buttons(pressed_button : MainMenuButton, all_buttons : Array[MainMenuButton]) -> void:
+	for button in all_buttons:
+		if button == pressed_button:
+			continue
+		button.do_outro()
+	
+	for button in all_buttons:
+		if button == pressed_button:
+			continue
+		if button.outro.tween == null:
+			continue
+		if !button.outro.tween.is_running():
+			continue
+		await button.outro.tween.finished
+	
+	if !pressed_button.outro_already_finished:
+		await pressed_button.outro_finished
+
+
+## This func plays the button's intros in sequence with a small delay. Because of this, 
+## [param all_buttons] should have the buttons in the order you want them to intro in
+static func intro_all_buttons(all_buttons : Array[MainMenuButton]) -> void:
+	for button in all_buttons:
+		# dont delay first button tween
+		if button != all_buttons.get(0):
+			# have to call get_tree() on button since this is a static func :)
+			await button.get_tree().create_timer(INTRO_SEQUENCE_COOLDOWN).timeout
+		button.play_intro()
 
 
 func tweens_are_valid() -> bool:
