@@ -54,7 +54,7 @@ func do_tween_sequence() -> void:
 			printerr(node3D_tween, "Set autostart to false, does not apply when played in sequence.")
 		
 		node3D_tween.do_tween()
-		await node3D_tween.tween.finished
+		await node3D_tween.tween_finished
 		
 	
 	# We loopin

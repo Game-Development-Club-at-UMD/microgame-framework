@@ -55,7 +55,7 @@ func do_tween_sequence() -> void:
 			printerr(control_tween, "Set autostart to false, does not apply when played in sequence.")
 		
 		control_tween.do_tween()
-		await control_tween.tween.finished
+		await control_tween.tween_finished
 	
 	# We loopin
 	if loop:

@@ -53,7 +53,7 @@ func do_tween(forward : bool = true) -> void:
 		_tween_values(forward)
 	
 	# Await for tween to finish so that it can loop
-	await tween.finished
+	await tween_finished
 	return
 
 
