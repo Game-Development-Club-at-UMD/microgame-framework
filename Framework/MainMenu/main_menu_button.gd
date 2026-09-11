@@ -3,17 +3,13 @@ class_name MainMenuButton extends Button
 enum HoverState{ CAN_BE_HOVERED, CANNOT_BE_HOVERED }
 
 const INTRO_SEQUENCE_COOLDOWN : float = 0.3
+const RAPID_TOGGLE_GATE_DURATION : float = 0.05
 
 signal outro_finished
 
 var outro_queued : bool = false ## flag set to true when outro has started
-var outro_already_finished : bool = false
+var outro_already_finished : bool = false ## flag set to true once outro has finished
 var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED
-
-## need this var because the tween doing the actual anim for the release effect gets recycled veryyyy
-## quickly, so this is a sort of sentinal value that stores the most recently created one, and can be
-## watched for when one of these tweens successfully finishes (denotes outro being queued)
-var watched_release_tween : Tween
 
 @export var intro : ControlTween
 @export var outro : ControlTween
@@ -34,14 +30,17 @@ func _ready() -> void:
 	self.button_up.connect(_on_button_up)
 	self.pressed.connect(_on_button_pressed)
 	
+	# set self up with pos ratio set all the way left
 	self.offset_transform_position_ratio = Vector2(-1, 0)
 
 
+## This func plays the outro of any button passed into it, with the exception of
+## the [param pressed_button] which handles its own pressed logic
 static func outro_all_buttons(pressed_button : MainMenuButton, all_buttons : Array[MainMenuButton]) -> void:
 	for button in all_buttons:
 		if button == pressed_button:
 			continue
-		button.do_outro()
+		button.play_outro()
 	
 	for button in all_buttons:
 		if button == pressed_button:
@@ -67,6 +66,7 @@ static func intro_all_buttons(all_buttons : Array[MainMenuButton]) -> void:
 		button.play_intro()
 
 
+## Checks if all the export vars are set properly
 func tweens_are_valid() -> bool:
 	if intro == null:
 		printerr("%s: intro export var is null" % self)
@@ -80,10 +80,17 @@ func tweens_are_valid() -> bool:
 	if end_hover_effect == null:
 		printerr("%s: end_hover_effect export var is null" % self)
 		return false
+	if press_effect == null:
+		printerr("%s: press_effect export var is null" % self)
+		return false
+	if release_effect == null:
+		printerr("%s: release_effect export var is null" % self)
+		return false
 	
 	return true
 
 
+## Cancels any hover effects playing currently
 func cancel_hover_tweens() -> void:
 	if start_hover_effect.tween != null && start_hover_effect.tween.is_running():
 		start_hover_effect.tween.kill()
@@ -102,11 +109,11 @@ func play_hover_tween(tween : ControlTween) -> void:
 	tween.do_tween()
 	# this looks fucked but it creates a small cooldown where the tweens cant 
 	# rapidly toggle hover on -> hover off -> hover on
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(RAPID_TOGGLE_GATE_DURATION).timeout
 	hover_state = HoverState.CAN_BE_HOVERED
 
 
-func do_outro() -> void:
+func play_outro() -> void:
 	if outro_queued:
 		return
 	hover_state = HoverState.CANNOT_BE_HOVERED
@@ -117,6 +124,8 @@ func do_outro() -> void:
 	outro_finished.emit()
 	outro_already_finished = true
 
+
+#region signal connections
 
 func _on_hover_begin() -> void:
 	if hover_state == HoverState.CANNOT_BE_HOVERED || outro_queued:
@@ -130,30 +139,35 @@ func _on_hover_end() -> void:
 	play_hover_tween(end_hover_effect)
 
 
+func _on_button_up() -> void:
+	if outro_queued:
+		return
+	# kill press effect if one is playing
+	if press_effect.tween != null: 
+		press_effect.tween.kill()
+	release_effect.do_tween()
+
+
+## This purely handles playing the release_effect tween that plays on any kind of
+## button press, holds no logic for handling the pressed event
 func _on_button_down() -> void:
 	if outro_queued:
 		return
 	hover_state = HoverState.CANNOT_BE_HOVERED
+	# kill release effect if one is playing
 	if release_effect.tween != null:
 		release_effect.tween.kill()
 	await press_effect.do_tween()
 
 
-func _on_button_up() -> void:
-	if outro_queued:
-		return
-	if press_effect.tween != null: 
-		press_effect.tween.kill()
-	release_effect.do_tween()
-	watched_release_tween = release_effect.tween
-
-
+## Purely handles the logic for when the player successfully presses the button.
+## no tween initiations aside from playing the outro
 func _on_button_pressed() -> void:
 	if outro_queued:
 		return
 	
-	await get_tree().process_frame
-	if watched_release_tween != null:
-		await watched_release_tween.finished
+	await release_effect.tween_finished
 	
-	do_outro()
+	play_outro()
+
+#endregion
