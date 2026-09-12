@@ -20,6 +20,10 @@ func pause_game() -> void:
 	get_tree().paused = true
 
 
+func start_microgame() -> void:
+	_switch_to_next_microgame()
+
+
 func switch_scene_to_packed(scene : PackedScene) -> void:
 	pause_game()
 	fade_to_black.do_tween()

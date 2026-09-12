@@ -1,6 +1,7 @@
 class_name DifficultyManager extends Node
 
-const DIFFICULTY_PLATEAU_NUM : int = 20
+## Number of [MicrogameQueue] stages until the difficulty plateaus
+const DIFFICULTY_PLATEAU_NUM : int = 3
 
 @export var difficulty_curve : Curve
 

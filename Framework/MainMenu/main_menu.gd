@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	await MainMenuButton.outro_all_buttons(start, buttons)
-	get_tree().quit()
+	GameManager.start_microgame()
 
 
 func _on_settings_pressed() -> void:

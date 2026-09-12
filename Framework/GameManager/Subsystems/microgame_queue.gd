@@ -35,6 +35,7 @@ func _setup_new_stage() -> void:
 
 
 func _finish_stage() -> void:
+	_num_completed_stages += 1
 	stage_finished.emit(_num_completed_stages)
 	_setup_new_stage()
 	await get_tree().process_frame
