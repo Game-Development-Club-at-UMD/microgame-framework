@@ -75,9 +75,3 @@ func _switch_to_next_microgame() -> void:
 	
 	fade_from_black.do_tween()
 	await fade_from_black.tween.finished
-
-
-# TODO: replace this with saving highscore
-func _notification(what : int):
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		get_tree().quit()
