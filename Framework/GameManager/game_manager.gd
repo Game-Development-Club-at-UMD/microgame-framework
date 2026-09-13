@@ -1,15 +1,20 @@
 extends Node
 
-@onready var fade_to_black: ControlTween = %FadeToBlack
-@onready var fade_from_black: ControlTween = %FadeFromBlack
-@onready var microgame_queue: MicrogameQueue = %MicrogameQueue
-@onready var difficulty_manager: DifficultyManager = %DifficultyManager
+@onready var fade_to_black: ControlTween = %FadeToBlack as ControlTween
+@onready var fade_from_black: ControlTween = %FadeFromBlack as ControlTween
+@onready var microgame_queue: MicrogameQueue = %MicrogameQueue as MicrogameQueue
+@onready var difficulty_manager: DifficultyManager = %DifficultyManager as DifficultyManager
+@onready var save_data_manager: SaveDataManager = %SaveDataManager as SaveDataManager
 
+signal game_won
+signal game_lost
 
 func _ready() -> void:
 	# connecting the microgame_queue to the difficult_manager
 	microgame_queue.stage_finished.connect(difficulty_manager._on_microgame_stage_finished)
-	#_switch_to_next_microgame()
+	game_won.connect(save_data_manager._handle_won_game)
+	game_lost.connect(save_data_manager._handle_lost_game)
+	difficulty_manager.difficulty_changed.connect(save_data_manager._on_difficulty_chnaged)
 
 
 func unpause_game() -> void:
@@ -38,14 +43,14 @@ func switch_scene_to_packed(scene : PackedScene) -> void:
 
 func lose() -> void:
 	pause_game()
-	# TODO: Count losses
+	game_lost.emit()
 	_switch_to_next_microgame()
 	unpause_game()
 
 
 func win() -> void:
 	pause_game()
-	# TODO: Count wins
+	game_won.emit()
 	_switch_to_next_microgame()
 	unpause_game()
 

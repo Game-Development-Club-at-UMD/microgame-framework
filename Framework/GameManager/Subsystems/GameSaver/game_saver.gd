@@ -1,6 +1,6 @@
 class_name GameSaver extends Node
 
-const SAVE_FILE_NAME : String = ""
+const SAVE_FILE_NAME : String = "user://game_data.save"
 
 
 static func save_data_to_file(save_data : SaveData) -> void:

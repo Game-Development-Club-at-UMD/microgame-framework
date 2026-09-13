@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://kbtywq5101wv" path="res://Framework/GameManager/Subsystems/microgame_queue.gd" id="4_fvqjh"]
 [ext_resource type="PackedScene" uid="uid://ddd6ayr1ipn0g" path="res://ExampleGame/SceneSwitcher/bubble_scene_switcher.tscn" id="5_bl30x"]
 [ext_resource type="Script" uid="uid://c3mrx4uhci7mj" path="res://Framework/GameManager/Subsystems/difficulty_manager.gd" id="5_t61i1"]
-[ext_resource type="Script" uid="uid://cdfruxtfk3o3q" path="res://Framework/GameManager/Subsystems/GameSaver/game_saver.gd" id="7_fvqjh"]
+[ext_resource type="Script" uid="uid://cxpxg24xypn71" path="res://Framework/GameManager/Subsystems/save_data_manager.gd" id="7_fvqjh"]
 
 [sub_resource type="Resource" id="Resource_yf5fn"]
 script = ExtResource("3_bl30x")
@@ -64,6 +64,7 @@ script = ExtResource("5_t61i1")
 difficulty_curve = SubResource("Curve_bl30x")
 metadata/_custom_type_script = "uid://c3mrx4uhci7mj"
 
-[node name="GameSaver" type="Node" parent="." unique_id=1011759505]
+[node name="SaveDataManager" type="Node" parent="." unique_id=21869708]
+unique_name_in_owner = true
 script = ExtResource("7_fvqjh")
-metadata/_custom_type_script = "uid://cdfruxtfk3o3q"
+metadata/_custom_type_script = "uid://cxpxg24xypn71"
