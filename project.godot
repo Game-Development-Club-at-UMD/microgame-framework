@@ -38,6 +38,13 @@ folder_colors={
 "res://Framework/Microgame/": "blue"
 }
 
+[input]
+
+pause={
+"deadzone": 0.2,
+"events": []
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
