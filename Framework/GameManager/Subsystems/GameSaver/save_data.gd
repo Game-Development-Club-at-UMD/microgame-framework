@@ -5,7 +5,6 @@ var lives : int = 0
 var current_difficulty : float = 0
 
 
-
 func get_as_dict() -> Dictionary[String, Variant]:
 	return {
 		"wins": wins,
