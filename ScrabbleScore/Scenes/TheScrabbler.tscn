@@ -1,0 +1,418 @@
+[gd_scene format=3 uid="uid://cbwxhfl8st730"]
+
+[ext_resource type="Script" uid="uid://b8roapek7ns4j" path="res://ScrabbleScore/main.gd" id="1_hfill"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Framework/Addons/TweenTool/Scripts/Components/node2D_tween.gd" id="2_6xw7n"]
+[ext_resource type="AudioStream" uid="uid://cshsdlkv6kuy6" path="res://ScrabbleScore/Assets/Sounds/tile_crash.wav" id="2_gpxnh"]
+[ext_resource type="AudioStream" uid="uid://o26v3c5salu0" path="res://ScrabbleScore/Assets/Sounds/tile_click.wav" id="3_6xw7n"]
+[ext_resource type="Script" uid="uid://cct0slx0ktj60" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/transform_tween.gd" id="3_gpxnh"]
+[ext_resource type="Script" uid="uid://dtxea7wlkf3vx" path="res://Framework/Addons/TweenTool/Scripts/Effect Sequencers/node2D_tween_sequencer.gd" id="4_eeyoy"]
+[ext_resource type="AudioStream" uid="uid://bx1otfagt2vlo" path="res://ScrabbleScore/Assets/Sounds/wrong_place.mp3" id="4_gpxnh"]
+[ext_resource type="Script" uid="uid://ctq0fnnu3yso3" path="res://ScrabbleScore/Scenes/timer_bar.gd" id="5_w7kyn"]
+[ext_resource type="Script" uid="uid://dgyaibabogbij" path="res://ScrabbleScore/Scenes/score_display.gd" id="7_x5q64"]
+[ext_resource type="AudioStream" uid="uid://bcenguyqvus7f" path="res://ScrabbleScore/Assets/Sounds/chip.wav" id="8_2ro3q"]
+[ext_resource type="AudioStream" uid="uid://dtqn75i5s3qar" path="res://ScrabbleScore/Assets/Sounds/letter_mult.wav" id="9_gexm6"]
+[ext_resource type="AudioStream" uid="uid://bjmw26a4ojlg" path="res://ScrabbleScore/Assets/Sounds/word_mult.wav" id="10_ghiw7"]
+[ext_resource type="AudioStream" uid="uid://dsg382pcovoir" path="res://ScrabbleScore/Assets/Sounds/smoosh.wav" id="11_fumtw"]
+[ext_resource type="AudioStream" uid="uid://capeuhebs65rj" path="res://ScrabbleScore/Assets/Sounds/bank.wav" id="12_766gm"]
+[ext_resource type="FontFile" uid="uid://nbgv5d2s0ss2" path="res://Framework/Assets/dungeon-mode.ttf" id="13_tx0ma"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/TweenTool/Scripts/Components/control_tween.gd" id="14_653k3"]
+[ext_resource type="Script" uid="uid://cbrntoax56ix8" path="res://Framework/Addons/TweenTool/Scripts/Effect Sequencers/control_tween_sequencer.gd" id="15_1kice"]
+[ext_resource type="Script" uid="uid://dby7depabb4fv" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/canvas_item_tween.gd" id="16_ao4tx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_br6f0"]
+load_path = "res://.godot/imported/Scrabble_Board.png-d8cdbaf211bf5c0256dadcd9578c20b6.ctex"
+
+[sub_resource type="Resource" id="Resource_3p2av"]
+script = ExtResource("3_gpxnh")
+end_scale = Vector2(1.25, 1.25)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_memtb"]
+script = ExtResource("3_gpxnh")
+end_rotation = 0.0
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_smu75"]
+script = ExtResource("3_gpxnh")
+end_scale = Vector2(1.35, 0.65)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_hag5w"]
+script = ExtResource("3_gpxnh")
+end_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_c1gip"]
+script = ExtResource("3_gpxnh")
+end_rotation = 15.0
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_jkrt8"]
+script = ExtResource("3_gpxnh")
+end_rotation = 0.0
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="LabelSettings" id="LabelSettings_3p2av"]
+font = ExtResource("13_tx0ma")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_memtb"]
+font = ExtResource("13_tx0ma")
+font_size = 100
+
+[sub_resource type="Resource" id="Resource_mxp0k"]
+script = ExtResource("3_gpxnh")
+start_scale = Vector2(1.25, 1.25)
+end_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_4x6bb"]
+script = ExtResource("3_gpxnh")
+start_scale = Vector2(1.5, 1.5)
+end_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_4oerw"]
+script = ExtResource("16_ao4tx")
+end_modulate = Color(1, 0.8666667, 0.58431375, 1)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[sub_resource type="Resource" id="Resource_nom8c"]
+script = ExtResource("16_ao4tx")
+start_modulate = Color(1, 0.8666667, 0.58431375, 1)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[sub_resource type="Resource" id="Resource_opros"]
+script = ExtResource("16_ao4tx")
+start_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[sub_resource type="Resource" id="Resource_of3wq"]
+script = ExtResource("16_ao4tx")
+end_modulate = Color(1, 1, 1, 0)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[sub_resource type="Resource" id="Resource_3lcl1"]
+script = ExtResource("3_gpxnh")
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_vanwi"]
+script = ExtResource("3_gpxnh")
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_tfbmo"]
+script = ExtResource("3_gpxnh")
+end_scale = Vector2(1.45, 1.45)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_848bv"]
+script = ExtResource("3_gpxnh")
+end_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_06c4g"]
+script = ExtResource("3_gpxnh")
+end_position = Vector2(0, 0)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_xwauj"]
+script = ExtResource("3_gpxnh")
+end_scale = Vector2(1.7, 1.7)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_yobwb"]
+script = ExtResource("3_gpxnh")
+end_scale = Vector2(1.55, 1.55)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_pj24a"]
+script = ExtResource("3_gpxnh")
+end_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[node name="Main" type="Node2D" unique_id=384787734]
+script = ExtResource("1_hfill")
+seconds_per_tile_easy = 1.55
+seconds_per_tile_hard = 0.95
+reaction_bonus = 0.7
+tile_crash = ExtResource("2_gpxnh")
+tile_click = ExtResource("3_6xw7n")
+wrong_place = ExtResource("4_gpxnh")
+
+[node name="World" type="Node2D" parent="." unique_id=37968309]
+
+[node name="BoardArt" type="Sprite2D" parent="World" unique_id=636960091]
+texture = SubResource("CompressedTexture2D_br6f0")
+
+[node name="Board" type="Node2D" parent="World" unique_id=84015657]
+
+[node name="Targets" type="Node2D" parent="World" unique_id=346455044]
+
+[node name="Hand" type="Node2D" parent="World" unique_id=236404013]
+
+[node name="Juice" type="Node" parent="." unique_id=1169887540]
+
+[node name="PickUp" type="Node" parent="Juice" unique_id=53398954 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../World/Hand")
+transform_tween = SubResource("Resource_3p2av")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Snap" type="Node" parent="Juice" unique_id=237278063 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../World/Hand")
+transform_tween = SubResource("Resource_memtb")
+trans_type = 4
+ease_type = 1
+tween_duration = 0.09
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Squash" type="Node" parent="Juice" unique_id=1619900590 node_paths=PackedStringArray("affected_node", "tween_array")]
+script = ExtResource("4_eeyoy")
+affected_node = NodePath("../../World/Hand")
+tween_array = [NodePath("SquashIn"), NodePath("SquashOut")]
+metadata/_custom_type_script = "uid://dtxea7wlkf3vx"
+
+[node name="SquashIn" type="Node" parent="Juice/Squash" unique_id=101321936 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../World/Hand")
+transform_tween = SubResource("Resource_smu75")
+tween_duration = 0.05
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="SquashOut" type="Node" parent="Juice/Squash" unique_id=252568135 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../World/Hand")
+transform_tween = SubResource("Resource_hag5w")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Nudge" type="Node" parent="Juice" unique_id=178393741 node_paths=PackedStringArray("affected_node", "tween_array")]
+script = ExtResource("4_eeyoy")
+affected_node = NodePath("../../World/Hand")
+tween_array = [NodePath("NudgeOut"), NodePath("NudgeBack")]
+metadata/_custom_type_script = "uid://dtxea7wlkf3vx"
+
+[node name="NudgeOut" type="Node" parent="Juice/Nudge" unique_id=676206096 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../World/Hand")
+transform_tween = SubResource("Resource_c1gip")
+tween_duration = 0.05
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="NudgeBack" type="Node" parent="Juice/Nudge" unique_id=2099098753 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../World/Hand")
+transform_tween = SubResource("Resource_jkrt8")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="TimerBar" type="Node2D" parent="." unique_id=1103889970]
+script = ExtResource("5_w7kyn")
+
+[node name="Left" type="Line2D" parent="TimerBar" unique_id=213159130]
+
+[node name="Right" type="Line2D" parent="TimerBar" unique_id=2057144412]
+
+[node name="ScoreDisplay" type="Node2D" parent="." unique_id=47794706]
+z_index = 300
+script = ExtResource("7_x5q64")
+chip_sound = ExtResource("8_2ro3q")
+letter_mult_sound = ExtResource("9_gexm6")
+word_mult_sound = ExtResource("10_ghiw7")
+smoosh_sound = ExtResource("11_fumtw")
+bank_sound = ExtResource("12_766gm")
+chip_gap = 0.2
+mult_gap = 0.35
+
+[node name="TotalLabel" type="Label" parent="ScoreDisplay" unique_id=1139311393]
+offset_right = 1.0
+offset_bottom = 134.0
+label_settings = SubResource("LabelSettings_3p2av")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlusLabel" type="Label" parent="ScoreDisplay" unique_id=1845252952]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_memtb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BranchLabel" type="Label" parent="ScoreDisplay" unique_id=1950365792]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_memtb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Juice" type="Node" parent="ScoreDisplay" unique_id=419118868]
+
+[node name="Pop" type="Node" parent="ScoreDisplay/Juice" unique_id=648485341 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../TotalLabel")
+transform_tween = SubResource("Resource_mxp0k")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="ScorePop" type="Node" parent="ScoreDisplay/Juice" unique_id=1469029154 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../World/Hand")
+transform_tween = SubResource("Resource_4x6bb")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.22
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Flash" type="Node" parent="ScoreDisplay/Juice" unique_id=2003275663 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("15_1kice")
+affected_node = NodePath("../../TotalLabel")
+metadata/_custom_type_script = "uid://cbrntoax56ix8"
+
+[node name="FlashOn" type="Node" parent="ScoreDisplay/Juice/Flash" unique_id=960158066 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../../TotalLabel")
+canvas_item_tween = SubResource("Resource_4oerw")
+tween_duration = 0.06
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="FlashOff" type="Node" parent="ScoreDisplay/Juice/Flash" unique_id=1460497792 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../../TotalLabel")
+canvas_item_tween = SubResource("Resource_nom8c")
+tween_duration = 0.14
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="TotalFadeIn" type="Node" parent="ScoreDisplay/Juice" unique_id=2125841124 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../TotalLabel")
+canvas_item_tween = SubResource("Resource_opros")
+tween_duration = 0.15
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="PlusFadeIn" type="Node" parent="ScoreDisplay/Juice" unique_id=937730620 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../PlusLabel")
+canvas_item_tween = SubResource("Resource_opros")
+tween_duration = 0.12
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="PlusFadeOut" type="Node" parent="ScoreDisplay/Juice" unique_id=1580963975 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../PlusLabel")
+canvas_item_tween = SubResource("Resource_of3wq")
+tween_duration = 0.16
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="BranchFadeIn" type="Node" parent="ScoreDisplay/Juice" unique_id=101709320 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../BranchLabel")
+canvas_item_tween = SubResource("Resource_opros")
+tween_duration = 0.12
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="SlideA" type="Node" parent="ScoreDisplay/Juice" unique_id=677388006 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../TotalLabel")
+transform_tween = SubResource("Resource_3lcl1")
+trans_type = 4
+ease_type = 1
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="SlideB" type="Node" parent="ScoreDisplay/Juice" unique_id=517204581 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("14_653k3")
+affected_node = NodePath("../../TotalLabel")
+transform_tween = SubResource("Resource_vanwi")
+trans_type = 4
+ease_type = 1
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="TilePop" type="Node" parent="ScoreDisplay/Juice" unique_id=1943423781 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("4_eeyoy")
+affected_node = NodePath("../../../World/Hand")
+metadata/_custom_type_script = "uid://dtxea7wlkf3vx"
+
+[node name="TileUp" type="Node" parent="ScoreDisplay/Juice/TilePop" unique_id=212439551 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../../World/Hand")
+transform_tween = SubResource("Resource_tfbmo")
+tween_duration = 0.06
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="TileDown" type="Node" parent="ScoreDisplay/Juice/TilePop" unique_id=1760270159 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../../World/Hand")
+transform_tween = SubResource("Resource_848bv")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Shake" type="Node" parent="ScoreDisplay/Juice" unique_id=2016092041 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("4_eeyoy")
+affected_node = NodePath("../..")
+metadata/_custom_type_script = "uid://dtxea7wlkf3vx"
+
+[node name="Kick" type="Node" parent="ScoreDisplay/Juice/Shake" unique_id=1511345320 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../..")
+transform_tween = SubResource("Resource_06c4g")
+tween_duration = 0.035
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Back" type="Node" parent="ScoreDisplay/Juice/Shake" unique_id=1629953746 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../..")
+transform_tween = SubResource("Resource_06c4g")
+tween_duration = 0.045
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Settle" type="Node" parent="ScoreDisplay/Juice/Shake" unique_id=957928115 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../..")
+transform_tween = SubResource("Resource_06c4g")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.07
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="TileReveal" type="Node" parent="ScoreDisplay/Juice" unique_id=1781887443 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("4_eeyoy")
+affected_node = NodePath("../../../World/Hand")
+metadata/_custom_type_script = "uid://dtxea7wlkf3vx"
+
+[node name="Rise" type="Node" parent="ScoreDisplay/Juice/TileReveal" unique_id=756448005 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../../World/Hand")
+transform_tween = SubResource("Resource_xwauj")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Hang" type="Node" parent="ScoreDisplay/Juice/TileReveal" unique_id=1066027957 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../../World/Hand")
+transform_tween = SubResource("Resource_yobwb")
+tween_duration = 0.1
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Settle" type="Node" parent="ScoreDisplay/Juice/TileReveal" unique_id=1419915606 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("2_6xw7n")
+affected_node = NodePath("../../../../World/Hand")
+transform_tween = SubResource("Resource_pj24a")
+trans_type = 10
+ease_type = 1
+tween_duration = 0.18
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"

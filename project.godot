@@ -14,28 +14,6 @@ config/name="Microgame Framework"
 run/main_scene="uid://da4hhvghhnoi8"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://dowbc4oitb623"
-<<<<<<<Updatedupstreamrun/main_scene="uid://tc87a4f6227j"
-
-[autoload]
-
-GameManager="*uid://caxigcjbd3chd"
-Globals="*uid://by5cofprr0ipt"
-
-[display]
-
-window/size/always_on_top=true
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
-
-[file_customization]
-
-folder_colors={
-"res://ExampleGame/": "pink",
-"res://Framework/": "gray",
-"res://Framework/Assets/": "purple",
-"res://Framework/GameManager/": "yellow",
-"res://Framework/MainMenu/": "green",
-"res://Framework/Microgame/": "blue",
 "res://SimpleExampleGame/": "orange",
 "res://SwordSticker/": "blue",
 "res://SwordSticker/SFX/": "purple",

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bwmwrhtol2n3c"]
+
+[ext_resource type="FontFile" uid="uid://bvcgucrbm28n1" path="res://ScrabbleScore/Assets/elder_futhark/RUNE.TTF" id="1_gi5li"]
+[ext_resource type="Script" uid="uid://brnkbjt7g4btg" path="res://ScrabbleScore/Scenes/target.gd" id="1_j5h3n"]
+[ext_resource type="Texture2D" uid="uid://8v7be32we1o7" path="res://ScrabbleScore/Assets/Glow.png" id="2_amlsl"]
+[ext_resource type="Script" uid="uid://dtxea7wlkf3vx" path="res://Framework/Addons/TweenTool/Scripts/Effect Sequencers/node2D_tween_sequencer.gd" id="4_qi51i"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Framework/Addons/TweenTool/Scripts/Components/node2D_tween.gd" id="5_5s2l5"]
+[ext_resource type="Script" uid="uid://dby7depabb4fv" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/canvas_item_tween.gd" id="6_ugny7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p2av"]
+
+[sub_resource type="Resource" id="Resource_brl3a"]
+script = ExtResource("6_ugny7")
+end_modulate = Color(1, 1, 1, 0.3529412)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[sub_resource type="Resource" id="Resource_avkxo"]
+script = ExtResource("6_ugny7")
+start_modulate = Color(1, 1, 1, 0.3529412)
+metadata/_custom_type_script = "uid://dby7depabb4fv"
+
+[node name="Target" type="Area2D" unique_id=1030680243]
+script = ExtResource("1_j5h3n")
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=859810550]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_3p2av")
+
+[node name="Glow" type="Sprite2D" parent="." unique_id=689060420]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_amlsl")
+
+[node name="Glyph" type="Label" parent="." unique_id=1653350946]
+offset_left = -9.0
+offset_top = -14.0
+offset_right = 9.0
+offset_bottom = 14.0
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("1_gi5li")
+theme_override_font_sizes/font_size = 25
+text = "h"
+horizontal_alignment = 1
+
+[node name="GlowPulse" type="Node" parent="." unique_id=1079979970 node_paths=PackedStringArray("affected_node", "tween_array")]
+script = ExtResource("4_qi51i")
+affected_node = NodePath("../Glow")
+loop = true
+tween_array = [NodePath("PulseDown"), NodePath("PulseUp")]
+metadata/_custom_type_script = "uid://dtxea7wlkf3vx"
+
+[node name="PulseDown" type="Node" parent="GlowPulse" unique_id=1426982319 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_5s2l5")
+affected_node = NodePath("../../Glow")
+canvas_item_tween = SubResource("Resource_brl3a")
+trans_type = 1
+tween_duration = 0.4
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="PulseUp" type="Node" parent="GlowPulse" unique_id=1939170673 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("5_5s2l5")
+affected_node = NodePath("../../Glow")
+canvas_item_tween = SubResource("Resource_avkxo")
+trans_type = 1
+tween_duration = 0.4
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
