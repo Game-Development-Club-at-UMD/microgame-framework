@@ -84,6 +84,11 @@ animations = [{
 "speed": 8.0
 }]
 
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yrkv6"]
+radius = 37.999996
+height = 165.59999
+
 [sub_resource type="Resource" id="Resource_yf5fn"]
 script = ExtResource("5_0j46w")
 start_offset_scale = Vector2(1.6, 0.8)
@@ -96,6 +101,7 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(134.4, 198.4)
+
 
 [node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375]
 scale = Vector2(2.5, 2.5)
@@ -135,6 +141,13 @@ scale = Vector2(0.99999976, 0.99999976)
 sprite_frames = SubResource("SpriteFrames_itup8")
 animation = &"talking-body"
 
+
+[node name="GuyHoverArea" type="Area2D" parent="." unique_id=303071852]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuyHoverArea" unique_id=1085094554]
+position = Vector2(4.7999997, 1.2)
+shape = SubResource("CapsuleShape2D_yrkv6")
+
 [node name="Squish" type="Node" parent="Control" unique_id=187843858 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("4_tp5iy")
 affected_node = NodePath("..")
@@ -149,3 +162,4 @@ metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=221331649]
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_g4v7s")
+
