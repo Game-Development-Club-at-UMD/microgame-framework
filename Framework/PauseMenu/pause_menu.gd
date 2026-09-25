@@ -45,4 +45,3 @@ func _on_resume_pressed() -> void:
 func _on_exit_pressed() -> void:
 	await close_pause_menu(exit)
 	GameManager.switch_scene_to_packed(MAIN_MENU)
-	GameManager.mouse_paw.make_visible()
