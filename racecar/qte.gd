@@ -73,5 +73,5 @@ func _resolve(success: bool) -> void:
 		
 	finished.emit(success)
 
-	await get_tree().create_timer(display_duration).timeout
+	await get_tree().create_timer(display_duration, false).timeout
 	hide()

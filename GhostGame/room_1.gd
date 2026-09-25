@@ -28,5 +28,5 @@ func _process(delta: float) -> void:
 		ghostLoseByeBye.emit()
 		emit_signal("ghostLoseByeBye")
 		jumpScareAnimationPlayer.play("Jumpscare")
-		get_tree().create_timer(1.0)
+		get_tree().create_timer(1.0, false)
 		GameManager.lose()

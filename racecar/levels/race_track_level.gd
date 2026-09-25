@@ -59,7 +59,7 @@ func _run_countdown() -> void:
 	countdown_label.show()
 	for text in ["3", "2", "1", "Go!"]:
 		countdown_label.text = text
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(0.7, false).timeout
 	countdown_label.hide()
 
 func _run_checkpoint(data: CheckpointData) -> bool:
@@ -106,22 +106,22 @@ func _handle_fail(checkpoint_index: int, false_start := false) -> void:
 	racecar.queue_free()
 	character.queue_free()
 
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.7, false).timeout
 	game_over_panel.visible = true
 	game_over_title.text = "CRASHED!"
 	game_over_label.text = "TOO EARLY, BUCKO!" if false_start else "Bad news... You're DEAD!"
 
-	await get_tree().create_timer(end_screen_time).timeout
+	await get_tree().create_timer(end_screen_time, false).timeout
 	level_failed.emit()
 
 
 func _handle_win() -> void:
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.7, false).timeout
 	game_over_panel.visible = true
 	game_over_title.text = "SUCCESS!"
 	game_over_label.text = "You sure know how to drive!"
 
-	await get_tree().create_timer(end_screen_time).timeout
+	await get_tree().create_timer(end_screen_time, false).timeout
 	level_completed.emit()
 
 func _compute_checkpoint_anchors(checkpoints: Array[CheckpointData]) -> Array[Transform2D]:

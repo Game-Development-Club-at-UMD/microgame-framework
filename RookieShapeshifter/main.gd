@@ -18,7 +18,7 @@ var choice = 0
 func _ready() -> void:
 	feature_randomize()
 	spagetti_code()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1, false).timeout
 	$Instructions.visible = true
 	$Instructions2.visible = true
 	can_start = true
@@ -46,11 +46,11 @@ func shoot_gun():
 			$FrankLeft/Frank/Shoes.visible = false
 			$FrankLeft/Frank/Tie.visible = false
 		$FrankLeft/Frank.set_frame_and_progress(1, 0)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		$Instructions3.visible = true
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		GameManager.win()
-		await get_tree().create_timer(0.9).timeout
+		await get_tree().create_timer(0.9, false).timeout
 		get_tree().reload_current_scene()
 
 	elif choice == imposter and imposter == 1:
@@ -63,20 +63,20 @@ func shoot_gun():
 			$FrankRight/Frank2/Shoes.visible = false
 			$FrankRight/Frank2/Tie.visible = false
 		$FrankRight/Frank2.set_frame_and_progress(1, 0)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		$Instructions3.visible = true
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5, false).timeout
 		GameManager.win()
-		await get_tree().create_timer(0.9).timeout
+		await get_tree().create_timer(0.9, false).timeout
 		get_tree().reload_current_scene()
 
 	else:
 		$Yoxuuxdiixxe.visible = true
 		$PewPew.play()
 		$Scarylose.play()
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1, false).timeout
 		GameManager.lose()
-		await get_tree().create_timer(0.9).timeout
+		await get_tree().create_timer(0.9, false).timeout
 		get_tree().reload_current_scene()
 		
 
@@ -98,7 +98,7 @@ func start_game():
 	var _show_hint = 100
 	available_hints.shuffle()
 	
-	await get_tree().create_timer(0.05).timeout
+	await get_tree().create_timer(0.05, false).timeout
 	timer_on = true
 	if true:
 		if available_hints[0] == "Belt":
@@ -115,7 +115,7 @@ func start_game():
 			$Hints/Tie.visible = true
 	available_hints.pop_front()
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1, false).timeout
 	if true:
 		$Hints/Belt.visible = false
 		$Hints/Eyes.visible = false
@@ -138,7 +138,7 @@ func start_game():
 			$Hints/Tie.visible = true
 	available_hints.pop_front()
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1, false).timeout
 	if true:
 		$Hints/Belt.visible = false
 		$Hints/Eyes.visible = false
@@ -161,7 +161,7 @@ func start_game():
 			$Hints/Tie.visible = true
 	available_hints.pop_front()
 	
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1, false).timeout
 	ready_to_shoot = true
 	if true:
 		$Hints/Belt.visible = false
