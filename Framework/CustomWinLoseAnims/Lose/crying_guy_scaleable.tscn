@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://0rt5tdyuq0wc"]
+
+[ext_resource type="PackedScene" uid="uid://c0j7rxry5fr2s" path="res://Framework/CustomWinLoseAnims/custom_animation_screen.tscn" id="1_drtxc"]
+[ext_resource type="Texture2D" uid="uid://4voabwrhw3jl" path="res://Framework/Assets/crying miku guy/Crying_Miku_GUY-1.png" id="2_5b0hn"]
+[ext_resource type="Texture2D" uid="uid://qxc4n8meis0n" path="res://Framework/Assets/crying miku guy/Crying_Miku_GUY-2.png" id="3_jmf18"]
+[ext_resource type="Texture2D" uid="uid://bpcp2rqdxjj3d" path="res://Framework/Assets/crying miku guy/Crying_Miku_GUY-3.png" id="4_ghx22"]
+[ext_resource type="Texture2D" uid="uid://k0kupmw2ymg" path="res://Framework/Assets/crying miku guy/Crying_Miku_GUY-4.png" id="5_ullmf"]
+
+[sub_resource type="Animation" id="Animation_yef78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_drtxc"]
+resource_name = "animate"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_5b0hn"), ExtResource("3_jmf18"), ExtResource("4_ghx22"), ExtResource("5_ullmf")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt1gw"]
+_data = {
+&"RESET": SubResource("Animation_yef78"),
+&"default": SubResource("Animation_drtxc")
+}
+
+[node name="CustomAnimationScreen" unique_id=22007565 node_paths=PackedStringArray("sprite_frame_animator") instance=ExtResource("1_drtxc")]
+sprite_frame_animator = NodePath("AnimationPlayer")
+
+[node name="ControlTweenSequencer" parent="." index="0" unique_id=103528410 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../MarginContainer/TextureRect")
+
+[node name="Expand" parent="ControlTweenSequencer" index="0" unique_id=134944977 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../../MarginContainer/TextureRect")
+
+[node name="Shrink" parent="ControlTweenSequencer" index="1" unique_id=514298524 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../../MarginContainer/TextureRect")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=121451160]
+libraries/ = SubResource("AnimationLibrary_nt1gw")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" parent_id_path=PackedInt32Array(1529723997) index="0" unique_id=124564704]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(1.1578513, 1.1578513)
+offset_transform_rotation = 0.04132538
+expand_mode = 3
+stretch_mode = 5

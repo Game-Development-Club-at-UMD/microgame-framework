@@ -1,7 +1,7 @@
 class_name DifficultyManager extends Node
 
 ## Number of [MicrogameQueue] stages until the difficulty plateaus
-const DIFFICULTY_PLATEAU_NUM : int = 3
+const DIFFICULTY_PLATEAU_NUM : int = 10
 
 signal difficulty_changed(difficulty : float)
 
@@ -14,6 +14,9 @@ var current_difficulty : float = 0:
 	set(value):
 		current_difficulty = clampf(value, 0.0, 1.0)
 		difficulty_changed.emit(current_difficulty)
+
+func reset() -> void:
+	current_difficulty = 0.0
 
 
 func _on_microgame_stage_finished(num_completed : int) -> void:

@@ -33,6 +33,7 @@ folder_colors={
 "res://ExampleGame/": "pink",
 "res://Framework/": "gray",
 "res://Framework/Assets/": "purple",
+"res://Framework/CustomWinLoseAnims/": "pink",
 "res://Framework/GameManager/": "yellow",
 "res://Framework/MainMenu/": "green",
 "res://Framework/Microgame/": "blue",

@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dxp3q863k74ap"]
+
+[ext_resource type="PackedScene" uid="uid://c0j7rxry5fr2s" path="res://Framework/CustomWinLoseAnims/custom_animation_screen.tscn" id="1_2q15p"]
+[ext_resource type="Texture2D" uid="uid://3gg3gaubv5a7" path="res://Framework/Assets/Shinji/Shinji.png" id="2_rx6ao"]
+
+[sub_resource type="Animation" id="Animation_evigd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(0, 0, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abqgn"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(3600, 0, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bow0h"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(7200, 0, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t46f2"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(10800, 0, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krftu"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(0, 2000, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rgek"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(3600, 2000, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpjxw"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(7200, 2000, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tb38"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(10800, 2000, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7l6u"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(0, 4000, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fs3j"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(3600, 4000, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw000"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(7200, 4000, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h0x2"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(10800, 4000, 3600, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a23yt"]
+atlas = ExtResource("2_rx6ao")
+region = Rect2(0, 6000, 3600, 2000)
+
+[sub_resource type="Animation" id="Animation_42y0p"]
+resource_name = "default"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.008333333, 0.108333334, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8333333, 0.93333334, 1.0333333, 1.1333333, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_g4v7s"), SubResource("AtlasTexture_abqgn"), SubResource("AtlasTexture_bow0h"), SubResource("AtlasTexture_t46f2"), SubResource("AtlasTexture_krftu"), SubResource("AtlasTexture_0rgek"), SubResource("AtlasTexture_hpjxw"), SubResource("AtlasTexture_6tb38"), SubResource("AtlasTexture_b7l6u"), SubResource("AtlasTexture_1fs3j"), SubResource("AtlasTexture_yw000"), SubResource("AtlasTexture_2h0x2"), SubResource("AtlasTexture_a23yt")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fetu7"]
+_data = {
+&"RESET": SubResource("Animation_evigd"),
+&"default": SubResource("Animation_42y0p")
+}
+
+[node name="CustomAnimationScreen" unique_id=22007565 node_paths=PackedStringArray("sprite_frame_animator") instance=ExtResource("1_2q15p")]
+sprite_frame_animator = NodePath("AnimationPlayer")
+do_zoom_anims = false
+
+[node name="ControlTweenSequencer" parent="." index="0" unique_id=103528410 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../TextureRect")
+
+[node name="Expand" parent="ControlTweenSequencer" index="0" unique_id=134944977 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../../TextureRect")
+
+[node name="Shrink" parent="ControlTweenSequencer" index="1" unique_id=514298524 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../../TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." index="2" unique_id=1401295277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=689055687]
+libraries/ = SubResource("AnimationLibrary_fetu7")

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bt7yymp71dp5b"]
+
+[ext_resource type="PackedScene" uid="uid://c0j7rxry5fr2s" path="res://Framework/CustomWinLoseAnims/custom_animation_screen.tscn" id="1_0wlla"]
+[ext_resource type="Texture2D" uid="uid://bvi420a0weygd" path="res://Framework/Assets/ComputerGuy/Computer_guy.png" id="2_fv7ta"]
+
+[sub_resource type="Animation" id="Animation_7qxfb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("2_fv7ta")
+region = Rect2(0, 0, 6500, 4500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ingkn"]
+atlas = ExtResource("2_fv7ta")
+region = Rect2(6500, 0, 6500, 4500)
+
+[sub_resource type="Animation" id="Animation_hrlit"]
+resource_name = "default"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_g4v7s"), SubResource("AtlasTexture_ingkn")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1m0uk"]
+_data = {
+&"RESET": SubResource("Animation_7qxfb"),
+&"default": SubResource("Animation_hrlit")
+}
+
+[node name="CustomAnimationScreen" unique_id=22007565 node_paths=PackedStringArray("sprite_frame_animator") instance=ExtResource("1_0wlla")]
+sprite_frame_animator = NodePath("AnimationPlayer")
+do_zoom_anims = false
+
+[node name="ControlTweenSequencer" parent="." index="0" unique_id=103528410 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../TextureRect")
+
+[node name="Expand" parent="ControlTweenSequencer" index="0" unique_id=134944977 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../../TextureRect")
+
+[node name="Shrink" parent="ControlTweenSequencer" index="1" unique_id=514298524 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../../TextureRect")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=283566201]
+libraries/ = SubResource("AnimationLibrary_1m0uk")
+
+[node name="TextureRect" type="TextureRect" parent="." index="3" unique_id=1555369780]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -78.0
+offset_right = 77.77771
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5

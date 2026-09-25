@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c0j7rxry5fr2s"]
+
+[ext_resource type="Script" uid="uid://blam0tuw7p4n1" path="res://Framework/CustomWinLoseAnims/custom_animation_screen.gd" id="1_x7gnv"]
+[ext_resource type="Script" uid="uid://cbrntoax56ix8" path="res://Framework/Addons/TweenTool/Scripts/Effect Sequencers/control_tween_sequencer.gd" id="2_djkbv"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/TweenTool/Scripts/Components/control_tween.gd" id="3_oac8g"]
+[ext_resource type="Script" uid="uid://cdere083tmmuo" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/offset_transform_tween.gd" id="4_066yk"]
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("4_066yk")
+end_offset_rotation = 3.0
+end_offset_scale = Vector2(1.2, 1.2)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("4_066yk")
+end_offset_rotation = -3.0
+end_offset_scale = Vector2(0.8, 0.8)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[node name="CustomAnimationScreen" type="Control" unique_id=22007565 node_paths=PackedStringArray("control_tween_sequencer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x7gnv")
+control_tween_sequencer = NodePath("ControlTweenSequencer")
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlTweenSequencer" type="Node" parent="." unique_id=103528410 node_paths=PackedStringArray("tween_array")]
+unique_name_in_owner = true
+script = ExtResource("2_djkbv")
+loop = true
+tween_array = [NodePath("Expand"), NodePath("Shrink")]
+metadata/_custom_type_script = "uid://cbrntoax56ix8"
+
+[node name="Expand" type="Node" parent="ControlTweenSequencer" unique_id=134944977]
+script = ExtResource("3_oac8g")
+offset_transform_tween = SubResource("Resource_g4v7s")
+trans_type = 4
+ease_type = 2
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="Shrink" type="Node" parent="ControlTweenSequencer" unique_id=514298524]
+script = ExtResource("3_oac8g")
+offset_transform_tween = SubResource("Resource_yf5fn")
+trans_type = 4
+ease_type = 2
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1529723997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100

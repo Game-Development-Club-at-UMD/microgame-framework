@@ -119,6 +119,7 @@ texture = ExtResource("3_svjsi")
 
 [node name="ButtonGlow" type="TextureRect" parent="." unique_id=1906685171]
 modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
 material = SubResource("CanvasItemMaterial_svjsi")
 layout_mode = 1
 anchors_preset = 15
