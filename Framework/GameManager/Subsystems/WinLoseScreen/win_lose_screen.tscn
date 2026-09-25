@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://bbooefhwr82h6"]
 
 [ext_resource type="Script" uid="uid://duwov4e18wdfj" path="res://Framework/GameManager/Subsystems/WinLoseScreen/win_lose_screen.gd" id="1_qhakw"]
-[ext_resource type="PackedScene" uid="uid://bt7yymp71dp5b" path="res://Framework/CustomWinLoseAnims/Win/computer_guy_scaleable.tscn" id="2_m50n3"]
 [ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/TweenTool/Scripts/Components/control_tween.gd" id="2_r143f"]
 [ext_resource type="Script" uid="uid://dby7depabb4fv" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/canvas_item_tween.gd" id="3_6lfv7"]
-[ext_resource type="PackedScene" uid="uid://d2qrnj35of28g" path="res://Framework/CustomWinLoseAnims/Win/castle_crasher_win.tscn" id="3_462mn"]
-[ext_resource type="PackedScene" uid="uid://0rt5tdyuq0wc" path="res://Framework/CustomWinLoseAnims/Lose/crying_guy_scaleable.tscn" id="3_guto8"]
-[ext_resource type="PackedScene" uid="uid://dxp3q863k74ap" path="res://Framework/CustomWinLoseAnims/Lose/shinji_guy.tscn" id="4_guto8"]
 [ext_resource type="PackedScene" uid="uid://ch5hcarf4xd62" path="res://Framework/GameManager/Subsystems/WinLoseScreen/stat_display.tscn" id="4_r143f"]
 [ext_resource type="Texture2D" uid="uid://d1vn1rupqcnir" path="res://Framework/Assets/ImportedIcons/Misc/hearts.png" id="5_agcvd"]
 [ext_resource type="Texture2D" uid="uid://b4dhg1hc1ty0v" path="res://Framework/Assets/ImportedIcons/Misc/trophy.png" id="6_7cx1w"]
@@ -30,8 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qhakw")
-win_anims_pool = Array[PackedScene]([ExtResource("2_m50n3"), ExtResource("3_462mn")])
-lose_anims_pool = Array[PackedScene]([ExtResource("4_guto8"), ExtResource("3_guto8")])
 metadata/_edit_use_anchors_ = true
 
 [node name="BigAssBlackRectangle" type="ColorRect" parent="." unique_id=1290646453]
@@ -51,14 +45,12 @@ unique_name_in_owner = true
 script = ExtResource("2_r143f")
 affected_node = NodePath("..")
 canvas_item_tween = SubResource("Resource_ao8ti")
-tween_duration = 0.3
 
 [node name="FadeFromBlack" type="Node" parent="BigAssBlackRectangle" unique_id=1742554702 node_paths=PackedStringArray("affected_node")]
 unique_name_in_owner = true
 script = ExtResource("2_r143f")
 affected_node = NodePath("..")
 canvas_item_tween = SubResource("Resource_agcvd")
-tween_duration = 0.3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=922093439]
 layout_mode = 1
