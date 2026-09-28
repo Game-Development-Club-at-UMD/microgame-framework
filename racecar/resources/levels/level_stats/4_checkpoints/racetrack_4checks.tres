@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RacetrackLevelStats" format=3 uid="uid://c2jttda1r1wbb"]
+
+[ext_resource type="Script" uid="uid://carddfynqxf1t" path="res://racecar/resources/checkpoint_data.gd" id="1_k34ir"]
+[ext_resource type="Script" uid="uid://b8vn6h8r3ams2" path="res://racecar/resources/racetrack_level_stats.gd" id="2_os5fi"]
+[ext_resource type="Resource" uid="uid://o2jprcibfk8x" path="res://racecar/resources/levels/level_stats/4_checkpoints/individual_checkpoints/4check_point0.tres" id="2_rb3f4"]
+[ext_resource type="Resource" uid="uid://cwmcu2pmj2ko6" path="res://racecar/resources/levels/level_stats/4_checkpoints/individual_checkpoints/4check_point1.tres" id="3_4okpa"]
+[ext_resource type="Resource" uid="uid://dtiomnaq0pgky" path="res://racecar/resources/levels/level_stats/4_checkpoints/individual_checkpoints/4check_point2.tres" id="4_y8x4b"]
+[ext_resource type="Resource" uid="uid://dw2saya8u15h5" path="res://racecar/resources/levels/level_stats/4_checkpoints/individual_checkpoints/4check_point3.tres" id="5_deme3"]
+
+[resource]
+script = ExtResource("2_os5fi")
+checkpoints = Array[ExtResource("1_k34ir")]([ExtResource("2_rb3f4"), ExtResource("3_4okpa"), ExtResource("4_y8x4b"), ExtResource("5_deme3")])
+metadata/_custom_type_script = "uid://b8vn6h8r3ams2"

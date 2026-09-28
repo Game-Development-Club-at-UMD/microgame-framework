@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://d2y2autg5m0hc"]
 
 [ext_resource type="Script" uid="uid://o5ub56aveggr" path="res://racecar/levels/race_track_level.gd" id="1_a5s84"]
-[ext_resource type="Resource" uid="uid://c6ng6k8irmd2n" path="res://racecar/resources/levels/level_0/level_0_stats.tres" id="2_545xa"]
+[ext_resource type="Resource" uid="uid://3sm582uslegb" path="res://racecar/resources/levels/level_stats/1_checkpoint/racetrack_1check.tres" id="2_trumy"]
+[ext_resource type="Script" uid="uid://b8vn6h8r3ams2" path="res://racecar/resources/racetrack_level_stats.gd" id="3_8hwet"]
 [ext_resource type="Script" uid="uid://c5npwbo7ponpe" path="res://racecar/levels/character_handler.gd" id="3_p771m"]
+[ext_resource type="Resource" uid="uid://2yf5jlcnrdfd" path="res://racecar/resources/levels/level_stats/2_checkpoints/racetrack_2cheks.tres" id="4_5q450"]
 [ext_resource type="Script" uid="uid://bbwtag0a7oe6y" path="res://racecar/resources/characters/racetrack_character.gd" id="4_a5s84"]
 [ext_resource type="Resource" uid="uid://co0qhmnx4s8o0" path="res://racecar/resources/characters/pigster.tres" id="5_545xa"]
+[ext_resource type="Resource" uid="uid://pm7i4kq7yafa" path="res://racecar/resources/levels/level_stats/3_checkpoints/racetrack_3checks.tres" id="5_rakfb"]
 [ext_resource type="Resource" uid="uid://bf0e2e4wxw4ga" path="res://racecar/resources/characters/mr_melon.tres" id="6_o7h5s"]
 [ext_resource type="Resource" uid="uid://craqru1ocuij6" path="res://racecar/resources/characters/innocent_tree.tres" id="7_1ylch"]
 [ext_resource type="Texture2D" uid="uid://cfpruc2xadf20" path="res://racecar/assets/pngs/race_track.png" id="7_8hwet"]
@@ -13,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://caxpktqfd0bni" path="res://racecar/racecar.tscn" id="9_rakfb"]
 [ext_resource type="Texture2D" uid="uid://b30e4hbbeolrk" path="res://racecar/assets/pngs/explosion/funny_explosion-09.png" id="10_sa4sj"]
 [ext_resource type="Texture2D" uid="uid://dqi3det64y27x" path="res://racecar/assets/pngs/explosion/funny_explosion-10.png" id="11_fr1k5"]
+[ext_resource type="Texture2D" uid="uid://761l2is181y7" path="res://racecar/assets/pngs/melonsplosion.png" id="11_q55t8"]
 [ext_resource type="Texture2D" uid="uid://oui3oj4a6s2l" path="res://racecar/assets/pngs/explosion/funny_explosion-11.png" id="12_pqiu7"]
 [ext_resource type="Texture2D" uid="uid://cycxjvmakjyu6" path="res://racecar/assets/pngs/explosion/funny_explosion-12.png" id="13_857wx"]
 [ext_resource type="Texture2D" uid="uid://dcitax7bob2ri" path="res://racecar/assets/pngs/explosion/funny_explosion-13.png" id="14_5l7bf"]
@@ -30,13 +34,27 @@
 [ext_resource type="Texture2D" uid="uid://h8sv7afpf4op" path="res://racecar/assets/pngs/the_flag.png" id="26_3m7it"]
 [ext_resource type="PackedScene" uid="uid://m8mif51xpyfj" path="res://racecar/qte.tscn" id="27_jouc1"]
 [ext_resource type="Script" uid="uid://c7lf17nkhtwrd" path="res://racecar/levels/fail_path_handler.gd" id="27_o7h5s"]
+[ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="35_rakfb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6afx"]
+size = Vector2(228, 221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7qlb"]
+size = Vector2(194, 222)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tjqo"]
+size = Vector2(220, 245.5)
 
 [sub_resource type="Curve2D" id="Curve2D_g44wj"]
 bake_interval = 1.5
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 361, 317, 0, 0, 0, 0, 369, 233, 0, 0, 0, 0, 420, 165, 0, 0, 0, 0, 488, 122, 0, 0, 0, 0, 575, 92, 0, 0, 0, 0, 693, 136, 0, 0, 0, 0, 771, 227, 0, 0, 0, 0, 789.2811, 298.08374, 0, 0, 0, 0, 787.03796, 320.0794, 0, 0, 0, 0, 778, 374, 0, 0, 0, 0, 725, 484, 0, 0, 0, 0, 593, 537, 0, 0, 0, 0, 522.55615, 528.7024, 0, 0, 0, 0, 461, 513, 0, 0, 0, 0, 414, 462, 0, 0, 0, 0, 365, 402, 0, 0, 0, 0, 363, 369, 0, 0, 0, 0, 361, 317)
+"points": PackedVector2Array(0, 0, 0, 0, 361, 317, 0, 0, 0, 0, 369, 233, 0, 0, 0, 0, 420, 165, 0, 0, 0, 0, 488, 122, 0, 0, 0, 0, 575, 92, 0, 0, 0, 0, 693, 136, 0, 0, 0, 0, 771, 227, 0, 0, 0, 0, 789.2811, 298.08374, 0, 0, 0, 0, 787.03796, 320.0794, 0, 0, 0, 0, 778, 374, 0, 0, 0, 0, 725, 484, 0, 0, 0, 0, 593, 537, 0, 0, 0, 0, 522.55615, 528.7024, 0, 0, 0, 0, 461, 513, 0, 0, 0, 0, 397, 474, 0, 0, 0, 0, 365, 402, 0, 0, 0, 0, 363, 369, 0, 0, 0, 0, 361, 317)
 }
 point_count = 18
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trumy"]
+atlas = ExtResource("11_q55t8")
+region = Rect2(225, 225, 75, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1k038"]
 atlas = ExtResource("8_5q450")
@@ -44,7 +62,10 @@ region = Rect2(200, 200, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_myrju"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trumy")
+}],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
@@ -108,18 +129,40 @@ animations = [{
 
 [node name="RaceTrackLevel0" type="Node2D" unique_id=385830540]
 script = ExtResource("1_a5s84")
-racetrack_stats = ExtResource("2_545xa")
+racetrack_stats = ExtResource("2_trumy")
+racetrack_stats_pool = Array[ExtResource("3_8hwet")]([ExtResource("2_trumy"), ExtResource("4_5q450"), ExtResource("5_rakfb")])
 
 [node name="RaceTrack" type="Sprite2D" parent="." unique_id=1449761117]
 position = Vector2(579, 339.00003)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_8hwet")
 
-[node name="CharacterHandler" type="Node2D" parent="." unique_id=184725384 node_paths=PackedStringArray("exclusion_shapes")]
+[node name="CharacterSpawnHandler" type="Node2D" parent="." unique_id=1726782732]
+
+[node name="Spawn0" type="Area2D" parent="CharacterSpawnHandler" unique_id=1078835668]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterSpawnHandler/Spawn0" unique_id=1086392399]
+position = Vector2(145, 186.5)
+shape = SubResource("RectangleShape2D_g6afx")
+
+[node name="Spawn1" type="Area2D" parent="CharacterSpawnHandler" unique_id=92235414]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterSpawnHandler/Spawn1" unique_id=451082790]
+position = Vector2(1004, 406)
+shape = SubResource("RectangleShape2D_a7qlb")
+
+[node name="Spawn2" type="Area2D" parent="CharacterSpawnHandler" unique_id=548504700]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterSpawnHandler/Spawn2" unique_id=65903213]
+position = Vector2(135, 464.25)
+shape = SubResource("RectangleShape2D_4tjqo")
+
+[node name="CharacterHandler" type="Node2D" parent="." unique_id=184725384 node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("3_p771m")
-character_pool = Array[ExtResource("4_a5s84")]([ExtResource("5_545xa"), ExtResource("6_o7h5s"), ExtResource("7_1ylch")])
+character_pool = Array[ExtResource("4_a5s84")]([ExtResource("6_o7h5s"), ExtResource("5_545xa"), ExtResource("7_1ylch")])
 character_scene = ExtResource("9_1ylch")
-exclusion_shapes = [NodePath("../TrackArea/TrackShape")]
+character_scale = 1.75
+spawn_areas = [NodePath("../CharacterSpawnHandler/Spawn0"), NodePath("../CharacterSpawnHandler/Spawn1"), NodePath("../CharacterSpawnHandler/Spawn2")]
 
 [node name="TrackPath" type="Path2D" parent="." unique_id=434648878]
 curve = SubResource("Curve2D_g44wj")
@@ -138,6 +181,7 @@ scale = Vector2(2.5000005, 2.5000005)
 unique_name_in_owner = true
 position = Vector2(-44.08622, -19.909916)
 rotation = -0.09495175
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_myrju")
 
 [node name="FailPathHandler" type="Node2D" parent="." unique_id=1555592214]
@@ -148,11 +192,6 @@ y_sort_enabled = true
 position = Vector2(579.00006, 339)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("26_3m7it")
-
-[node name="TrackArea" type="Area2D" parent="." unique_id=1779988998]
-
-[node name="TrackShape" type="CollisionPolygon2D" parent="TrackArea" unique_id=1822652685]
-polygon = PackedVector2Array(495, 649, 614, 649, 739, 649, 849, 595, 1041, 376, 1150, 236, 1164, 22, 867, 4, 591, -3, 367, 63, 269, 182, 30, 346, 9, 647)
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=820429789]
 
@@ -176,7 +215,13 @@ offset_right = 66.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Start Countdown"
+theme = ExtResource("35_rakfb")
+theme_override_colors/font_color = Color(0.69411767, 0.13725491, 0.29803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameOverPanel" type="Panel" parent="GameUI" unique_id=272340959]
 visible = false
@@ -185,6 +230,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("35_rakfb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameUI/GameOverPanel" unique_id=1497832208]
 layout_mode = 1
@@ -216,3 +262,14 @@ horizontal_alignment = 1
 
 [node name="QteTimer" type="Timer" parent="." unique_id=189677425]
 one_shot = true
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1773355333]
+
+[node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=1833129065]
+visibility_layer = 16
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

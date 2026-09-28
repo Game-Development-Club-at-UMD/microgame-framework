@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgb3gvuc2uk32" path="res://racecar/qte.gd" id="1_jnbvj"]
 [ext_resource type="Shader" uid="uid://bnv0sstqygmnu" path="res://qte.gdshader" id="1_u0u4f"]
+[ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_wskil"]
 [ext_resource type="Texture2D" uid="uid://bwyhqs0kwkeya" path="res://racecar/assets/placeholders/keyboard_space_outline.png" id="3_qeceo"]
 [ext_resource type="Texture2D" uid="uid://c2t3wjw4exqx5" path="res://racecar/assets/placeholders/keyboard_space.png" id="4_pbci4"]
 
@@ -64,6 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_wskil")
 script = ExtResource("1_jnbvj")
 
 [node name="Circle" type="ColorRect" parent="." unique_id=822664396]
@@ -100,26 +102,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_qeceo")
 stretch_mode = 5
 
-[node name="KeyLabel" type="Label" parent="Circle" unique_id=1186958960]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -111.5
-offset_top = -34.5
-offset_right = 111.5
-offset_bottom = 34.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/outline_size = 20
-theme_override_font_sizes/font_size = 50
-text = "Q"
-horizontal_alignment = 1
-
 [node name="SuccessLabel" type="Label" parent="Circle" unique_id=2079521938]
 unique_name_in_owner = true
 visible = false
@@ -129,13 +111,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = 6.0
-offset_right = 121.0
-offset_bottom = 75.0
+offset_left = -145.0
+offset_top = 39.0
+offset_right = 166.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.43633232
+theme_override_colors/font_color = Color(0.69411767, 0.13725491, 0.29803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 50
 text = "SUCCESS"
@@ -149,13 +133,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -78.0
-offset_top = -14.0
-offset_right = 145.0
-offset_bottom = 55.0
+offset_left = -147.0
+offset_top = 38.0
+offset_right = 164.0
+offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.43633232
+theme_override_colors/font_color = Color(0.69411767, 0.13725491, 0.29803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 50
 text = "FAIL!!!"

@@ -15,11 +15,6 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [],
-"loop": 1,
-"name": &"destroyed_car",
-"speed": 5.0
 }]
 
 [node name="Racecar" type="AnimatedSprite2D" unique_id=1221665385]

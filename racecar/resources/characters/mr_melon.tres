@@ -61,7 +61,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"death",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -69,7 +69,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [resource]

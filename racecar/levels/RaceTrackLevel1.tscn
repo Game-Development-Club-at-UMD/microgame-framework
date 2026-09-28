@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cpv5mu1ce0uw5"]
 
 [ext_resource type="Script" uid="uid://o5ub56aveggr" path="res://racecar/levels/race_track_level.gd" id="1_hben6"]
-[ext_resource type="Resource" uid="uid://dcyob4nux784w" path="res://racecar/resources/levels/level_1/level1_stats.tres" id="2_hben6"]
-[ext_resource type="Texture2D" uid="uid://bdpmh8a5ry1ds" path="res://racecar/assets/pngs/racetrack_3.png" id="3_frvkm"]
+[ext_resource type="Resource" uid="uid://pm7i4kq7yafa" path="res://racecar/resources/levels/level_stats/3_checkpoints/racetrack_3checks.tres" id="2_svdhh"]
+[ext_resource type="Texture2D" uid="uid://cpcgpdtpfoeaa" path="res://racecar/assets/pngs/racetrack_2.png" id="3_hben6"]
+[ext_resource type="Script" uid="uid://b8vn6h8r3ams2" path="res://racecar/resources/racetrack_level_stats.gd" id="3_q7ywp"]
+[ext_resource type="Resource" uid="uid://2yf5jlcnrdfd" path="res://racecar/resources/levels/level_stats/2_checkpoints/racetrack_2cheks.tres" id="4_agtuq"]
 [ext_resource type="Script" uid="uid://c5npwbo7ponpe" path="res://racecar/levels/character_handler.gd" id="4_svdhh"]
+[ext_resource type="Resource" uid="uid://c2jttda1r1wbb" path="res://racecar/resources/levels/level_stats/4_checkpoints/racetrack_4checks.tres" id="5_2rs7f"]
 [ext_resource type="Script" uid="uid://bbwtag0a7oe6y" path="res://racecar/resources/characters/racetrack_character.gd" id="5_agtuq"]
 [ext_resource type="Resource" uid="uid://co0qhmnx4s8o0" path="res://racecar/resources/characters/pigster.tres" id="6_2rs7f"]
 [ext_resource type="Resource" uid="uid://bf0e2e4wxw4ga" path="res://racecar/resources/characters/mr_melon.tres" id="7_t2qrm"]
@@ -30,13 +33,29 @@
 [ext_resource type="Script" uid="uid://c7lf17nkhtwrd" path="res://racecar/levels/fail_path_handler.gd" id="28_hl1yu"]
 [ext_resource type="Texture2D" uid="uid://h8sv7afpf4op" path="res://racecar/assets/pngs/the_flag.png" id="29_b4072"]
 [ext_resource type="PackedScene" uid="uid://m8mif51xpyfj" path="res://racecar/qte.tscn" id="30_0yyy4"]
+[ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="34_agtuq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6afx"]
+size = Vector2(168, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7qlb"]
+size = Vector2(109, 110.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tjqo"]
+size = Vector2(156.3125, 110.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq44k"]
+size = Vector2(101, 81.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqmqn"]
+size = Vector2(134.75, 424.5)
 
 [sub_resource type="Curve2D" id="Curve2D_g44wj"]
 bake_interval = 1.5
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 194, 460, 0, 0, 0, 0, 191, 337, 0, 0, 0, 0, 213, 193, 0, 0, 0, 0, 296, 142, 0, 0, 0, 0, 379, 153, 0, 0, 0, 0, 453, 226, 0, 0, 0, 0, 476, 324, 0, 0, 0, 0, 534, 403, 0, 0, 0, 0, 656, 377, 0, 0, 0, 0, 708, 240, 0, 0, 0, 0, 772, 145, 0, 0, 0, 0, 865, 138, 0, 0, 0, 0, 945, 234, 0, 0, 0, 0, 947, 428, 0, 0, 0, 0, 884, 566, 0, 0, 0, 0, 723, 588, 0, 0, 0, 0, 599, 592, 0, 0, 0, 0, 428, 587, 0, 0, 0, 0, 274, 571, 0, 0, 0, 0, 223, 533, 0, 0, 0, 0, 194, 460)
+"points": PackedVector2Array(0, 0, 0, 0, 244, 314, 0, 0, 0, 0, 270, 222, -35.816, 14.52, 35.816, -14.52, 341, 169, -17.424002, -6.7760005, 17.424002, 6.7760005, 459, 156, -21.296001, -19.36, 21.296001, 19.36, 545, 195, 0, 0, 0, 0, 602, 310, -22.264002, -21.296001, 22.264002, 21.296001, 677, 427, -54.208004, -2.9040003, 54.208004, 2.9040003, 744, 471, -32.912003, 27.104002, 32.912003, -27.104002, 893, 401, 0, 0, 0, 0, 939, 343, 16.456001, 27.104002, -16.456001, -27.104002, 924, 260, 42.592003, 5.8080006, -42.592003, -5.8080006, 865, 184, 35.816, -7.7440004, -35.816, 7.7440004, 741, 173, 0, 0, 0, 0, 677, 209, 0, 0, 0, 0, 638, 239, 0, 0, 0, 0, 507, 422, 0, 0, 0, 0, 410, 462, 0, 0, 0, 0, 297, 443, 0, 0, 0, 0, 256, 391, 0, 0, 0, 0, 244, 314)
 }
-point_count = 21
+point_count = 20
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1k038"]
 atlas = ExtResource("27_dvqol")
@@ -108,56 +127,84 @@ animations = [{
 
 [node name="RaceTrackLevel1" type="Node2D" unique_id=385830540]
 script = ExtResource("1_hben6")
-racetrack_stats = ExtResource("2_hben6")
+racetrack_stats = ExtResource("4_agtuq")
+racetrack_stats_pool = Array[ExtResource("3_q7ywp")]([ExtResource("4_agtuq"), ExtResource("2_svdhh"), ExtResource("5_2rs7f")])
 
 [node name="RaceTrack" type="Sprite2D" parent="." unique_id=1449761117]
-position = Vector2(670, 353)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_frvkm")
+position = Vector2(692.00006, 339)
+scale = Vector2(2, 2)
+texture = ExtResource("3_hben6")
 
-[node name="CharacterHandler" type="Node2D" parent="." unique_id=184725384 node_paths=PackedStringArray("exclusion_shapes")]
+[node name="CharacterSpawnHandler" type="Node2D" parent="." unique_id=1726782732]
+
+[node name="Spawn0" type="Area2D" parent="CharacterSpawnHandler" unique_id=1078835668]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterSpawnHandler/Spawn0" unique_id=1086392399]
+position = Vector2(132, 95)
+shape = SubResource("RectangleShape2D_g6afx")
+
+[node name="Spawn1" type="Area2D" parent="CharacterSpawnHandler" unique_id=92235414]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterSpawnHandler/Spawn1" unique_id=451082790]
+position = Vector2(787, 321)
+shape = SubResource("RectangleShape2D_a7qlb")
+
+[node name="Spawn2" type="Area2D" parent="CharacterSpawnHandler" unique_id=641310064]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterSpawnHandler/Spawn2" unique_id=2076184989]
+position = Vector2(1041.8438, 76.5625)
+shape = SubResource("RectangleShape2D_4tjqo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterSpawnHandler/Spawn2" unique_id=1263746164]
+position = Vector2(606, 59)
+shape = SubResource("RectangleShape2D_wq44k")
+
+[node name="Spawn3" type="Area2D" parent="CharacterSpawnHandler" unique_id=1981776219]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterSpawnHandler/Spawn3" unique_id=1312576695]
+position = Vector2(94.625, 412.25)
+shape = SubResource("RectangleShape2D_eqmqn")
+
+[node name="CharacterHandler" type="Node2D" parent="." unique_id=184725384 node_paths=PackedStringArray("spawn_areas")]
 script = ExtResource("4_svdhh")
-character_pool = Array[ExtResource("5_agtuq")]([ExtResource("6_2rs7f"), ExtResource("7_t2qrm"), ExtResource("8_6blc1")])
+character_pool = Array[ExtResource("5_agtuq")]([ExtResource("7_t2qrm"), ExtResource("6_2rs7f"), ExtResource("8_6blc1")])
 character_scene = ExtResource("9_y1dud")
-exclusion_shapes = [NodePath("../TrackArea/TrackShape")]
+character_scale = 1.5
+spawn_areas = [NodePath("../CharacterSpawnHandler/Spawn0"), NodePath("../CharacterSpawnHandler/Spawn1"), NodePath("../CharacterSpawnHandler/Spawn2"), NodePath("../CharacterSpawnHandler/Spawn3")]
 
 [node name="TrackPath" type="Path2D" parent="." unique_id=434648878]
 curve = SubResource("Curve2D_g44wj")
 
 [node name="CarFollow" type="PathFollow2D" parent="TrackPath" unique_id=1650470666]
-position = Vector2(194, 460)
-rotation = -1.5951817
-
-[node name="Racecar" parent="TrackPath/CarFollow" unique_id=1221665385 instance=ExtResource("10_6mwew")]
-y_sort_enabled = true
-position = Vector2(-28.040462, 1.3166884)
-rotation = 1.5951817
-scale = Vector2(1.5, 1.5)
+position = Vector2(244, 314)
+rotation = -1.2953702
 
 [node name="Explosion" type="AnimatedSprite2D" parent="TrackPath/CarFollow" unique_id=757530992]
 unique_name_in_owner = true
 position = Vector2(-44.08622, -19.909916)
 rotation = -0.09495175
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_myrju")
+
+[node name="Racecar" parent="TrackPath/CarFollow" unique_id=1221665385 instance=ExtResource("10_6mwew")]
+y_sort_enabled = true
+position = Vector2(-42.06967, 12.928436)
+rotation = 1.2953702
+scale = Vector2(2, 2)
 
 [node name="FailPathHandler" type="Node2D" parent="." unique_id=1555592214]
 script = ExtResource("28_hl1yu")
 
 [node name="flag" type="Sprite2D" parent="." unique_id=1086204719]
 y_sort_enabled = true
-position = Vector2(322, 464)
-scale = Vector2(1.5, 1.5)
+position = Vector2(420, 320)
+scale = Vector2(2, 2)
 texture = ExtResource("29_b4072")
-
-[node name="TrackArea" type="Area2D" parent="." unique_id=1779988998]
-
-[node name="TrackShape" type="CollisionPolygon2D" parent="TrackArea" unique_id=1822652685]
-visible = false
-polygon = PackedVector2Array(495, 649, 614, 649, 739, 649, 849, 595, 1041, 376, 1150, 236, 1164, 22, 867, 4, 573, 251, 493, 141, 364, 40, 181, 58, 30, 346, 9, 647)
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=820429789]
 
 [node name="QTE" parent="GameUI" unique_id=170823615 instance=ExtResource("30_0yyy4")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -177,7 +224,13 @@ offset_right = 66.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("34_agtuq")
+theme_override_colors/font_color = Color(0.69411767, 0.13725491, 0.29803923, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
 text = "Start Countdown"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameOverPanel" type="Panel" parent="GameUI" unique_id=272340959]
 visible = false
@@ -186,6 +239,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("34_agtuq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameUI/GameOverPanel" unique_id=1497832208]
 layout_mode = 1
@@ -217,3 +271,14 @@ horizontal_alignment = 1
 
 [node name="QteTimer" type="Timer" parent="." unique_id=189677425]
 one_shot = true
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1592302349]
+
+[node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=256074797]
+visibility_layer = 16
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

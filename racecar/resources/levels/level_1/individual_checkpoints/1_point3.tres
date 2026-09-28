@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CheckpointData" format=3 uid="uid://d4lsly0rd8u8r"]
-
-[ext_resource type="Script" uid="uid://carddfynqxf1t" path="res://racecar/resources/checkpoint_data.gd" id="1_y2fc3"]
-
-[resource]
-script = ExtResource("1_y2fc3")
-success_ratio = 1.0
-qte_duration = 0.95
-metadata/_custom_type_script = "uid://carddfynqxf1t"

@@ -44,5 +44,4 @@ animations = [{
 }]
 
 [node name="RaceTrackCharacter" type="AnimatedSprite2D" unique_id=964158213]
-scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_a7qlb")
