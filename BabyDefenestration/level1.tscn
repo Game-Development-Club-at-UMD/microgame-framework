@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://2ymohn73wsu8"]
+
+[ext_resource type="Script" uid="uid://b0fkpi58fjlnh" path="res://BabyDefenestration/level_1.gd" id="1_xina5"]
+
+[node name="Level1" type="Node2D" unique_id=1174647030]
+script = ExtResource("1_xina5")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=918482056]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=1434235337]
+position = Vector2(50, 40)
+scale = Vector2(0.92260355, 0.88247705)
+build_mode = 1
+polygon = PackedVector2Array(-2, -4, 1155, -4, 1155, 648, -3, 648)
