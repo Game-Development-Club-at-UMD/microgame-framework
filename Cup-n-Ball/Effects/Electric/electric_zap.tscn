@@ -1,0 +1,289 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Cup-n-Ball/Effects/Electric/electric_zap.gd" id="1_script"]
+[ext_resource type="Shader" path="res://Cup-n-Ball/Effects/Electric/electric_arcs.gdshader" id="2_shader"]
+[ext_resource type="AudioStream" uid="uid://clev6oiup086n" path="res://Cup-n-Ball/Effects/Electric/electric_charge.mp3" id="3_sound"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_arcs"]
+resource_local_to_scene = true
+shader = ExtResource("2_shader")
+shader_parameter/intensity = 0.0
+shader_parameter/bolt_count = 6
+shader_parameter/flicker_rate = 18.0
+shader_parameter/inner_radius = 0.34
+shader_parameter/jitter = 0.35
+shader_parameter/thickness = 0.012
+shader_parameter/core_color = Color(0.92, 0.97, 1, 1)
+shader_parameter/glow_color = Color(0.3, 0.7, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_glow"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_charge"]
+gradient = SubResource("Gradient_glow")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_light"]
+gradient = SubResource("Gradient_glow")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_sparks"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.45, 0.85, 1, 1, 0.2, 0.5, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sparks"]
+gradient = SubResource("Gradient_sparks")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sparks"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 85.0
+emission_ring_inner_radius = 65.0
+gravity = Vector3(0, 0, 0)
+radial_velocity_min = -280.0
+radial_velocity_max = -180.0
+scale_min = 2.0
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_sparks")
+turbulence_enabled = true
+turbulence_noise_strength = 4.0
+turbulence_noise_scale = 1.5
+turbulence_influence_min = 0.15
+turbulence_influence_max = 0.3
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arcs:material:shader_parameter/intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Charge:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.55, 0.9, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Charge:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.3, 0.3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sparks:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ZapLight:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sound:pitch_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.4]
+}
+
+[sub_resource type="Animation" id="Animation_zap"]
+resource_name = "zap"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arcs:material:shader_parameter/intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.35, 0.45, 1.1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.2, 0.6, 1.2, 1.8, 2.4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Charge:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.55, 0.9, 1, 0), Color(0.85, 0.97, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Charge:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(1.3, 1.3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sparks:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ZapLight:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.3, 0.4, 0.6, 0.7, 0.9, 1.0, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.6, 0.4, 1.4, 0.5, 1.7, 0.7, 1.8, 1.0, 2.5]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.2],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sound:pitch_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1.8, 1),
+"update": 0,
+"values": [1.4, 2.6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_zap"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"zap": SubResource("Animation_zap")
+}
+
+[node name="ElectricZap" type="Node2D"]
+visible = false
+z_index = 5
+script = ExtResource("1_script")
+
+[node name="ZapLight" type="PointLight2D" parent="."]
+color = Color(0.4, 0.8, 1, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_light")
+
+[node name="Charge" type="Sprite2D" parent="."]
+modulate = Color(0.55, 0.9, 1, 0)
+scale = Vector2(0.3, 0.3)
+texture = SubResource("GradientTexture2D_charge")
+
+[node name="Arcs" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_arcs")
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
+mouse_filter = 2
+
+[node name="Sparks" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 80
+lifetime = 0.3
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_sparks")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sound")
+pitch_scale = 1.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_zap")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

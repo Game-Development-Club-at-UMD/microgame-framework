@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://x8h3fy0tu3sh"]
+
+[ext_resource type="PackedScene" path="res://Cup-n-Ball/Systems/CupSpawner/cup_spawner.tscn" id="1_spawner"]
+[ext_resource type="Script" path="res://Cup-n-Ball/main.gd" id="2_main"]
+
+[node name="Main" type="Node2D" unique_id=960642597]
+script = ExtResource("2_main")
+
+[node name="CupSpawner" parent="." unique_id=86958056 instance=ExtResource("1_spawner")]
+
+[connection signal="round_finished" from="CupSpawner" to="." method="_on_cup_spawner_round_finished"]

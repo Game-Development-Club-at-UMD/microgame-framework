@@ -1,0 +1,290 @@
+[gd_scene format=3 uid="uid://c7mtc57p3u362"]
+
+[ext_resource type="Script" uid="uid://dnix0y2yjducx" path="res://Cup-n-Ball/cup.gd" id="1_ponjl"]
+[ext_resource type="PackedScene" uid="uid://e410cds7rf8c" path="res://Cup-n-Ball/Ball.tscn" id="2_lik7q"]
+[ext_resource type="PackedScene" path="res://Cup-n-Ball/Systems/CupDetector/cup_detector.tscn" id="3_detector"]
+[ext_resource type="PackedScene" path="res://Cup-n-Ball/Effects/Electric/electric_zap.tscn" id="4_zap"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jv608"]
+radius = 4.25
+height = 30.500004
+
+[node name="Cup" type="CharacterBody2D" unique_id=1537894815]
+collision_mask = 4
+script = ExtResource("1_ponjl")
+
+[node name="Balllll" parent="." unique_id=1188542435 instance=ExtResource("2_lik7q")]
+position = Vector2(538, -108)
+collision_mask = 1
+mass = 2.0
+
+[node name="Segs1" type="RigidBody2D" parent="." unique_id=2096082284]
+position = Vector2(46, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Segs1" unique_id=520763737]
+position = Vector2(-15, -1)
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs1" unique_id=356161041]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs1" unique_id=47121526]
+position = Vector2(14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs2")
+
+[node name="Segs2" type="RigidBody2D" parent="." unique_id=890346943]
+position = Vector2(76, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs2" unique_id=640974991]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs2" unique_id=1230358999]
+position = Vector2(15, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs3")
+
+[node name="Segs3" type="RigidBody2D" parent="." unique_id=1902328774]
+position = Vector2(105, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs3" unique_id=385212098]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs3" unique_id=780155007]
+position = Vector2(14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs4")
+
+[node name="Segs4" type="RigidBody2D" parent="." unique_id=450648102]
+position = Vector2(135, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs4" unique_id=726731476]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs4" unique_id=2128891800]
+position = Vector2(15, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs5")
+
+[node name="Segs5" type="RigidBody2D" parent="." unique_id=413345611]
+position = Vector2(166, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs5" unique_id=1318809408]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs5" unique_id=1166994712]
+position = Vector2(14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs6")
+
+[node name="Segs6" type="RigidBody2D" parent="." unique_id=589201354]
+position = Vector2(196, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs6" unique_id=39215912]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs6" unique_id=573233768]
+position = Vector2(15, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs7")
+
+[node name="Segs7" type="RigidBody2D" parent="." unique_id=936357401]
+position = Vector2(226, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs7" unique_id=619310584]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs7" unique_id=409268083]
+position = Vector2(14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs8")
+
+[node name="Segs8" type="RigidBody2D" parent="." unique_id=1047805555]
+position = Vector2(255, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs8" unique_id=1758624415]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs8" unique_id=1936830582]
+position = Vector2(15, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs9")
+
+[node name="Segs9" type="RigidBody2D" parent="." unique_id=1068419759]
+position = Vector2(285, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs9" unique_id=655479951]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs9" unique_id=981660094]
+position = Vector2(14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs10")
+
+[node name="Segs10" type="RigidBody2D" parent="." unique_id=474005650]
+position = Vector2(314, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs10" unique_id=1548307194]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs10" unique_id=1529819731]
+position = Vector2(15, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs11")
+
+[node name="Segs11" type="RigidBody2D" parent="." unique_id=397377104]
+position = Vector2(343, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs11" unique_id=1398041873]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs11" unique_id=565439749]
+position = Vector2(14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs12")
+
+[node name="Segs12" type="RigidBody2D" parent="." unique_id=2002133643]
+position = Vector2(372, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs12" unique_id=1836211645]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs12" unique_id=2139494766]
+position = Vector2(17, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs13")
+
+[node name="Segs13" type="RigidBody2D" parent="." unique_id=1109218328]
+position = Vector2(402, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs13" unique_id=2114655439]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs13" unique_id=29093986]
+position = Vector2(16, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs14")
+
+[node name="Segs14" type="RigidBody2D" parent="." unique_id=1532948307]
+position = Vector2(433, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs14" unique_id=713192685]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs14" unique_id=640214508]
+position = Vector2(14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs15")
+
+[node name="Segs15" type="RigidBody2D" parent="." unique_id=1290429965]
+position = Vector2(463, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs15" unique_id=374591792]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs15" unique_id=1162849831]
+position = Vector2(15, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs16")
+
+[node name="Segs16" type="RigidBody2D" parent="." unique_id=66041574]
+position = Vector2(493, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs16" unique_id=1588779694]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs16" unique_id=1664952183]
+position = Vector2(14, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Segs17")
+
+[node name="Segs17" type="RigidBody2D" parent="." unique_id=790504934]
+position = Vector2(523, -108)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Segs17" unique_id=1597826621]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jv608")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Segs17" unique_id=1605879646]
+position = Vector2(15, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Balllll")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1542064857]
+position = Vector2(-94.75, -218.5)
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(0, 0, 50, 150, 125, 150, 125, 550, 250, 550, 250, 150, 325, 150, 375, 0, 300, 0, 250, 100, 125, 100, 75, 0, 0, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=67679826]
+top_level = true
+default_color = Color(0.5551, 0.7798701, 0.91, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CupVisual" type="Polygon2D" parent="." unique_id=634917670]
+position = Vector2(-94.75, -218.5)
+scale = Vector2(0.5, 0.5)
+color = Color(0.85, 0.55, 0.28, 1)
+polygon = PackedVector2Array(0, 0, 50, 150, 125, 150, 125, 550, 250, 550, 250, 150, 325, 150, 375, 0, 300, 0, 250, 100, 125, 100, 75, 0)
+
+[node name="CupDetector" parent="." unique_id=1922725624 instance=ExtResource("3_detector")]
+position = Vector2(-1, -180)
+
+[node name="ElectricZap" parent="." unique_id=308502296 instance=ExtResource("4_zap")]
+position = Vector2(-1, -198.5)
+
+[connection signal="ball_caught" from="CupDetector" to="Balllll" method="on_caught"]
+[connection signal="ball_caught" from="CupDetector" to="ElectricZap" method="zap"]
+[connection signal="finished" from="ElectricZap" to="Balllll" method="burst_confetti"]

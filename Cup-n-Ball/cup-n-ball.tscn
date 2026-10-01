@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bppro3hycwcb6"]
+
+[ext_resource type="PackedScene" uid="uid://c7mtc57p3u362" path="res://Cup-n-Ball/cup.tscn" id="1_0lo8b"]
+
+[node name="CupNBall" type="Node2D" unique_id=960642597]
+
+[node name="Cup" parent="." unique_id=1537894815 instance=ExtResource("1_0lo8b")]

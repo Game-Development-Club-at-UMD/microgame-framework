@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://dllobsqoifpjq"]
+
+[ext_resource type="Script" uid="uid://q0t56fo6fpih" path="res://Cup-n-Ball/Effects/Confetti/confetti_burst.gd" id="1_script"]
+[ext_resource type="AudioStream" uid="uid://n4btqlxynvyo" path="res://Cup-n-Ball/Effects/Confetti/confetti_burst.mp3" id="2_sound"]
+
+[sub_resource type="Gradient" id="Gradient_pop"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.95, 0.6, 0.8, 1, 0.85, 0.4, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pop"]
+gradient = SubResource("Gradient_pop")
+width = 160
+height = 160
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_solid"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_square"]
+gradient = SubResource("Gradient_solid")
+width = 8
+height = 8
+
+[sub_resource type="Gradient" id="Gradient_palette"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.17, 0.34, 0.5, 0.67, 0.84)
+colors = PackedColorArray(1, 0.3, 0.45, 1, 1, 0.85, 0.2, 1, 0.25, 0.85, 1, 1, 0.35, 0.95, 0.45, 1, 0.7, 0.4, 1, 1, 1, 0.6, 0.2, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_palette"]
+gradient = SubResource("Gradient_palette")
+
+[sub_resource type="Gradient" id="Gradient_fade"]
+offsets = PackedFloat32Array(0, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fade"]
+gradient = SubResource("Gradient_fade")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_squares"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 80.0
+initial_velocity_min = 350.0
+initial_velocity_max = 700.0
+angular_velocity_min = -540.0
+angular_velocity_max = 540.0
+gravity = Vector3(0, 320, 0)
+damping_min = 180.0
+damping_max = 260.0
+scale_min = 0.8
+scale_max = 1.4
+color_ramp = SubResource("GradientTexture1D_fade")
+color_initial_ramp = SubResource("GradientTexture1D_palette")
+turbulence_enabled = true
+turbulence_noise_strength = 3.0
+turbulence_noise_scale = 4.0
+turbulence_influence_min = 0.05
+turbulence_influence_max = 0.15
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_strip"]
+gradient = SubResource("Gradient_solid")
+width = 4
+height = 16
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_strips"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_min = 400.0
+initial_velocity_max = 800.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 280, 0)
+damping_min = 220.0
+damping_max = 300.0
+scale_min = 0.8
+scale_max = 1.2
+color_ramp = SubResource("GradientTexture1D_fade")
+color_initial_ramp = SubResource("GradientTexture1D_palette")
+turbulence_enabled = true
+turbulence_noise_strength = 4.0
+turbulence_noise_scale = 3.0
+turbulence_influence_max = 0.2
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pop:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pop:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_burst"]
+resource_name = "burst"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pop:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pop:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(1.6, 1.6)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Squares")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Strips")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_confetti"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"burst": SubResource("Animation_burst")
+}
+
+[node name="ConfettiBurst" type="Node2D" unique_id=2068292109]
+visible = false
+top_level = true
+z_index = 10
+script = ExtResource("1_script")
+
+[node name="Pop" type="Sprite2D" parent="." unique_id=452698627]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.2, 0.2)
+texture = SubResource("GradientTexture2D_pop")
+
+[node name="Squares" type="GPUParticles2D" parent="." unique_id=398021556]
+emitting = false
+amount = 70
+texture = SubResource("GradientTexture2D_square")
+lifetime = 2.4
+one_shot = true
+explosiveness = 0.95
+visibility_rect = Rect2(-800, -800, 1600, 1600)
+process_material = SubResource("ParticleProcessMaterial_squares")
+
+[node name="Strips" type="GPUParticles2D" parent="." unique_id=904901477]
+emitting = false
+amount = 40
+texture = SubResource("GradientTexture2D_strip")
+lifetime = 2.4
+one_shot = true
+explosiveness = 0.9
+visibility_rect = Rect2(-800, -800, 1600, 1600)
+process_material = SubResource("ParticleProcessMaterial_strips")
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1984204278]
+stream = ExtResource("2_sound")
+volume_db = 24.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1860338332]
+libraries/ = SubResource("AnimationLibrary_confetti")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

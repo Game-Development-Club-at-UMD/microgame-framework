@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://e410cds7rf8c"]
+
+[ext_resource type="Script" path="res://Cup-n-Ball/ball.gd" id="1_ball"]
+[ext_resource type="PackedScene" path="res://Cup-n-Ball/Systems/FuseTimer/fuse_timer.tscn" id="2_fuse"]
+[ext_resource type="PackedScene" path="res://Cup-n-Ball/Effects/Explosion/explosion.tscn" id="3_explosion"]
+[ext_resource type="PackedScene" path="res://Cup-n-Ball/Effects/Confetti/confetti_burst.tscn" id="4_confetti"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jv608"]
+radius = 30.0
+
+[sub_resource type="Gradient" id="Gradient_body"]
+offsets = PackedFloat32Array(0, 0.85, 0.95, 1)
+colors = PackedColorArray(0.34, 0.36, 0.42, 1, 0.17, 0.18, 0.21, 1, 0.09, 0.09, 0.11, 1, 0.09, 0.09, 0.11, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_body"]
+gradient = SubResource("Gradient_body")
+width = 60
+height = 60
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_shine"]
+colors = PackedColorArray(1, 1, 1, 0.6, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_shine"]
+gradient = SubResource("Gradient_shine")
+width = 20
+height = 20
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Balllll" type="RigidBody2D" unique_id=1188542435 groups=["cup_n_ball_ball"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_ball")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461875033]
+shape = SubResource("CircleShape2D_jv608")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Visual"]
+texture = SubResource("GradientTexture2D_body")
+
+[node name="Shine" type="Sprite2D" parent="Visual"]
+position = Vector2(-10, -10)
+texture = SubResource("GradientTexture2D_shine")
+
+[node name="FuseTimer" parent="." instance=ExtResource("2_fuse")]
+
+[node name="Explosion" parent="." instance=ExtResource("3_explosion")]
+
+[node name="ConfettiBurst" parent="." instance=ExtResource("4_confetti")]
+
+[connection signal="expired" from="FuseTimer" to="." method="explode"]
+[connection signal="finished" from="Explosion" to="." method="_on_explosion_finished"]
+[connection signal="finished" from="ConfettiBurst" to="." method="_on_confetti_burst_finished"]

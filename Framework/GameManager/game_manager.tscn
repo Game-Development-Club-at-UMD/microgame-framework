@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b6fltbuf2l535" path="res://racecar/racetrack_main.tscn" id="10_0wtv5"]
 [ext_resource type="PackedScene" uid="uid://cq7ugjow8p6k0" path="res://Kevin/quiver-game.tscn" id="11_45x5f"]
 [ext_resource type="PackedScene" uid="uid://b52fyeiuym7g8" path="res://GhostGame/RoomManager/RoomManager.tscn" id="12_7ky6k"]
+[ext_resource type="PackedScene" uid="uid://x8h3fy0tu3sh" path="res://Cup-n-Ball/main.tscn" id="13_efnes"]
 
 [sub_resource type="Resource" id="Resource_yf5fn"]
 script = ExtResource("3_bl30x")
@@ -63,7 +64,7 @@ canvas_item_tween = SubResource("Resource_g4v7s")
 [node name="MicrogameQueue" type="Node" parent="." unique_id=1538349654]
 unique_name_in_owner = true
 script = ExtResource("4_fvqjh")
-microgames = Array[PackedScene]([ExtResource("5_ipxgv"), ExtResource("6_efnes"), ExtResource("7_3f7dy"), ExtResource("8_o7nxi"), ExtResource("9_161st"), ExtResource("10_0wtv5"), ExtResource("11_45x5f"), ExtResource("12_7ky6k")])
+microgames = Array[PackedScene]([ExtResource("5_ipxgv"), ExtResource("6_efnes"), ExtResource("7_3f7dy"), ExtResource("8_o7nxi"), ExtResource("9_161st"), ExtResource("10_0wtv5"), ExtResource("11_45x5f"), ExtResource("12_7ky6k"), ExtResource("13_efnes")])
 
 [node name="DifficultyManager" type="Node" parent="." unique_id=1315344751]
 unique_name_in_owner = true

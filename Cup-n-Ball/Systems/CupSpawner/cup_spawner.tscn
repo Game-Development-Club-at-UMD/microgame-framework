@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Cup-n-Ball/Systems/CupSpawner/cup_spawner.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://c7mtc57p3u362" path="res://Cup-n-Ball/cup.tscn" id="2_cup"]
+
+[node name="CupSpawner" type="Node2D"]
+script = ExtResource("1_script")
+cup_scene = ExtResource("2_cup")
