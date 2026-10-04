@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bg5ocjqxl5k2u"]
+
+[ext_resource type="Script" uid="uid://c4nlfn5c8af5j" path="res://PigsterDance/scenes/dance_qte/dance_key_handler.gd" id="1_06aqm"]
+
+[node name="KeyHandler" type="Node2D" unique_id=1623086216]
+script = ExtResource("1_06aqm")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=635275381]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

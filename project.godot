@@ -27,6 +27,10 @@ window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[dotnet]
+
+project/assembly_name="Microgame Framework"
+
 [file_customization]
 
 folder_colors={

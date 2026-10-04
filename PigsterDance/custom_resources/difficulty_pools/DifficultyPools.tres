@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DanceDifficultyPools" format=3 uid="uid://blcwuxrgu7vwp"]
+
+[ext_resource type="Script" uid="uid://1mravwtv8td" path="res://PigsterDance/custom_resources/level_stats/dance_level_stats.gd" id="1_olryl"]
+[ext_resource type="Resource" uid="uid://dl7csum5lt86t" path="res://PigsterDance/custom_resources/level_stats/easy_levels/EASY_0.tres" id="2_udsad"]
+[ext_resource type="Script" uid="uid://svs4166o100n" path="res://PigsterDance/custom_resources/difficulty_pools/dance_level_pools.gd" id="4_nerxr"]
+[ext_resource type="Resource" uid="uid://bspn0ldx5ophw" path="res://PigsterDance/custom_resources/level_stats/hard_levels/HARD_0.tres" id="4_yyh6p"]
+[ext_resource type="Resource" uid="uid://cce3ko5m8ar8t" path="res://PigsterDance/custom_resources/level_stats/medium_levels/MEDIUM_0.tres" id="5_nerxr"]
+
+[resource]
+script = ExtResource("4_nerxr")
+easy_pool = Array[ExtResource("1_olryl")]([ExtResource("2_udsad")])
+medium_pool = Array[ExtResource("1_olryl")]([ExtResource("5_nerxr")])
+hard_pool = Array[ExtResource("1_olryl")]([ExtResource("4_yyh6p")])
+metadata/_custom_type_script = "uid://svs4166o100n"

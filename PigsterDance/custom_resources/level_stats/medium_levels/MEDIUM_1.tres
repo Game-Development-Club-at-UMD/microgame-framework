@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DanceLevelStats" format=3 uid="uid://5d8wyc7n6vqh"]
+
+[ext_resource type="PackedScene" uid="uid://cgm8nshwkqev3" path="res://PigsterDance/scenes/dance_qte/keyboard_key/QteKey.tscn" id="1_fm02r"]
+[ext_resource type="Script" uid="uid://1mravwtv8td" path="res://PigsterDance/custom_resources/level_stats/dance_level_stats.gd" id="2_g5uja"]
+
+[resource]
+script = ExtResource("2_g5uja")
+metadata/_custom_type_script = "uid://1mravwtv8td"

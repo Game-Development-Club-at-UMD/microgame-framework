@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DanceLevelStats" format=3 uid="uid://cce3ko5m8ar8t"]
+
+[ext_resource type="PackedScene" uid="uid://cgm8nshwkqev3" path="res://PigsterDance/scenes/dance_qte/keyboard_key/QteKey.tscn" id="1_twlfw"]
+[ext_resource type="Script" uid="uid://1mravwtv8td" path="res://PigsterDance/custom_resources/level_stats/dance_level_stats.gd" id="2_04teq"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_twlfw"]
+device = -1
+keycode = 90
+unicode = 122
+
+[sub_resource type="InputEventKey" id="InputEventKey_04teq"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="InputEventKey" id="InputEventKey_1h3au"]
+device = -1
+keycode = 67
+unicode = 99
+
+[resource]
+script = ExtResource("2_04teq")
+key_pool = Array[InputEvent]([SubResource("InputEventKey_twlfw"), SubResource("InputEventKey_04teq"), SubResource("InputEventKey_1h3au")])
+metadata/_custom_type_script = "uid://1mravwtv8td"
