@@ -19,6 +19,7 @@ func play_anim() -> void:
 		return
 	
 	if do_zoom_anims:
+		print("works")
 		control_tween_sequencer.do_tween_sequence()
 	
 	sprite_frame_animator.play("default")
