@@ -49,6 +49,7 @@ folder_colors={
 "res://Framework/GameManager/": "yellow",
 "res://Framework/MainMenu/": "green",
 "res://Framework/Microgame/": "blue",
+"res://Framework/chatter/": "orange",
 "res://Shiver/": "teal",
 "res://Shiver/RileySFX/": "purple",
 "res://Shiver/RileySprites/": "red",
