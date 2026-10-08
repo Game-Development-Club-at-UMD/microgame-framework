@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://x8h3fy0tu3sh"]
 
 [ext_resource type="PackedScene" path="res://Cup-n-Ball/Systems/CupSpawner/cup_spawner.tscn" id="1_spawner"]
-[ext_resource type="Script" path="res://Cup-n-Ball/main.gd" id="2_main"]
+[ext_resource type="Script" uid="uid://csu0q72pfv6c5" path="res://Cup-n-Ball/main.gd" id="2_main"]
+[ext_resource type="Texture2D" uid="uid://bodhuqiihttuq" path="res://Cup-n-Ball/52d4580369bedd544bb245a4.jpg" id="3_74qco"]
 
 [node name="Main" type="Node2D" unique_id=960642597]
 script = ExtResource("2_main")
 
 [node name="CupSpawner" parent="." unique_id=86958056 instance=ExtResource("1_spawner")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1170026342]
+z_index = -10
+position = Vector2(575.99994, 324.00003)
+scale = Vector2(1.125, 1.265625)
+texture = ExtResource("3_74qco")
 
 [connection signal="round_finished" from="CupSpawner" to="." method="_on_cup_spawner_round_finished"]

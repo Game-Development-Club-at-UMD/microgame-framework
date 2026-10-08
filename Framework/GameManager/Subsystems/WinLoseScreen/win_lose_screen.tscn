@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d1vn1rupqcnir" path="res://Framework/Assets/ImportedIcons/Misc/hearts.png" id="5_agcvd"]
 [ext_resource type="Texture2D" uid="uid://b4dhg1hc1ty0v" path="res://Framework/Assets/ImportedIcons/Misc/trophy.png" id="6_7cx1w"]
 [ext_resource type="Texture2D" uid="uid://s3wfdvwhvujw" path="res://Framework/Assets/ImportedIcons/Guys/demon-02.png" id="7_m50n3"]
+[ext_resource type="PackedScene" uid="uid://dcu3mtx14hp28" path="res://Framework/chatter/chatter.tscn" id="12_h1r4f"]
 
 [sub_resource type="Resource" id="Resource_ao8ti"]
 script = ExtResource("3_6lfv7")
@@ -22,7 +23,7 @@ script = ExtResource("3_6lfv7")
 end_modulate = Color(1, 1, 1, 0)
 metadata/_custom_type_script = "uid://dby7depabb4fv"
 
-[node name="WinLoseScreen" type="Control" unique_id=213006064]
+[node name="WinLoseScreen" type="Control" unique_id=213006064 node_paths=PackedStringArray("chatter_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +33,9 @@ grow_vertical = 2
 script = ExtResource("1_qhakw")
 win_anims_pool = Array[PackedScene]([ExtResource("3_462mn"), ExtResource("2_m50n3")])
 lose_anims_pool = Array[PackedScene]([ExtResource("4_guto8"), ExtResource("3_guto8")])
+chatter_label = NodePath("CanvasLayer/ChatterLabel")
+win_voicelines = "res://Framework/Assets/dialogue/win-monologue.txt"
+lose_voicelines = "res://Framework/Assets/dialogue/loss-monologue.txt"
 metadata/_edit_use_anchors_ = true
 
 [node name="BigAssBlackRectangle" type="ColorRect" parent="." unique_id=1290646453]
@@ -97,6 +101,21 @@ display_text = "Difficulty: "
 [node name="Icon" parent="HBoxContainer/DifficultyStatDisplay" index="1" unique_id=1080392551]
 texture = ExtResource("7_m50n3")
 
+[node name="CanvasLayer" parent="." unique_id=1131578579 instance=ExtResource("12_h1r4f")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8271605
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="ChatterLabel" parent="CanvasLayer" index="0" unique_id=326574450]
+visible = false
+play_once = true
+
 [editable path="HBoxContainer/LivesStatDisplay"]
 [editable path="HBoxContainer/WinsStatDisplay"]
 [editable path="HBoxContainer/DifficultyStatDisplay"]
+[editable path="CanvasLayer"]

@@ -89,7 +89,7 @@ transform_tween = SubResource("Resource_whplm")
 canvas_item_tween = SubResource("Resource_dmxdl")
 trans_type = 10
 ease_type = 2
-tween_duration = 0.5
+tween_duration = 0.25
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="FadeOutCounter" type="Node" parent="Counter" unique_id=931554837 node_paths=PackedStringArray("affected_node")]
@@ -100,7 +100,7 @@ transform_tween = SubResource("Resource_yf5fn")
 canvas_item_tween = SubResource("Resource_g4v7s")
 trans_type = 10
 ease_type = 2
-tween_duration = 0.5
+tween_duration = 0.25
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="BumpUp" type="Node" parent="Counter" unique_id=1973229116 node_paths=PackedStringArray("affected_node")]
@@ -109,7 +109,7 @@ script = ExtResource("4_xfeyx")
 affected_node = NodePath("..")
 offset_transform_tween = SubResource("Resource_j5pqe")
 trans_type = 10
-tween_duration = 0.5
+tween_duration = 0.25
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="BumpDown" type="Node" parent="Counter" unique_id=386291507 node_paths=PackedStringArray("affected_node")]
@@ -118,7 +118,7 @@ script = ExtResource("4_xfeyx")
 affected_node = NodePath("..")
 offset_transform_tween = SubResource("Resource_4pqvp")
 trans_type = 10
-tween_duration = 0.5
+tween_duration = 0.25
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="ResetPositionOffset" type="Node" parent="Counter" unique_id=2110004196 node_paths=PackedStringArray("affected_node")]
@@ -128,7 +128,7 @@ affected_node = NodePath("..")
 offset_transform_tween = SubResource("Resource_3gngh")
 trans_type = 10
 ease_type = 1
-tween_duration = 0.5
+tween_duration = 0.25
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1080392551]
@@ -157,7 +157,7 @@ transform_tween = SubResource("Resource_whplm")
 canvas_item_tween = SubResource("Resource_dmxdl")
 trans_type = 10
 ease_type = 2
-tween_duration = 0.5
+tween_duration = 0.25
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [node name="FadeOutIcon" type="Node" parent="Icon" unique_id=1191701553 node_paths=PackedStringArray("affected_node")]
@@ -168,5 +168,5 @@ transform_tween = SubResource("Resource_yf5fn")
 canvas_item_tween = SubResource("Resource_g4v7s")
 trans_type = 10
 ease_type = 2
-tween_duration = 0.5
+tween_duration = 0.25
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"

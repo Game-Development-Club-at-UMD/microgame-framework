@@ -1,17 +1,201 @@
 [gd_scene format=3 uid="uid://j5l7c1huhq0m"]
 
-[ext_resource type="Texture2D" uid="uid://ii8kne4bxjre" path="res://PigsterDance/assets/pngs/pigster_death.png" id="1_kus5t"]
+[ext_resource type="Texture2D" uid="uid://d1i7w8iyuxhp4" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0000.png" id="1_6r4sv"]
+[ext_resource type="Texture2D" uid="uid://bkqfi3b0skr6u" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0010.png" id="2_py6un"]
+[ext_resource type="Texture2D" uid="uid://c3da81fvcvqjp" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0001.png" id="2_twdbp"]
+[ext_resource type="Texture2D" uid="uid://cd51q1y1wtsv5" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0011.png" id="3_docs3"]
+[ext_resource type="Texture2D" uid="uid://ckiuoaq4c5r64" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0002.png" id="3_no1ex"]
+[ext_resource type="Texture2D" uid="uid://b7mf1rb1puuid" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0003.png" id="4_av2s6"]
+[ext_resource type="Texture2D" uid="uid://bl0adw0h5esyn" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0012.png" id="4_jmvt3"]
+[ext_resource type="Texture2D" uid="uid://t41j3rjwwtji" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0004.png" id="5_gi1m0"]
+[ext_resource type="Texture2D" uid="uid://ccyohr1qfqtco" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0013.png" id="5_llhvj"]
+[ext_resource type="Texture2D" uid="uid://0fd4ul8eve5s" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0005.png" id="6_5fg74"]
+[ext_resource type="Texture2D" uid="uid://c6ud0tgemwv3i" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0014.png" id="6_sabv1"]
+[ext_resource type="Texture2D" uid="uid://dqpxl824cdqlo" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0019.png" id="7_71ina"]
+[ext_resource type="Texture2D" uid="uid://dxfy4vhutsv2f" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0006.png" id="7_uacpv"]
+[ext_resource type="Texture2D" uid="uid://cjqvncec8bwxj" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0009.png" id="8_k65p6"]
+[ext_resource type="Texture2D" uid="uid://do0osumnefywe" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0020.png" id="8_p5gsd"]
+[ext_resource type="Texture2D" uid="uid://bm5iltsx8wyym" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0021.png" id="9_3wxnf"]
+[ext_resource type="Texture2D" uid="uid://d0gkeuxn6k8lr" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0022.png" id="10_gdnc3"]
+[ext_resource type="Texture2D" uid="uid://belhum0hu3iqs" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0027.png" id="11_q4hhl"]
+[ext_resource type="Texture2D" uid="uid://jise5v0ybh0q" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0028.png" id="12_ujnoy"]
+[ext_resource type="Texture2D" uid="uid://bb1nbpjxly8aq" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0029.png" id="13_eg6f5"]
+[ext_resource type="Texture2D" uid="uid://cvjm6e26ssrpt" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0030.png" id="14_q2jqr"]
+[ext_resource type="Texture2D" uid="uid://crff0liojdsxq" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0034.png" id="15_ga2xp"]
+[ext_resource type="Texture2D" uid="uid://c33g434gifrnf" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0035.png" id="16_d2mbj"]
+[ext_resource type="Texture2D" uid="uid://w55fst3p4q8s" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0036.png" id="17_dtgu5"]
+[ext_resource type="Texture2D" uid="uid://bsu8meacv242q" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0044.png" id="17_p5gsd"]
+[ext_resource type="Texture2D" uid="uid://c1wrp5jtrp1nw" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0045.png" id="18_3wxnf"]
+[ext_resource type="Texture2D" uid="uid://fo0h8222do7x" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0046.png" id="19_gdnc3"]
+[ext_resource type="Texture2D" uid="uid://c8e8qxe1vmt5" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0047.png" id="20_q4hhl"]
+[ext_resource type="Texture2D" uid="uid://c6edojbko76i1" path="res://PigsterDance/assets/pngs/piggy_dance/dancing_animations/frame0048.png" id="21_ujnoy"]
+[ext_resource type="Script" uid="uid://dieoclwd3tuc8" path="res://PigsterDance/scenes/characters/pigster.gd" id="25_docs3"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g6afx"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtptg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_py6un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_docs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jmvt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_llhvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sabv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_llhvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jmvt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_docs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_py6un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_71ina")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p5gsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3wxnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gdnc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3wxnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p5gsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_71ina")
+}],
+"loop": 1,
+"name": &"dance_1",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_q4hhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ujnoy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eg6f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_q2jqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eg6f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ujnoy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q4hhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ga2xp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d2mbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_dtgu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d2mbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ga2xp")
+}],
+"loop": 1,
+"name": &"dance_2",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_p5gsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3wxnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gdnc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_q4hhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ujnoy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_q4hhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gdnc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_3wxnf")
+}],
+"loop": 1,
+"name": &"dance_3",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("1_6r4sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_twdbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_no1ex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_av2s6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gi1m0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5fg74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uacpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5fg74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gi1m0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k65p6")
+}],
+"loop": 0,
+"name": &"wake_up",
+"speed": 8.0
+}]
 
-[node name="Pigster" type="Sprite2D" unique_id=1871502015]
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("1_kus5t")
-hframes = 4
-vframes = 4
+[node name="Pigster" type="AnimatedSprite2D" unique_id=1990773661]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_wtptg")
+animation = &"wake_up"
+script = ExtResource("25_docs3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1647142583]
-
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1571833176]
-tree_root = SubResource("AnimationNodeStateMachine_g6afx")
-anim_player = NodePath("../AnimationPlayer")

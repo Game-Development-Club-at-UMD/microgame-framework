@@ -1,0 +1,483 @@
+[gd_scene format=3 uid="uid://chcbx7cftx5bq"]
+
+[ext_resource type="Script" uid="uid://cg5cu61hrwijy" path="res://Shiver/shiver_game.gd" id="1_53x1e"]
+[ext_resource type="PackedScene" uid="uid://dbhpr6ol82bke" path="res://Shiver/objects/player.tscn" id="2_62ety"]
+[ext_resource type="PackedScene" uid="uid://cm2tx63caambk" path="res://Shiver/objects/campfire_pushable.tscn" id="3_khf7r"]
+[ext_resource type="Script" uid="uid://bbt8req20h62y" path="res://Shiver/TerrainHandler.gd" id="3_lwllx"]
+[ext_resource type="Shader" uid="uid://x5b7wbe8ayvq" path="res://Shiver/terrain_shader2.gdshader" id="4_khf7r"]
+[ext_resource type="Texture2D" uid="uid://7xkqxgly7db3" path="res://Shiver/models/snowier_snow.png" id="6_isfns"]
+[ext_resource type="Script" uid="uid://cd3tja77a30pu" path="res://Shiver/log_placer.gd" id="7_cu5sd"]
+[ext_resource type="Script" uid="uid://uch3xrkex261" path="res://Shiver/tree_placer.gd" id="7_ripbv"]
+[ext_resource type="Texture2D" uid="uid://brp5hwitquv0" path="res://Shiver/RileySprites/Thermometer.png" id="8_mxnk5"]
+[ext_resource type="Texture2D" uid="uid://b7tmomj563ed0" path="res://Shiver/RileySprites/ThermometerMercury.png" id="9_qe8s3"]
+[ext_resource type="Script" uid="uid://bqy3iqx4qurc3" path="res://Shiver/objects/thermometer.gd" id="10_isfns"]
+[ext_resource type="AudioStream" uid="uid://djwyeq1x0ethe" path="res://Shiver/RileySFX/SFX_wind.mp3" id="11_qe8s3"]
+[ext_resource type="Theme" uid="uid://clkk5pk1s6dhi" path="res://Shiver/shiver_theme.tres" id="12_pau8c"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_incux"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+render_priority = 0
+shader = ExtResource("4_khf7r")
+shader_parameter/height_mult = 0.0
+shader_parameter/albedo_texture = ExtResource("6_isfns")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cu5sd"]
+material = SubResource("ShaderMaterial_0xm2m")
+size = Vector2(512, 512)
+subdivide_width = 512
+subdivide_depth = 512
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bk7jt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pt1fr"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.16589999, 0.18280499, 0.21, 1)
+ground_bottom_color = Color(0.16470589, 0.18431373, 0.21176471, 1)
+ground_horizon_color = Color(0.16470589, 0.18431373, 0.21176471, 1)
+
+[sub_resource type="Sky" id="Sky_ocnln"]
+sky_material = SubResource("ProceduralSkyMaterial_pt1fr")
+
+[sub_resource type="Environment" id="Environment_bk7jt"]
+background_mode = 2
+sky = SubResource("Sky_ocnln")
+
+[sub_resource type="Animation" id="Animation_qe8s3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [75]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../WinTimer/TimerLabel:theme_override_font_sizes/font_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [126]
+}
+
+[sub_resource type="Animation" id="Animation_pau8c"]
+resource_name = "TimerJuice"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WinTimer/TimerLabel:theme_override_font_sizes/font_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.23333335, 0.33333334, 0.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [126, 168, 100, 138, 126]
+}
+
+[sub_resource type="Animation" id="Animation_isfns"]
+resource_name = "player_won"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.6666667, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pau8c"]
+_data = {
+&"RESET": SubResource("Animation_qe8s3"),
+&"TimerJuice": SubResource("Animation_pau8c"),
+&"player_won": SubResource("Animation_isfns")
+}
+
+[sub_resource type="Animation" id="Animation_0yvrq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Movement:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ju56x"]
+resource_name = "switch_instructions"
+length = 1.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Movement:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0yvrq"]
+_data = {
+&"RESET": SubResource("Animation_0yvrq"),
+&"switch_instructions": SubResource("Animation_ju56x")
+}
+
+[sub_resource type="Animation" id="Animation_sch1x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Instructions/CenterContainer/Objective:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Instructions:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Instructions/MarginContainer/Movement:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kvykj"]
+resource_name = "lose"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Instructions/CenterContainer/Objective:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Instructions:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Instructions/MarginContainer/Movement:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sb6ad"]
+resource_name = "win"
+length = 8.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Instructions/CenterContainer/Objective:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Instructions:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Instructions/MarginContainer/Movement:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb6ad"]
+_data = {
+&"RESET": SubResource("Animation_sch1x"),
+&"lose": SubResource("Animation_kvykj"),
+&"win": SubResource("Animation_sb6ad")
+}
+
+[node name="ShiverGame" type="Node3D" unique_id=2146958291]
+script = ExtResource("1_53x1e")
+
+[node name="Player" parent="." unique_id=1794247419 node_paths=PackedStringArray("campfire") instance=ExtResource("2_62ety")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+collision_layer = 2
+campfire = NodePath("../Campfire")
+
+[node name="Campfire" parent="." unique_id=207377221 node_paths=PackedStringArray("game") instance=ExtResource("3_khf7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+visible = false
+game = NodePath("..")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1271081737 node_paths=PackedStringArray("game")]
+collision_priority = 10.0
+script = ExtResource("3_lwllx")
+map_size = 256
+game = NodePath("..")
+
+[node name="Map" type="CollisionShape3D" parent="Floor" unique_id=162774413]
+shape = SubResource("HeightMapShape3D_incux")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=2036906601]
+mesh = SubResource("PlaneMesh_cu5sd")
+
+[node name="Log Placer" type="Node3D" parent="." unique_id=483932335]
+script = ExtResource("7_cu5sd")
+
+[node name="Tree Placer" type="Node3D" parent="." unique_id=978491044]
+script = ExtResource("7_ripbv")
+
+[node name="Respawner" type="Area3D" parent="." unique_id=1081114227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0)
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Respawner" unique_id=2095940602]
+shape = SubResource("WorldBoundaryShape3D_bk7jt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1932645402]
+environment = SubResource("Environment_bk7jt")
+
+[node name="Thermometer" type="TextureProgressBar" parent="." unique_id=1277208665 node_paths=PackedStringArray("game", "campfire")]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 3
+texture_over = ExtResource("8_mxnk5")
+texture_progress = ExtResource("9_qe8s3")
+script = ExtResource("10_isfns")
+game = NodePath("..")
+campfire = NodePath("../Campfire")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Thermometer" unique_id=1627028541]
+root_node = NodePath("../WinLabel")
+libraries/ = SubResource("AnimationLibrary_pau8c")
+
+[node name="WinLabel" type="Label" parent="Thermometer" unique_id=2072546214]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -865.0
+offset_top = -256.0
+offset_right = -160.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_pau8c")
+theme_override_font_sizes/font_size = 75
+text = "YOU SURVIVED!"
+horizontal_alignment = 1
+
+[node name="WinTimer" type="Timer" parent="Thermometer" unique_id=24852790]
+
+[node name="SurviveLabel" type="Label" parent="Thermometer/WinTimer" unique_id=1152321423]
+visible = false
+offset_left = 16.0
+offset_top = 464.0
+offset_right = 182.0
+offset_bottom = 509.0
+theme = ExtResource("12_pau8c")
+theme_override_font_sizes/font_size = 24
+text = "Survive for"
+
+[node name="TimerLabel" type="Label" parent="Thermometer/WinTimer" unique_id=1965213045]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -182.0
+offset_right = 203.0
+grow_vertical = 0
+theme = ExtResource("12_pau8c")
+theme_override_font_sizes/font_size = 126
+text = "30"
+
+[node name="SfxWind" type="AudioStreamPlayer" parent="." unique_id=1824482800]
+stream = ExtResource("11_qe8s3")
+volume_db = -20.0
+autoplay = true
+
+[node name="Instructions" type="Control" parent="." unique_id=555543195]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Instructions" unique_id=954828974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Objective" type="Label" parent="Instructions/CenterContainer" unique_id=483397328]
+layout_mode = 2
+theme = ExtResource("12_pau8c")
+theme_override_font_sizes/font_size = 64
+text = "Use logs to feed the fire!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Instructions" unique_id=1586669992]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -238.0
+offset_top = -129.0
+offset_right = 238.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="Movement" type="Label" parent="Instructions/MarginContainer" unique_id=352463511]
+layout_mode = 2
+theme = ExtResource("12_pau8c")
+theme_override_font_sizes/font_size = 45
+text = "(WASD) Move
+(MOUSE) Look around"
+horizontal_alignment = 1
+
+[node name="InstructionTimer" type="Timer" parent="Instructions" unique_id=902339303]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Instructions" unique_id=1233360837]
+libraries/ = SubResource("AnimationLibrary_0yvrq")
+
+[node name="LoseAnimTimer" type="Timer" parent="." unique_id=1353222719]
+wait_time = 4.0
+one_shot = true
+
+[node name="WinOrLoseAnimationPlayer" type="AnimationPlayer" parent="." unique_id=946989460]
+libraries/ = SubResource("AnimationLibrary_sb6ad")
+
+[connection signal="visibility_changed" from="Campfire" to="Campfire" method="_on_visibility_changed"]
+[connection signal="body_entered" from="Respawner" to="." method="_on_respawner_body_entered"]
+[connection signal="visibility_changed" from="Thermometer" to="Thermometer" method="_on_visibility_changed"]
+[connection signal="timeout" from="Thermometer/WinTimer" to="Thermometer" method="_on_win_timer_timeout"]
+[connection signal="finished" from="SfxWind" to="." method="_on_sfx_wind_finished"]
+[connection signal="timeout" from="Instructions/InstructionTimer" to="." method="_on_instruction_timer_timeout"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c0uw7wa0fc4te"]
+
+[ext_resource type="Script" uid="uid://dmvip54o45l8" path="res://PigsterDance/scenes/deaths/anvil_death.gd" id="1_cwtqg"]
+[ext_resource type="Texture2D" uid="uid://ssinu2t8jnqs" path="res://PigsterDance/assets/pngs/anvil.png" id="2_xs8fv"]
+[ext_resource type="AudioStream" uid="uid://bd65vf52v0vuo" path="res://PigsterDance/assets/audio/anvil.mp3" id="3_0ty71"]
+
+[node name="AnvilDeath" type="Node2D" unique_id=1933036840]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_cwtqg")
+
+[node name="Anvil" type="Sprite2D" parent="." unique_id=1292200191]
+texture = ExtResource("2_xs8fv")
+
+[node name="AnvilPlayer" type="AudioStreamPlayer" parent="." unique_id=1776986692]
+stream = ExtResource("3_0ty71")
+volume_db = -10.0

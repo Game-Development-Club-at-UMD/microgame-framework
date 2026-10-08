@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://2ymohn73wsu8"]
+
+[ext_resource type="Script" uid="uid://b0fkpi58fjlnh" path="res://BabyDefenestration/level_1.gd" id="1_xina5"]
+[ext_resource type="Script" uid="uid://cxqeluwac7mhp" path="res://BabyDefenestration/player_arrow.gd" id="2_vjdf4"]
+[ext_resource type="Texture2D" uid="uid://x2qxbdtnh3rw" path="res://BabyDefenestration/assets BABYYYY/Stick guy throwing.png" id="3_f4d4a"]
+[ext_resource type="Texture2D" uid="uid://bfdjmynhmwqa3" path="res://GhostGame/Assets/ffffff-p.png" id="4_jxnb1"]
+[ext_resource type="Texture2D" uid="uid://btg6b7mfvfep7" path="res://BabyDefenestration/assets BABYYYY/baby_tutorial.png" id="5_8i2na"]
+[ext_resource type="Texture2D" uid="uid://b4drndsph4f0s" path="res://BabyDefenestration/assets BABYYYY/office.png" id="6_r8ymq"]
+[ext_resource type="AudioStream" uid="uid://b26pc0347uwt6" path="res://BabyDefenestration/assets BABYYYY/babycry.mp3" id="7_4w6mw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1193, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(58, 669)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xina5"]
+font_size = 100
+
+[sub_resource type="Animation" id="Animation_8i2na"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tutorial:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_r8ymq"]
+resource_name = "babytutorial"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tutorial:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4w6mw"]
+_data = {
+&"RESET": SubResource("Animation_8i2na"),
+&"babytutorial": SubResource("Animation_r8ymq")
+}
+
+[node name="Level1" type="Node2D" unique_id=1174647030]
+script = ExtResource("1_xina5")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=918482056]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=468534751]
+position = Vector2(587, -20)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=735385852]
+position = Vector2(586.5, 670)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=1350136744]
+position = Vector2(-20, 324.5)
+scale = Vector2(1, 1.0800012)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Label" type="Label" parent="." unique_id=1277184842]
+z_index = 7
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_xina5")
+
+[node name="Timer" type="Timer" parent="." unique_id=1314644347]
+one_shot = true
+
+[node name="Player" type="Polygon2D" parent="." unique_id=524131676]
+z_index = 1
+position = Vector2(191.99998, 379.9333)
+scale = Vector2(1, 0.6416671)
+polygon = PackedVector2Array(0, -23.999998, 0, 32, 104, 32, 104, 64, 168.00003, 1.9073486e-06, 104, -55.999992, 104, -23.999998, 0, 1.9073486e-06)
+uv = PackedVector2Array(0, 8, 0, 64, 112, 64, 112, 96, 176.00003, 32, 112, -23.999996, 112, 8, 0, 32)
+internal_vertex_count = 1
+script = ExtResource("2_vjdf4")
+
+[node name="guy" type="Sprite2D" parent="." unique_id=1318079685]
+z_index = 1
+position = Vector2(147, 520)
+scale = Vector2(8.062502, 8.062502)
+texture = ExtResource("3_f4d4a")
+hframes = 2
+
+[node name="test_background" type="Sprite2D" parent="." unique_id=654029007]
+modulate = Color(0.35686275, 1, 1, 1)
+z_index = -12
+position = Vector2(556, 258)
+scale = Vector2(2.6911533, 1.6629747)
+texture = ExtResource("4_jxnb1")
+
+[node name="tutorial" type="Sprite2D" parent="." unique_id=1547205589]
+z_index = 10
+position = Vector2(576.50006, 323.5)
+scale = Vector2(0.19416666, 0.17125)
+texture = ExtResource("5_8i2na")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1445387693]
+libraries/ = SubResource("AnimationLibrary_4w6mw")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=1789093800]
+position = Vector2(577.00006, 333)
+scale = Vector2(6.0204625, 6.0982137)
+texture = ExtResource("6_r8ymq")
+
+[node name="babycry" type="AudioStreamPlayer2D" parent="." unique_id=1518281526]
+stream = ExtResource("7_4w6mw")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

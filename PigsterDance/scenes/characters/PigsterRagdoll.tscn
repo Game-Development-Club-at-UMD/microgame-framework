@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://chu83kvlare6l"]
+
+[ext_resource type="Texture2D" uid="uid://dk41rei3yhak5" path="res://PigsterDance/assets/pngs/piggy_dance/pig_body_parts/torso.png" id="1_64mgj"]
+[ext_resource type="Script" uid="uid://c4gup07m6fc8l" path="res://PigsterDance/scenes/characters/pigster_ragdoll.gd" id="1_q52a1"]
+[ext_resource type="PhysicsMaterial" uid="uid://b1y82t6winanv" path="res://PigsterDance/custom_resources/body_part_material.tres" id="2_fkf2c"]
+[ext_resource type="Texture2D" uid="uid://d0ehon1kw77gi" path="res://PigsterDance/assets/pngs/piggy_dance/pig_body_parts/head.png" id="2_q52a1"]
+[ext_resource type="Texture2D" uid="uid://r5vr5e1bb55t" path="res://PigsterDance/assets/pngs/piggy_dance/pig_body_parts/left_arm.png" id="3_fkf2c"]
+[ext_resource type="Texture2D" uid="uid://cmmnuesfycjrc" path="res://PigsterDance/assets/pngs/piggy_dance/pig_body_parts/right_arm.png" id="4_2j4c8"]
+[ext_resource type="Texture2D" uid="uid://ckvyeybnlagb" path="res://PigsterDance/assets/pngs/piggy_dance/pig_body_parts/left_leg.png" id="5_r2v6g"]
+[ext_resource type="Texture2D" uid="uid://mfiwp012qb4p" path="res://PigsterDance/assets/pngs/piggy_dance/pig_body_parts/right_leg.png" id="6_lj7hr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_843s7"]
+radius = 66.0
+height = 144.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7ojc"]
+radius = 42.0
+height = 84.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h7smj"]
+radius = 14.0
+height = 44.40445
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nt3hm"]
+radius = 13.842598
+height = 47.4778
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oy4bm"]
+radius = 14.0
+height = 40.17943
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_voymv"]
+radius = 17.0
+height = 34.0
+
+[node name="PigsterRagdoll" type="Node2D" unique_id=1846675138]
+script = ExtResource("1_q52a1")
+part_material = ExtResource("2_fkf2c")
+burst_force = 1000.0
+spread_force = 500.0
+lift_force = 300.0
+max_spin = 5.0
+
+[node name="Torso" type="RigidBody2D" parent="." unique_id=173959989]
+collision_layer = 2
+mass = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Torso" unique_id=2074627626]
+position = Vector2(0, 68)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_64mgj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torso" unique_id=376410284]
+position = Vector2(-2, 69)
+shape = SubResource("CapsuleShape2D_843s7")
+
+[node name="Head" type="RigidBody2D" parent="." unique_id=930298573]
+collision_layer = 2
+gravity_scale = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="Head" unique_id=81226943]
+position = Vector2(0, 81)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_q52a1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=1365892013]
+position = Vector2(-2, 14)
+shape = SubResource("CapsuleShape2D_j7ojc")
+
+[node name="LeftArm" type="RigidBody2D" parent="." unique_id=802326131]
+collision_layer = 2
+gravity_scale = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftArm" unique_id=120339064]
+position = Vector2(-20, 46)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_fkf2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArm" unique_id=915160453]
+position = Vector2(-92, 16)
+rotation = -0.95644045
+shape = SubResource("CapsuleShape2D_h7smj")
+
+[node name="RightArm" type="RigidBody2D" parent="." unique_id=677556384]
+collision_layer = 2
+gravity_scale = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="RightArm" unique_id=1203837255]
+position = Vector2(10, 49)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_2j4c8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArm" unique_id=328756797]
+position = Vector2(77.00001, 43)
+rotation = -1.0925761
+shape = SubResource("CapsuleShape2D_nt3hm")
+
+[node name="LeftLeg" type="RigidBody2D" parent="." unique_id=392813943]
+collision_layer = 2
+gravity_scale = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftLeg" unique_id=1713857003]
+position = Vector2(-18, 57)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_r2v6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLeg" unique_id=437803883]
+position = Vector2(-53, 147.00002)
+rotation = -1.5027285
+shape = SubResource("CapsuleShape2D_oy4bm")
+
+[node name="RightLeg" type="RigidBody2D" parent="." unique_id=80612949]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="RightLeg" unique_id=607324551]
+position = Vector2(18, 61)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_lj7hr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLeg" unique_id=1106430344]
+position = Vector2(55, 144)
+shape = SubResource("CapsuleShape2D_voymv")

@@ -2,26 +2,33 @@
 
 [ext_resource type="PackedScene" uid="uid://cgm8nshwkqev3" path="res://PigsterDance/scenes/dance_qte/keyboard_key/QteKey.tscn" id="1_erk01"]
 [ext_resource type="Script" uid="uid://1mravwtv8td" path="res://PigsterDance/custom_resources/level_stats/dance_level_stats.gd" id="2_4gt5v"]
+[ext_resource type="AudioStream" uid="uid://dcgy5rodhfk0p" path="res://PigsterDance/assets/audio/boogie_woogie.mp3" id="2_c0vbv"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_erk01"]
+[sub_resource type="InputEventKey" id="InputEventKey_k8fdy"]
 device = -1
-keycode = 80
-unicode = 112
+keycode = 81
+unicode = 113
 
-[sub_resource type="InputEventKey" id="InputEventKey_4gt5v"]
+[sub_resource type="InputEventKey" id="InputEventKey_jk86s"]
 device = -1
-keycode = 86
-unicode = 118
+keycode = 87
+unicode = 119
 
-[sub_resource type="InputEventKey" id="InputEventKey_c0vbv"]
+[sub_resource type="InputEventKey" id="InputEventKey_65ghy"]
 device = -1
-keycode = 67
-unicode = 99
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_3kgfi"]
+device = -1
+keycode = 82
+unicode = 114
 
 [resource]
 script = ExtResource("2_4gt5v")
-key_pool = Array[InputEvent]([SubResource("InputEventKey_erk01"), SubResource("InputEventKey_4gt5v"), SubResource("InputEventKey_c0vbv")])
-key_speed = 200.0
-max_tries = 2
-retry_delay = 1.0
+key_pool = Array[InputEvent]([SubResource("InputEventKey_k8fdy"), SubResource("InputEventKey_jk86s"), SubResource("InputEventKey_65ghy"), SubResource("InputEventKey_3kgfi")])
+music = ExtResource("2_c0vbv")
+music_start_offset = 0.1
+key_speed_start = 250.0
+key_speed_end = 300.0
 metadata/_custom_type_script = "uid://1mravwtv8td"

@@ -1,8 +1,60 @@
 [gd_resource type="Resource" script_class="DanceLevelStats" format=3 uid="uid://5d8wyc7n6vqh"]
 
 [ext_resource type="PackedScene" uid="uid://cgm8nshwkqev3" path="res://PigsterDance/scenes/dance_qte/keyboard_key/QteKey.tscn" id="1_fm02r"]
+[ext_resource type="AudioStream" uid="uid://dcgy5rodhfk0p" path="res://PigsterDance/assets/audio/boogie_woogie.mp3" id="2_drmri"]
 [ext_resource type="Script" uid="uid://1mravwtv8td" path="res://PigsterDance/custom_resources/level_stats/dance_level_stats.gd" id="2_g5uja"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_nvmob"]
+device = -1
+keycode = 81
+unicode = 113
+
+[sub_resource type="InputEventKey" id="InputEventKey_b8yqx"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_vvlmk"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_a40xb"]
+device = -1
+keycode = 82
+unicode = 114
+
+[sub_resource type="InputEventKey" id="InputEventKey_v7xva"]
+device = -1
+keycode = 84
+unicode = 116
+
+[sub_resource type="InputEventKey" id="InputEventKey_xkfyp"]
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="InputEventKey" id="InputEventKey_o52xr"]
+device = -1
+keycode = 71
+unicode = 103
+
+[sub_resource type="InputEventKey" id="InputEventKey_jvi8f"]
+device = -1
+keycode = 72
+unicode = 104
 
 [resource]
 script = ExtResource("2_g5uja")
+key_pool = Array[InputEvent]([SubResource("InputEventKey_nvmob"), SubResource("InputEventKey_b8yqx"), SubResource("InputEventKey_vvlmk"), SubResource("InputEventKey_a40xb"), SubResource("InputEventKey_v7xva"), SubResource("InputEventKey_xkfyp"), SubResource("InputEventKey_o52xr"), SubResource("InputEventKey_jvi8f")])
+music = ExtResource("2_drmri")
+music_start_offset = 0.1
+key_speed_start = 320.0
+key_speed_end = 400.0
+spawn_interval_start = 1.0
+spawn_interval_end = 0.85
+qte_duration_start = 10.0
+qte_duration_end = 12.0
+retry_delay_start = 1.25
+retry_delay_end = 1.15
 metadata/_custom_type_script = "uid://1mravwtv8td"

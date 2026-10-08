@@ -1,0 +1,282 @@
+[gd_scene format=3 uid="uid://dbhpr6ol82bke"]
+
+[ext_resource type="Script" uid="uid://cqmk74r73s8un" path="res://Shiver/objects/player.gd" id="1_as27w"]
+[ext_resource type="Script" uid="uid://b4pygu5tgbuwc" path="res://Shiver/objects/log_pickup_area.gd" id="2_1eeb5"]
+[ext_resource type="Shader" uid="uid://bxc302ypplc3w" path="res://Shiver/snow_shader.gdshader" id="2_jtwno"]
+[ext_resource type="Texture2D" uid="uid://ct3jijibm0oxp" path="res://Shiver/RileySprites/Snowflake.png" id="4_lrcg5"]
+[ext_resource type="AudioStream" uid="uid://d3pynkt3rhtps" path="res://Shiver/RileySFX/SFX_snow_trudge.mp3" id="5_pc3vb"]
+[ext_resource type="AudioStream" uid="uid://dlalxn5wqowxo" path="res://Shiver/RileySFX/SFX_humph_grab.mp3" id="6_cubue"]
+[ext_resource type="AudioStream" uid="uid://bcpjvcmk7vxhr" path="res://Shiver/RileySFX/SFX_huwah_throw.mp3" id="7_jveps"]
+[ext_resource type="Theme" uid="uid://clkk5pk1s6dhi" path="res://Shiver/shiver_theme.tres" id="8_cubue"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bk7jt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bk7jt"]
+radius = 1.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1eeb5"]
+emission_shape_scale = Vector3(3, 0.75, 1.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+turbulence_enabled = true
+turbulence_noise_scale = 6.0
+
+[sub_resource type="Curve" id="Curve_14p3i"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2617801, 1), 0.0, 0.0, 0, 0, Vector2(0.83246076, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_lrcg5"]
+texture_mode = 1
+curve = SubResource("Curve_14p3i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+render_priority = 0
+shader = ExtResource("2_jtwno")
+shader_parameter/albedo_texture = ExtResource("4_lrcg5")
+shader_parameter/curve = SubResource("CurveTexture_lrcg5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_lrcg5"]
+material = SubResource("ShaderMaterial_h2yge")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Animation" id="Animation_pc3vb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera Pivot/Camera3D:h_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cubue"]
+resource_name = "shiver"
+length = 0.1
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera Pivot/Camera3D:h_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.01, -0.01, 0.01]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jveps"]
+_data = {
+&"RESET": SubResource("Animation_pc3vb"),
+&"shiver": SubResource("Animation_cubue")
+}
+
+[sub_resource type="Animation" id="Animation_jveps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerLight:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.32941177, 0.14901961, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera Pivot/SnowParticles:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:freeze_speed_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TooltipLayer/Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_nbdc4"]
+resource_name = "lose"
+length = 3.0000000000000004
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerLight:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.32941177, 0.14901961, 1), Color(0.21960784, 0.7529412, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera Pivot/SnowParticles:speed_scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 8.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:freeze_speed_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TooltipLayer/Control:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_co6ee"]
+_data = {
+&"RESET": SubResource("Animation_jveps"),
+&"lose": SubResource("Animation_nbdc4")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=1794247419]
+collision_layer = 4
+collision_mask = 3
+floor_max_angle = 1.3089969
+script = ExtResource("1_as27w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=103254738]
+shape = SubResource("CapsuleShape3D_bk7jt")
+
+[node name="Camera Pivot" type="Node3D" parent="." unique_id=1713487263]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.8, 0)
+
+[node name="Log Hold Position" type="Node3D" parent="Camera Pivot" unique_id=1343474183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -1)
+
+[node name="Log Pickup Area" type="Area3D" parent="Camera Pivot" unique_id=1626229488 node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.742278e-08, 0, -1)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_1eeb5")
+player = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera Pivot/Log Pickup Area" unique_id=1174752203]
+shape = SubResource("SphereShape3D_bk7jt")
+
+[node name="Camera3D" type="Camera3D" parent="Camera Pivot" unique_id=533425840]
+
+[node name="SnowParticles" type="GPUParticles3D" parent="Camera Pivot" unique_id=2145786775]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, -7.825552e-08, 0.36523992, -0.89513874)
+cast_shadow = 0
+amount = 200
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_1eeb5")
+draw_pass_1 = SubResource("QuadMesh_lrcg5")
+
+[node name="PlayerLight" type="OmniLight3D" parent="." unique_id=192397915]
+light_color = Color(1, 0.32941177, 0.14901961, 1)
+light_energy = 10.0
+
+[node name="SfxSnowTrudge" type="AudioStreamPlayer" parent="." unique_id=866827884]
+stream = ExtResource("5_pc3vb")
+
+[node name="SfxHumphGrab" type="AudioStreamPlayer" parent="." unique_id=417843515]
+stream = ExtResource("6_cubue")
+
+[node name="SfxHuwahThrow" type="AudioStreamPlayer" parent="." unique_id=512564582]
+stream = ExtResource("7_jveps")
+
+[node name="TooltipLayer" type="CanvasLayer" parent="." unique_id=603127802]
+layer = 3
+
+[node name="Control" type="Control" parent="TooltipLayer" unique_id=367807086]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TooltipLayer/Control" unique_id=696300720]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -512.0
+offset_right = 256.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 32
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TooltipLayer/Control/MarginContainer" unique_id=169692183]
+custom_minimum_size = Vector2(800, 512)
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("8_cubue")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+vertical_alignment = 2
+
+[node name="Shiverer" type="AnimationPlayer" parent="." unique_id=1161334510]
+libraries/ = SubResource("AnimationLibrary_jveps")
+
+[node name="LoseAnim" type="AnimationPlayer" parent="." unique_id=328760034]
+libraries/ = SubResource("AnimationLibrary_co6ee")
+
+[connection signal="body_entered" from="Camera Pivot/Log Pickup Area" to="Camera Pivot/Log Pickup Area" method="_on_body_entered"]
+[connection signal="body_exited" from="Camera Pivot/Log Pickup Area" to="Camera Pivot/Log Pickup Area" method="_on_body_exited"]

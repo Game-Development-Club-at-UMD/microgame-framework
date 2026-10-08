@@ -2,74 +2,20 @@
 
 [ext_resource type="Script" uid="uid://0qet1tr3kvh0" path="res://PigsterDance/scenes/main/pigster_dance_main.gd" id="1_afivb"]
 [ext_resource type="Resource" uid="uid://blcwuxrgu7vwp" path="res://PigsterDance/custom_resources/difficulty_pools/DifficultyPools.tres" id="2_dhws7"]
-[ext_resource type="Texture2D" uid="uid://cc6vbja5mwhha" path="res://PigsterDance/assets/pngs/stage_placeholder.png" id="2_migwy"]
-[ext_resource type="Texture2D" uid="uid://dhfrlu678krfh" path="res://PigsterDance/assets/pngs/stage_place.png" id="3_dhws7"]
-[ext_resource type="Texture2D" uid="uid://dy5qfwfn1si1n" path="res://PigsterDance/assets/pngs/crowd_placeholder.png" id="4_oloeb"]
+[ext_resource type="PackedScene" uid="uid://chu83kvlare6l" path="res://PigsterDance/scenes/characters/PigsterRagdoll.tscn" id="3_hvi78"]
+[ext_resource type="Texture2D" uid="uid://l3xegcu4iqxi" path="res://PigsterDance/assets/pngs/piggy_stage(curtain).png" id="3_migwy"]
+[ext_resource type="PackedScene" uid="uid://c0uw7wa0fc4te" path="res://PigsterDance/scenes/deaths/AnvilDeath.tscn" id="4_88043"]
+[ext_resource type="Texture2D" uid="uid://cj0xwwjf27bjw" path="res://PigsterDance/assets/pngs/piggy_stage(stage).png" id="4_dhws7"]
 [ext_resource type="PackedScene" uid="uid://j5l7c1huhq0m" path="res://PigsterDance/scenes/characters/Pigster.tscn" id="5_cnotw"]
+[ext_resource type="Texture2D" uid="uid://dbx34xax8pc5y" path="res://PigsterDance/assets/pngs/piggy_stage(audience).png" id="5_oloeb"]
 [ext_resource type="PackedScene" uid="uid://6f2e37esy47e" path="res://PigsterDance/scenes/dance_qte/DanceQte.tscn" id="6_hvi78"]
+[ext_resource type="AudioStream" uid="uid://j2og6uxriy68" path="res://PigsterDance/assets/audio/boo.mp3" id="8_dhws7"]
+[ext_resource type="AudioStream" uid="uid://dfmjeb6fktp3d" path="res://PigsterDance/assets/audio/win_sound.mp3" id="11_srssv"]
+[ext_resource type="AudioStream" uid="uid://hauu26qrrwkc" path="res://PigsterDance/assets/audio/lose_sound.mp3" id="12_o5pja"]
+[ext_resource type="AudioStream" uid="uid://b8mqfjtaswgg6" path="res://PigsterDance/assets/audio/pig_oink.mp3" id="13_0p5h4"]
 
 [sub_resource type="Animation" id="Animation_d8t4y"]
 length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/StageSprites/StageCurtains:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -400)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/StageSprites/StageSprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -400)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/Crowd:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1152, 400)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Pigster:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(576, -77.99997)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/StageSprites/StageCurtains:skew")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_rxa45"]
 resource_name = "level_start"
@@ -120,7 +66,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.8),
 "transitions": PackedFloat32Array(2, 2, 2),
 "update": 0,
-"values": [Vector2(576, -77.99997), Vector2(576, -77.99997), Vector2(576, 320)]
+"values": [Vector2(576, -400), Vector2(576, -400), Vector2(576, 220)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -141,9 +87,20 @@ _data = {
 &"level_start": SubResource("Animation_rxa45")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6afx"]
+size = Vector2(1144, 105.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7qlb"]
+size = Vector2(93.5, 505)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tjqo"]
+size = Vector2(104, 513)
+
 [node name="PigsterDanceMain" type="Node2D" unique_id=974850155]
 script = ExtResource("1_afivb")
 difficulty_pools = ExtResource("2_dhws7")
+ragdoll_scene = ExtResource("3_hvi78")
+death_scenes = Array[PackedScene]([ExtResource("4_88043")])
 
 [node name="Visuals" type="Node2D" parent="." unique_id=326383955]
 
@@ -152,21 +109,24 @@ difficulty_pools = ExtResource("2_dhws7")
 [node name="StageCurtains" type="Sprite2D" parent="Visuals/StageSprites" unique_id=1229699357]
 z_index = 1
 position = Vector2(0, -400)
-texture = ExtResource("2_migwy")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_migwy")
 centered = false
 
 [node name="StageSprite" type="Sprite2D" parent="Visuals/StageSprites" unique_id=1746856600]
 position = Vector2(0, -400)
-texture = ExtResource("3_dhws7")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_dhws7")
 centered = false
 
 [node name="Crowd" type="Sprite2D" parent="Visuals" unique_id=1831928737]
 position = Vector2(-1152, 400)
-texture = ExtResource("4_oloeb")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_oloeb")
 centered = false
 
 [node name="Pigster" parent="." unique_id=1841482893 instance=ExtResource("5_cnotw")]
-position = Vector2(576, -77.99997)
+position = Vector2(576, -400)
 
 [node name="LevelAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1377590164]
 unique_name_in_owner = true
@@ -199,3 +159,38 @@ vertical_alignment = 1
 [node name="DanceQte" parent="QteHandler" unique_id=2064147845 instance=ExtResource("6_hvi78")]
 unique_name_in_owner = true
 z_index = 1
+
+[node name="Boundaries" type="Node2D" parent="." unique_id=1541025079]
+
+[node name="Floor" type="StaticBody2D" parent="Boundaries" unique_id=254089627]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Floor" unique_id=1834666354]
+position = Vector2(577, 457.25)
+shape = SubResource("RectangleShape2D_g6afx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundaries" unique_id=1695394462]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D2" unique_id=1532032902]
+position = Vector2(49.25, 252.5)
+shape = SubResource("RectangleShape2D_a7qlb")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boundaries" unique_id=961919614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D3" unique_id=259852349]
+position = Vector2(1097, 255)
+shape = SubResource("RectangleShape2D_4tjqo")
+
+[node name="AudioPlayers" type="Node" parent="." unique_id=1783180231]
+
+[node name="BooPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=37163722]
+stream = ExtResource("8_dhws7")
+
+[node name="CheerPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=824614661]
+stream = ExtResource("11_srssv")
+volume_db = -5.0
+
+[node name="GameOverPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=2144864246]
+stream = ExtResource("12_o5pja")
+
+[node name="PigsterPlayer" type="AudioStreamPlayer" parent="AudioPlayers" unique_id=224534294]
+stream = ExtResource("13_0p5h4")

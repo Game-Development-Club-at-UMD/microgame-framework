@@ -134,7 +134,7 @@ func _switch_to_next_microgame() -> void:
 	
 	if save_data_manager.save_data.lives <= 0:
 		switch_scene_to_packed(MAIN_MENU)
-		mouse_paw.make_visible()
+		mouse_paw.set_paw_mouse()
 		GameSaver.save_data_to_file(save_data_manager.save_data)
 		return
 	

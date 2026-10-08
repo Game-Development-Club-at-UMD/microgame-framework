@@ -39,7 +39,7 @@ func stop() -> void:
 
 
 func _on_timer_timeout() -> void:
-	label.text = "0.0"
+	label.text = "0:0"
 	beep_timer.stop()
 	animation_player.stop()
 	expired.emit()

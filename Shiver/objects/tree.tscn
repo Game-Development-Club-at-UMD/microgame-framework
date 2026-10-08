@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cspy2px3lnngo"]
+
+[ext_resource type="PackedScene" uid="uid://uxrlnewfgkl1" path="res://Shiver/models/tree_log.glb" id="1_h7b20"]
+[ext_resource type="Script" uid="uid://dax2anbr350yo" path="res://Shiver/objects/tree.gd" id="1_ltov5"]
+[ext_resource type="Texture2D" uid="uid://dk7hj1g5oi2vu" path="res://Shiver/models/leaves.png" id="2_h7b20"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bk7jt"]
+height = 25.0
+
+[node name="Tree" type="Node3D" unique_id=224505076]
+script = ExtResource("1_ltov5")
+
+[node name="tree_log" parent="." unique_id=263876019 instance=ExtResource("1_h7b20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1244190051]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1437206047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+shape = SubResource("CylinderShape3D_bk7jt")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=292727275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.276163, 0)
+pixel_size = 0.2
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_h7b20")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1854489970]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0, 20.276163, 0)
+pixel_size = 0.2
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_h7b20")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1229764981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+enabled = false
+target_position = Vector3(0, -32, 0)

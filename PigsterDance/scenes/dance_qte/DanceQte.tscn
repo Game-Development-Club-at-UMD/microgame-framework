@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://jdc6qk3kic3x" path="res://PigsterDance/scenes/dance_qte/dance_qte.gd" id="1_s7ldp"]
 [ext_resource type="Script" uid="uid://dk7ffpdqqfr1n" path="res://PigsterDance/scenes/dance_qte/dance_key_hitbox.gd" id="2_s7ldp"]
 [ext_resource type="PackedScene" uid="uid://bg5ocjqxl5k2u" path="res://PigsterDance/scenes/dance_qte/DanceKeyHandler.tscn" id="3_ds8rp"]
+[ext_resource type="AudioStream" uid="uid://bbqr16dk6skyp" path="res://GhostGame/Assets/Sounds/Ambience.mp3" id="4_yc1x6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6afx"]
 size = Vector2(100, 100)
@@ -19,6 +20,7 @@ offset_left = -60.0
 offset_top = -50.0
 offset_right = 60.0
 offset_bottom = 50.0
+color = Color(0, 0, 0, 0.49803922)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1161161851]
 shape = SubResource("RectangleShape2D_g6afx")
@@ -26,6 +28,7 @@ shape = SubResource("RectangleShape2D_g6afx")
 [node name="KeyHandler" parent="." unique_id=1623086216 instance=ExtResource("3_ds8rp")]
 
 [node name="ResultLabel" type="Label" parent="." unique_id=986605407]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,3 +44,8 @@ theme_override_font_sizes/font_size = 64
 text = "Hit!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DurationTimer" type="Timer" parent="." unique_id=1250562281]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=870158885]
+stream = ExtResource("4_yc1x6")

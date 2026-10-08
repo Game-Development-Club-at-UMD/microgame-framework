@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b0eghxlmlfv85"]
+
+[ext_resource type="Script" uid="uid://bvpkxc2cms20o" path="res://Shiver/objects/log.gd" id="1_s1yty"]
+[ext_resource type="PackedScene" uid="uid://du7aq1cne4u22" path="res://Shiver/models/firewood.glb" id="2_mngx0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bk7jt"]
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocnln"]
+albedo_color = Color(0.53, 0.22966665, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_bk7jt"]
+material = SubResource("StandardMaterial3D_ocnln")
+height = 3.0
+
+[node name="Log" type="RigidBody3D" unique_id=229001088]
+transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, 0.99999994, 0, -0.99999994, -5.9604645e-08, 0, 0, 0)
+collision_layer = 6
+collision_mask = 7
+gravity_scale = 5.0
+script = ExtResource("1_s1yty")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1012244435]
+shape = SubResource("CylinderShape3D_bk7jt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1866213852]
+visible = false
+mesh = SubResource("CylinderMesh_bk7jt")
+
+[node name="firewood" parent="." unique_id=1153176298 instance=ExtResource("2_mngx0")]

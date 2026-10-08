@@ -2,24 +2,33 @@
 
 [ext_resource type="Script" uid="uid://1mravwtv8td" path="res://PigsterDance/custom_resources/level_stats/dance_level_stats.gd" id="1_brw3r"]
 [ext_resource type="PackedScene" uid="uid://cgm8nshwkqev3" path="res://PigsterDance/scenes/dance_qte/keyboard_key/QteKey.tscn" id="1_ivsl6"]
+[ext_resource type="AudioStream" uid="uid://dceu2autcgweo" path="res://PigsterDance/assets/audio/goofy_beat.mp3" id="2_larvf"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_brw3r"]
-device = -1
-keycode = 81
-unicode = 113
-
-[sub_resource type="InputEventKey" id="InputEventKey_ivsl6"]
+[sub_resource type="InputEventKey" id="InputEventKey_larvf"]
 device = -1
 keycode = 87
 unicode = 119
 
-[sub_resource type="InputEventKey" id="InputEventKey_larvf"]
+[sub_resource type="InputEventKey" id="InputEventKey_hmg1s"]
 device = -1
-keycode = 69
-unicode = 101
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_qkxr7"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_o6b7a"]
+device = -1
+keycode = 83
+unicode = 115
 
 [resource]
 script = ExtResource("1_brw3r")
-key_pool = Array[InputEvent]([SubResource("InputEventKey_brw3r"), SubResource("InputEventKey_ivsl6"), SubResource("InputEventKey_larvf")])
-key_speed = 350.0
+key_pool = Array[InputEvent]([SubResource("InputEventKey_larvf"), SubResource("InputEventKey_hmg1s"), SubResource("InputEventKey_qkxr7"), SubResource("InputEventKey_o6b7a")])
+music = ExtResource("2_larvf")
+music_start_offset = 0.3
+key_speed_start = 250.0
+key_speed_end = 300.0
 metadata/_custom_type_script = "uid://1mravwtv8td"

@@ -1,0 +1,624 @@
+[gd_resource type="Resource" script_class="QteKeyIconSet" format=3 uid="uid://04nuere3bqh4"]
+
+[ext_resource type="Script" uid="uid://du70qby53ircn" path="res://PigsterDance/custom_resources/qte_key_icon.gd" id="1_2q236"]
+[ext_resource type="Texture2D" uid="uid://ublcroq4x0yn" path="res://PigsterDance/assets/pngs/keys/keyboard_0.png" id="2_0kmu0"]
+[ext_resource type="Texture2D" uid="uid://d8qgj05htx1n" path="res://PigsterDance/assets/pngs/keys/keyboard_0_outline.png" id="3_5n22e"]
+[ext_resource type="Texture2D" uid="uid://cw4g8vowriq5w" path="res://PigsterDance/assets/pngs/keys/keyboard_1.png" id="4_p2507"]
+[ext_resource type="Texture2D" uid="uid://bmukg7n1w70hr" path="res://PigsterDance/assets/pngs/keys/keyboard_1_outline.png" id="5_cvxcr"]
+[ext_resource type="Texture2D" uid="uid://tgbqk51ovppl" path="res://PigsterDance/assets/pngs/keys/keyboard_2.png" id="6_68f5n"]
+[ext_resource type="Texture2D" uid="uid://nvgqcht1pegy" path="res://PigsterDance/assets/pngs/keys/keyboard_2_outline.png" id="7_3oyud"]
+[ext_resource type="Texture2D" uid="uid://dtnm4ptsdsat5" path="res://PigsterDance/assets/pngs/keys/keyboard_3.png" id="8_tko8k"]
+[ext_resource type="Texture2D" uid="uid://bxikjukqspcue" path="res://PigsterDance/assets/pngs/keys/keyboard_3_outline.png" id="9_tmq1v"]
+[ext_resource type="Texture2D" uid="uid://oi8w7ugy32up" path="res://PigsterDance/assets/pngs/keys/keyboard_4.png" id="10_5p03s"]
+[ext_resource type="Texture2D" uid="uid://dvg2aewghumnu" path="res://PigsterDance/assets/pngs/keys/keyboard_4_outline.png" id="11_h31q5"]
+[ext_resource type="Texture2D" uid="uid://dtlxhqbuuhani" path="res://PigsterDance/assets/pngs/keys/keyboard_5.png" id="12_lli3s"]
+[ext_resource type="Texture2D" uid="uid://baf11qvwebtpd" path="res://PigsterDance/assets/pngs/keys/keyboard_5_outline.png" id="13_palre"]
+[ext_resource type="Texture2D" uid="uid://b320il20pm2yy" path="res://PigsterDance/assets/pngs/keys/keyboard_6.png" id="14_lemxt"]
+[ext_resource type="Texture2D" uid="uid://cc3gm5opommq1" path="res://PigsterDance/assets/pngs/keys/keyboard_6_outline.png" id="15_vacvm"]
+[ext_resource type="Texture2D" uid="uid://c6v1hvulle5u7" path="res://PigsterDance/assets/pngs/keys/keyboard_7.png" id="16_j7brr"]
+[ext_resource type="Texture2D" uid="uid://d233ihtpdw7ep" path="res://PigsterDance/assets/pngs/keys/keyboard_7_outline.png" id="17_ug7q1"]
+[ext_resource type="Texture2D" uid="uid://clb1ef8tmmbkg" path="res://PigsterDance/assets/pngs/keys/keyboard_8.png" id="18_3jx3t"]
+[ext_resource type="Texture2D" uid="uid://hnb7xr4kggd4" path="res://PigsterDance/assets/pngs/keys/keyboard_8_outline.png" id="19_fmbdc"]
+[ext_resource type="Texture2D" uid="uid://dbnn2qbuuqhr6" path="res://PigsterDance/assets/pngs/keys/keyboard_9.png" id="20_uxet7"]
+[ext_resource type="Texture2D" uid="uid://bs7rhwxfg6p2m" path="res://PigsterDance/assets/pngs/keys/keyboard_9_outline.png" id="21_g17j8"]
+[ext_resource type="Texture2D" uid="uid://clyti78nv36lk" path="res://PigsterDance/assets/pngs/keys/keyboard_a.png" id="22_gp2m8"]
+[ext_resource type="Texture2D" uid="uid://rn7xdj3mp86f" path="res://PigsterDance/assets/pngs/keys/keyboard_a_outline.png" id="23_u2m30"]
+[ext_resource type="Texture2D" uid="uid://b0hxea3mv51hm" path="res://PigsterDance/assets/pngs/keys/keyboard_alt.png" id="24_r2dlj"]
+[ext_resource type="Texture2D" uid="uid://bpox3m14opu43" path="res://PigsterDance/assets/pngs/keys/keyboard_alt_outline.png" id="25_5fjyh"]
+[ext_resource type="Texture2D" uid="uid://c84owm7lmqcau" path="res://PigsterDance/assets/pngs/keys/keyboard_apostrophe.png" id="26_dd2vk"]
+[ext_resource type="Texture2D" uid="uid://d28vlyo5m2ebd" path="res://PigsterDance/assets/pngs/keys/keyboard_apostrophe_outline.png" id="27_1ut7n"]
+[ext_resource type="Texture2D" uid="uid://b1lc5bt8jf8fs" path="res://PigsterDance/assets/pngs/keys/keyboard_arrow_down.png" id="28_xo4ge"]
+[ext_resource type="Texture2D" uid="uid://ruvrprdsxtx4" path="res://PigsterDance/assets/pngs/keys/keyboard_arrow_down_outline.png" id="29_27vwc"]
+[ext_resource type="Texture2D" uid="uid://cfffatqok3huc" path="res://PigsterDance/assets/pngs/keys/keyboard_arrow_left.png" id="30_hrnmw"]
+[ext_resource type="Texture2D" uid="uid://bttsi0ag86eai" path="res://PigsterDance/assets/pngs/keys/keyboard_arrow_left_outline.png" id="31_liwln"]
+[ext_resource type="Texture2D" uid="uid://cycpl81yfohkx" path="res://PigsterDance/assets/pngs/keys/keyboard_arrow_right.png" id="32_tvaot"]
+[ext_resource type="Texture2D" uid="uid://k18ralxbjxfh" path="res://PigsterDance/assets/pngs/keys/keyboard_arrow_right_outline.png" id="33_d0v6w"]
+[ext_resource type="Texture2D" uid="uid://bsdhqpkaafxm6" path="res://PigsterDance/assets/pngs/keys/keyboard_arrow_up.png" id="34_euu1f"]
+[ext_resource type="Texture2D" uid="uid://ckyipry6u2spi" path="res://PigsterDance/assets/pngs/keys/keyboard_arrow_up_outline.png" id="35_31aua"]
+[ext_resource type="Texture2D" uid="uid://diwqk0hcfbu8" path="res://PigsterDance/assets/pngs/keys/keyboard_asterisk.png" id="36_45yoe"]
+[ext_resource type="Texture2D" uid="uid://sd6x46hxo0er" path="res://PigsterDance/assets/pngs/keys/keyboard_asterisk_outline.png" id="37_t3pnm"]
+[ext_resource type="Texture2D" uid="uid://dywfbrm6y6deq" path="res://PigsterDance/assets/pngs/keys/keyboard_b.png" id="38_vw1rv"]
+[ext_resource type="Texture2D" uid="uid://btmw82yjwsykp" path="res://PigsterDance/assets/pngs/keys/keyboard_b_outline.png" id="39_vxd8m"]
+[ext_resource type="Texture2D" uid="uid://cut1vsdr57oqu" path="res://PigsterDance/assets/pngs/keys/keyboard_backspace.png" id="40_hy1lq"]
+[ext_resource type="Texture2D" uid="uid://ddy8blkrqr53q" path="res://PigsterDance/assets/pngs/keys/keyboard_backspace_outline.png" id="41_jmhdu"]
+[ext_resource type="Texture2D" uid="uid://cvmg1jkxbc8ok" path="res://PigsterDance/assets/pngs/keys/keyboard_c.png" id="42_3rtai"]
+[ext_resource type="Texture2D" uid="uid://dknnkb43bhaib" path="res://PigsterDance/assets/pngs/keys/keyboard_c_outline.png" id="43_2shha"]
+[ext_resource type="Texture2D" uid="uid://b3h4o0jeufwpw" path="res://PigsterDance/assets/pngs/keys/keyboard_capslock.png" id="44_b0ybj"]
+[ext_resource type="Texture2D" uid="uid://br7tgffnsmqk4" path="res://PigsterDance/assets/pngs/keys/keyboard_capslock_outline.png" id="45_esvn2"]
+[ext_resource type="Texture2D" uid="uid://bc7itijwkk1id" path="res://PigsterDance/assets/pngs/keys/keyboard_colon.png" id="46_uswex"]
+[ext_resource type="Texture2D" uid="uid://dewellgipapjh" path="res://PigsterDance/assets/pngs/keys/keyboard_colon_outline.png" id="47_srufg"]
+[ext_resource type="Texture2D" uid="uid://ds27enteel2b4" path="res://PigsterDance/assets/pngs/keys/keyboard_comma.png" id="48_fmo3j"]
+[ext_resource type="Texture2D" uid="uid://4gbfsqu6v6mr" path="res://PigsterDance/assets/pngs/keys/keyboard_comma_outline.png" id="49_r0oor"]
+[ext_resource type="Texture2D" uid="uid://3mm3alwm8qrg" path="res://PigsterDance/assets/pngs/keys/keyboard_ctrl.png" id="50_l5ykw"]
+[ext_resource type="Texture2D" uid="uid://hq4t5xde8wvs" path="res://PigsterDance/assets/pngs/keys/keyboard_ctrl_outline.png" id="51_o4hou"]
+[ext_resource type="Texture2D" uid="uid://rutk5jrhg2b1" path="res://PigsterDance/assets/pngs/keys/keyboard_d.png" id="52_j0afe"]
+[ext_resource type="Texture2D" uid="uid://cvb8p5yl5u5ly" path="res://PigsterDance/assets/pngs/keys/keyboard_d_outline.png" id="53_pvvhy"]
+[ext_resource type="Texture2D" uid="uid://dcnuivjs5xtcb" path="res://PigsterDance/assets/pngs/keys/keyboard_delete.png" id="54_8o4wt"]
+[ext_resource type="Texture2D" uid="uid://165jg7l5a3rn" path="res://PigsterDance/assets/pngs/keys/keyboard_delete_outline.png" id="55_2l35k"]
+[ext_resource type="Texture2D" uid="uid://duc61j2ilf6lq" path="res://PigsterDance/assets/pngs/keys/keyboard_e.png" id="56_bpyoy"]
+[ext_resource type="Texture2D" uid="uid://7arrmmxglqrb" path="res://PigsterDance/assets/pngs/keys/keyboard_e_outline.png" id="57_fr42i"]
+[ext_resource type="Texture2D" uid="uid://dta8wn4dmk086" path="res://PigsterDance/assets/pngs/keys/keyboard_end.png" id="58_tqmke"]
+[ext_resource type="Texture2D" uid="uid://cfetf4yj4l2ia" path="res://PigsterDance/assets/pngs/keys/keyboard_end_outline.png" id="59_o2vc5"]
+[ext_resource type="Texture2D" uid="uid://bwg34ou8jm15y" path="res://PigsterDance/assets/pngs/keys/keyboard_enter.png" id="60_u54kw"]
+[ext_resource type="Texture2D" uid="uid://bbvswceysfjas" path="res://PigsterDance/assets/pngs/keys/keyboard_enter_outline.png" id="61_f8k65"]
+[ext_resource type="Texture2D" uid="uid://1m1gncquakc" path="res://PigsterDance/assets/pngs/keys/keyboard_escape.png" id="62_p5c1t"]
+[ext_resource type="Texture2D" uid="uid://mbth1llf72mn" path="res://PigsterDance/assets/pngs/keys/keyboard_escape_outline.png" id="63_i55bu"]
+[ext_resource type="Texture2D" uid="uid://boglc5lqbk3uj" path="res://PigsterDance/assets/pngs/keys/keyboard_f.png" id="64_pj1of"]
+[ext_resource type="Texture2D" uid="uid://b40f5srod1o4u" path="res://PigsterDance/assets/pngs/keys/keyboard_f_outline.png" id="65_wpblp"]
+[ext_resource type="Texture2D" uid="uid://bw0puhljwrqrl" path="res://PigsterDance/assets/pngs/keys/keyboard_f1.png" id="66_0do0v"]
+[ext_resource type="Texture2D" uid="uid://cdt6hrv0ihced" path="res://PigsterDance/assets/pngs/keys/keyboard_f1_outline.png" id="67_gm2lk"]
+[ext_resource type="Texture2D" uid="uid://cdaa0gvg4cy4n" path="res://PigsterDance/assets/pngs/keys/keyboard_f10.png" id="68_koxc2"]
+[ext_resource type="Texture2D" uid="uid://dvhyjpiweo1uw" path="res://PigsterDance/assets/pngs/keys/keyboard_f10_outline.png" id="69_id5io"]
+[ext_resource type="Texture2D" uid="uid://bow7qsk0hs52m" path="res://PigsterDance/assets/pngs/keys/keyboard_f11.png" id="70_gr2ww"]
+[ext_resource type="Texture2D" uid="uid://h2poiqtkkdn8" path="res://PigsterDance/assets/pngs/keys/keyboard_f11_outline.png" id="71_x341a"]
+[ext_resource type="Texture2D" uid="uid://uf0pej2p5guf" path="res://PigsterDance/assets/pngs/keys/keyboard_f12.png" id="72_gqrl3"]
+[ext_resource type="Texture2D" uid="uid://drd5wvixjnwte" path="res://PigsterDance/assets/pngs/keys/keyboard_f12_outline.png" id="73_4hj8e"]
+[ext_resource type="Texture2D" uid="uid://dw1he43letxn3" path="res://PigsterDance/assets/pngs/keys/keyboard_f2.png" id="74_uh6co"]
+[ext_resource type="Texture2D" uid="uid://ff2e7x5qnprw" path="res://PigsterDance/assets/pngs/keys/keyboard_f2_outline.png" id="75_ev7p4"]
+[ext_resource type="Texture2D" uid="uid://cdvkkh2oro6lq" path="res://PigsterDance/assets/pngs/keys/keyboard_f3.png" id="76_bvqde"]
+[ext_resource type="Texture2D" uid="uid://7xbje5b77ke7" path="res://PigsterDance/assets/pngs/keys/keyboard_f3_outline.png" id="77_aivdc"]
+[ext_resource type="Texture2D" uid="uid://b4stio6eogxb3" path="res://PigsterDance/assets/pngs/keys/keyboard_f4.png" id="78_tibv1"]
+[ext_resource type="Texture2D" uid="uid://dknuwo4cnuehi" path="res://PigsterDance/assets/pngs/keys/keyboard_f4_outline.png" id="79_0fu1r"]
+[ext_resource type="Texture2D" uid="uid://cum8vr86ggal7" path="res://PigsterDance/assets/pngs/keys/keyboard_f5.png" id="80_g5ahk"]
+[ext_resource type="Texture2D" uid="uid://1njj1235mfu1" path="res://PigsterDance/assets/pngs/keys/keyboard_f5_outline.png" id="81_0t4p3"]
+[ext_resource type="Texture2D" uid="uid://bsolqa5k5qnhc" path="res://PigsterDance/assets/pngs/keys/keyboard_f6.png" id="82_3thwb"]
+[ext_resource type="Texture2D" uid="uid://dyladv8t6fjwk" path="res://PigsterDance/assets/pngs/keys/keyboard_f6_outline.png" id="83_882py"]
+[ext_resource type="Texture2D" uid="uid://14surotvibpk" path="res://PigsterDance/assets/pngs/keys/keyboard_f7.png" id="84_w2kj1"]
+[ext_resource type="Texture2D" uid="uid://dgmgkjg744apv" path="res://PigsterDance/assets/pngs/keys/keyboard_f7_outline.png" id="85_t1gmc"]
+[ext_resource type="Texture2D" uid="uid://crej04yc1n8m0" path="res://PigsterDance/assets/pngs/keys/keyboard_f8.png" id="86_if7xu"]
+[ext_resource type="Texture2D" uid="uid://di0kinaduy3j1" path="res://PigsterDance/assets/pngs/keys/keyboard_f8_outline.png" id="87_v3hju"]
+[ext_resource type="Texture2D" uid="uid://cq0gle4xht64q" path="res://PigsterDance/assets/pngs/keys/keyboard_f9.png" id="88_rko3n"]
+[ext_resource type="Texture2D" uid="uid://bggx2okoqer7p" path="res://PigsterDance/assets/pngs/keys/keyboard_f9_outline.png" id="89_ca8vu"]
+[ext_resource type="Texture2D" uid="uid://bfg4uksydt27u" path="res://PigsterDance/assets/pngs/keys/keyboard_g.png" id="90_g0162"]
+[ext_resource type="Texture2D" uid="uid://cgt4aidl834cg" path="res://PigsterDance/assets/pngs/keys/keyboard_g_outline.png" id="91_fsdiv"]
+[ext_resource type="Texture2D" uid="uid://v2jo2kl7j67x" path="res://PigsterDance/assets/pngs/keys/keyboard_h.png" id="92_fug7t"]
+[ext_resource type="Texture2D" uid="uid://cvnvdftpd3gui" path="res://PigsterDance/assets/pngs/keys/keyboard_h_outline.png" id="93_8a6mo"]
+[ext_resource type="Texture2D" uid="uid://dplkvcuh5n7fo" path="res://PigsterDance/assets/pngs/keys/keyboard_home.png" id="94_k4suj"]
+[ext_resource type="Texture2D" uid="uid://h8stth14j6yu" path="res://PigsterDance/assets/pngs/keys/keyboard_home_outline.png" id="95_vkyax"]
+[ext_resource type="Texture2D" uid="uid://curhb3mwxkiee" path="res://PigsterDance/assets/pngs/keys/keyboard_i.png" id="96_7nq4v"]
+[ext_resource type="Texture2D" uid="uid://bab2861ihusdb" path="res://PigsterDance/assets/pngs/keys/keyboard_i_outline.png" id="97_psct0"]
+[ext_resource type="Texture2D" uid="uid://1ioue5y6vr2n" path="res://PigsterDance/assets/pngs/keys/keyboard_insert.png" id="98_xi7is"]
+[ext_resource type="Texture2D" uid="uid://cnoyk8d2dw2mn" path="res://PigsterDance/assets/pngs/keys/keyboard_insert_outline.png" id="99_4dcuh"]
+[ext_resource type="Texture2D" uid="uid://c8ytwtkyr8niu" path="res://PigsterDance/assets/pngs/keys/keyboard_j.png" id="100_yxivj"]
+[ext_resource type="Texture2D" uid="uid://dxl357g867ilw" path="res://PigsterDance/assets/pngs/keys/keyboard_j_outline.png" id="101_xmuio"]
+[ext_resource type="Texture2D" uid="uid://b2c4p7scxlw5p" path="res://PigsterDance/assets/pngs/keys/keyboard_k.png" id="102_wqm0c"]
+[ext_resource type="Texture2D" uid="uid://fikeh7niuwat" path="res://PigsterDance/assets/pngs/keys/keyboard_k_outline.png" id="103_pbqyg"]
+[ext_resource type="Texture2D" uid="uid://c5o5it13kbsx6" path="res://PigsterDance/assets/pngs/keys/keyboard_l.png" id="104_swegt"]
+[ext_resource type="Texture2D" uid="uid://b07dfvbhgkqgo" path="res://PigsterDance/assets/pngs/keys/keyboard_l_outline.png" id="105_gusng"]
+[ext_resource type="Texture2D" uid="uid://dodxubj3u1df" path="res://PigsterDance/assets/pngs/keys/keyboard_m.png" id="106_3m480"]
+[ext_resource type="Texture2D" uid="uid://tdnc60kw50ag" path="res://PigsterDance/assets/pngs/keys/keyboard_m_outline.png" id="107_j68n0"]
+[ext_resource type="Texture2D" uid="uid://doy1sm1a1kom2" path="res://PigsterDance/assets/pngs/keys/keyboard_minus.png" id="108_mulpr"]
+[ext_resource type="Texture2D" uid="uid://cdqivayel1jwn" path="res://PigsterDance/assets/pngs/keys/keyboard_minus_outline.png" id="109_wrlw7"]
+[ext_resource type="Texture2D" uid="uid://dpdqkrq44vwbd" path="res://PigsterDance/assets/pngs/keys/keyboard_n.png" id="110_5ico6"]
+[ext_resource type="Texture2D" uid="uid://cgbxqmcy2e1ow" path="res://PigsterDance/assets/pngs/keys/keyboard_n_outline.png" id="111_ymgbu"]
+[ext_resource type="Texture2D" uid="uid://8wsvuok3yehs" path="res://PigsterDance/assets/pngs/keys/keyboard_numlock.png" id="112_6k5wc"]
+[ext_resource type="Texture2D" uid="uid://tjuiif3t1e2j" path="res://PigsterDance/assets/pngs/keys/keyboard_numlock_outline.png" id="113_6gt7y"]
+[ext_resource type="Texture2D" uid="uid://ds1b8mgcavid8" path="res://PigsterDance/assets/pngs/keys/keyboard_o.png" id="114_w2vxl"]
+[ext_resource type="Texture2D" uid="uid://cec3xl7mplcv6" path="res://PigsterDance/assets/pngs/keys/keyboard_o_outline.png" id="115_he3qh"]
+[ext_resource type="Texture2D" uid="uid://b68m5tk5h0u4v" path="res://PigsterDance/assets/pngs/keys/keyboard_p.png" id="116_caxvn"]
+[ext_resource type="Texture2D" uid="uid://degc13ldaw7by" path="res://PigsterDance/assets/pngs/keys/keyboard_p_outline.png" id="117_jol65"]
+[ext_resource type="Texture2D" uid="uid://cn8jjsleflvg7" path="res://PigsterDance/assets/pngs/keys/keyboard_pause.png" id="118_y371i"]
+[ext_resource type="Texture2D" uid="uid://rn8a1wrlqvgy" path="res://PigsterDance/assets/pngs/keys/keyboard_pause_outline.png" id="119_28e6i"]
+[ext_resource type="Texture2D" uid="uid://ekogsxrafowc" path="res://PigsterDance/assets/pngs/keys/keyboard_period.png" id="120_52qrh"]
+[ext_resource type="Texture2D" uid="uid://o8420fbn355i" path="res://PigsterDance/assets/pngs/keys/keyboard_period_outline.png" id="121_y31i8"]
+[ext_resource type="Texture2D" uid="uid://ccwx1cl8xblx4" path="res://PigsterDance/assets/pngs/keys/keyboard_plus.png" id="122_axs4j"]
+[ext_resource type="Texture2D" uid="uid://vbcr5u5bo0p" path="res://PigsterDance/assets/pngs/keys/keyboard_plus_outline.png" id="123_t2exx"]
+[ext_resource type="Texture2D" uid="uid://qmhbwser2xgf" path="res://PigsterDance/assets/pngs/keys/keyboard_q.png" id="124_6px74"]
+[ext_resource type="Texture2D" uid="uid://b1itpvb7tu5i6" path="res://PigsterDance/assets/pngs/keys/keyboard_q_outline.png" id="125_psd41"]
+[ext_resource type="Texture2D" uid="uid://cmjvpjtyrbhmb" path="res://PigsterDance/assets/pngs/keys/keyboard_question.png" id="126_cpssl"]
+[ext_resource type="Texture2D" uid="uid://4jendt8nu16i" path="res://PigsterDance/assets/pngs/keys/keyboard_question_outline.png" id="127_jq73m"]
+[ext_resource type="Texture2D" uid="uid://fjgimeclvmy5" path="res://PigsterDance/assets/pngs/keys/keyboard_r.png" id="128_0nx1r"]
+[ext_resource type="Texture2D" uid="uid://dcbfk4cq41011" path="res://PigsterDance/assets/pngs/keys/keyboard_r_outline.png" id="129_j1mlu"]
+[ext_resource type="Texture2D" uid="uid://bjqo0syccmeqm" path="res://PigsterDance/assets/pngs/keys/keyboard_s.png" id="130_cixgi"]
+[ext_resource type="Texture2D" uid="uid://dmnp0a6qin652" path="res://PigsterDance/assets/pngs/keys/keyboard_s_outline.png" id="131_oe8jf"]
+[ext_resource type="Texture2D" uid="uid://sotuuleb1v5s" path="res://PigsterDance/assets/pngs/keys/keyboard_semicolon.png" id="132_jcwgy"]
+[ext_resource type="Texture2D" uid="uid://d13g0ieh2xgyp" path="res://PigsterDance/assets/pngs/keys/keyboard_semicolon_outline.png" id="133_sdeec"]
+[ext_resource type="Texture2D" uid="uid://tl1co4wdi0v" path="res://PigsterDance/assets/pngs/keys/keyboard_shift.png" id="134_1yc7f"]
+[ext_resource type="Texture2D" uid="uid://c8v4pxspmjn2y" path="res://PigsterDance/assets/pngs/keys/keyboard_shift_outline.png" id="135_tsnso"]
+[ext_resource type="Texture2D" uid="uid://d0eo12ja5d37d" path="res://PigsterDance/assets/pngs/keys/keyboard_space.png" id="136_kfwlp"]
+[ext_resource type="Texture2D" uid="uid://dtyxgdi5tevct" path="res://PigsterDance/assets/pngs/keys/keyboard_space_outline.png" id="137_smbb1"]
+[ext_resource type="Texture2D" uid="uid://dv6snya612ya0" path="res://PigsterDance/assets/pngs/keys/keyboard_t.png" id="138_6xvan"]
+[ext_resource type="Texture2D" uid="uid://3s1c2mbwm6yx" path="res://PigsterDance/assets/pngs/keys/keyboard_t_outline.png" id="139_mh8s4"]
+[ext_resource type="Texture2D" uid="uid://b73k2e1hqmh1a" path="res://PigsterDance/assets/pngs/keys/keyboard_tab.png" id="140_8l1bh"]
+[ext_resource type="Texture2D" uid="uid://bkv7epaocen8y" path="res://PigsterDance/assets/pngs/keys/keyboard_tab_outline.png" id="141_omnow"]
+[ext_resource type="Texture2D" uid="uid://bm6bte6yar4wg" path="res://PigsterDance/assets/pngs/keys/keyboard_u.png" id="142_y8q82"]
+[ext_resource type="Texture2D" uid="uid://dh5bmm3draw8a" path="res://PigsterDance/assets/pngs/keys/keyboard_u_outline.png" id="143_opvit"]
+[ext_resource type="Texture2D" uid="uid://cjryihqbg0q0n" path="res://PigsterDance/assets/pngs/keys/keyboard_underscore.png" id="144_7gyx5"]
+[ext_resource type="Texture2D" uid="uid://dn83qxdejtn8q" path="res://PigsterDance/assets/pngs/keys/keyboard_underscore_outline.png" id="145_wu2kr"]
+[ext_resource type="Texture2D" uid="uid://ddsngonucoc4w" path="res://PigsterDance/assets/pngs/keys/keyboard_v.png" id="146_0dt6d"]
+[ext_resource type="Texture2D" uid="uid://bh2badkblih0r" path="res://PigsterDance/assets/pngs/keys/keyboard_v_outline.png" id="147_0oen4"]
+[ext_resource type="Texture2D" uid="uid://dmlavhwk8nrfw" path="res://PigsterDance/assets/pngs/keys/keyboard_w.png" id="148_fqkdv"]
+[ext_resource type="Texture2D" uid="uid://i3e2rf5mfxg2" path="res://PigsterDance/assets/pngs/keys/keyboard_w_outline.png" id="149_r5t83"]
+[ext_resource type="Texture2D" uid="uid://coahno0i2htr" path="res://PigsterDance/assets/pngs/keys/keyboard_x.png" id="150_1tim6"]
+[ext_resource type="Texture2D" uid="uid://c5jdk03eiexvu" path="res://PigsterDance/assets/pngs/keys/keyboard_x_outline.png" id="151_1h4mg"]
+[ext_resource type="Texture2D" uid="uid://c4j21rkqnusvs" path="res://PigsterDance/assets/pngs/keys/keyboard_y.png" id="152_q7geo"]
+[ext_resource type="Texture2D" uid="uid://b15kjdcq5v3ux" path="res://PigsterDance/assets/pngs/keys/keyboard_y_outline.png" id="153_51ric"]
+[ext_resource type="Texture2D" uid="uid://bc0hq285kmgeq" path="res://PigsterDance/assets/pngs/keys/keyboard_z.png" id="154_c6ya1"]
+[ext_resource type="Texture2D" uid="uid://bpfo144n52ycu" path="res://PigsterDance/assets/pngs/keys/keyboard_z_outline.png" id="155_hkbst"]
+[ext_resource type="Script" uid="uid://edox68ti7iis" path="res://PigsterDance/custom_resources/qte_key_icon_set.gd" id="156_7st04"]
+
+[sub_resource type="Resource" id="Resource_ei6cw"]
+script = ExtResource("1_2q236")
+keycode = 48
+filled = ExtResource("2_0kmu0")
+outline = ExtResource("3_5n22e")
+
+[sub_resource type="Resource" id="Resource_awj8f"]
+script = ExtResource("1_2q236")
+keycode = 49
+filled = ExtResource("4_p2507")
+outline = ExtResource("5_cvxcr")
+
+[sub_resource type="Resource" id="Resource_f0w5k"]
+script = ExtResource("1_2q236")
+keycode = 50
+filled = ExtResource("6_68f5n")
+outline = ExtResource("7_3oyud")
+
+[sub_resource type="Resource" id="Resource_2bt2s"]
+script = ExtResource("1_2q236")
+keycode = 51
+filled = ExtResource("8_tko8k")
+outline = ExtResource("9_tmq1v")
+
+[sub_resource type="Resource" id="Resource_tiqdq"]
+script = ExtResource("1_2q236")
+keycode = 52
+filled = ExtResource("10_5p03s")
+outline = ExtResource("11_h31q5")
+
+[sub_resource type="Resource" id="Resource_lqrv6"]
+script = ExtResource("1_2q236")
+keycode = 53
+filled = ExtResource("12_lli3s")
+outline = ExtResource("13_palre")
+
+[sub_resource type="Resource" id="Resource_cwfiu"]
+script = ExtResource("1_2q236")
+keycode = 54
+filled = ExtResource("14_lemxt")
+outline = ExtResource("15_vacvm")
+
+[sub_resource type="Resource" id="Resource_5ii75"]
+script = ExtResource("1_2q236")
+keycode = 55
+filled = ExtResource("16_j7brr")
+outline = ExtResource("17_ug7q1")
+
+[sub_resource type="Resource" id="Resource_7u84b"]
+script = ExtResource("1_2q236")
+keycode = 56
+filled = ExtResource("18_3jx3t")
+outline = ExtResource("19_fmbdc")
+
+[sub_resource type="Resource" id="Resource_wivgr"]
+script = ExtResource("1_2q236")
+keycode = 57
+filled = ExtResource("20_uxet7")
+outline = ExtResource("21_g17j8")
+
+[sub_resource type="Resource" id="Resource_32psi"]
+script = ExtResource("1_2q236")
+keycode = 65
+filled = ExtResource("22_gp2m8")
+outline = ExtResource("23_u2m30")
+
+[sub_resource type="Resource" id="Resource_xjyxj"]
+script = ExtResource("1_2q236")
+keycode = 4194328
+filled = ExtResource("24_r2dlj")
+outline = ExtResource("25_5fjyh")
+
+[sub_resource type="Resource" id="Resource_s42h1"]
+script = ExtResource("1_2q236")
+keycode = 39
+filled = ExtResource("26_dd2vk")
+outline = ExtResource("27_1ut7n")
+
+[sub_resource type="Resource" id="Resource_g4ecw"]
+script = ExtResource("1_2q236")
+keycode = 4194322
+filled = ExtResource("28_xo4ge")
+outline = ExtResource("29_27vwc")
+
+[sub_resource type="Resource" id="Resource_onx7i"]
+script = ExtResource("1_2q236")
+keycode = 4194319
+filled = ExtResource("30_hrnmw")
+outline = ExtResource("31_liwln")
+
+[sub_resource type="Resource" id="Resource_rq0gh"]
+script = ExtResource("1_2q236")
+keycode = 4194321
+filled = ExtResource("32_tvaot")
+outline = ExtResource("33_d0v6w")
+
+[sub_resource type="Resource" id="Resource_76hs3"]
+script = ExtResource("1_2q236")
+keycode = 4194320
+filled = ExtResource("34_euu1f")
+outline = ExtResource("35_31aua")
+
+[sub_resource type="Resource" id="Resource_75r8a"]
+script = ExtResource("1_2q236")
+keycode = 42
+filled = ExtResource("36_45yoe")
+outline = ExtResource("37_t3pnm")
+
+[sub_resource type="Resource" id="Resource_1m62i"]
+script = ExtResource("1_2q236")
+keycode = 66
+filled = ExtResource("38_vw1rv")
+outline = ExtResource("39_vxd8m")
+
+[sub_resource type="Resource" id="Resource_a1pa8"]
+script = ExtResource("1_2q236")
+keycode = 4194308
+filled = ExtResource("40_hy1lq")
+outline = ExtResource("41_jmhdu")
+
+[sub_resource type="Resource" id="Resource_i3dvx"]
+script = ExtResource("1_2q236")
+keycode = 67
+filled = ExtResource("42_3rtai")
+outline = ExtResource("43_2shha")
+
+[sub_resource type="Resource" id="Resource_x678d"]
+script = ExtResource("1_2q236")
+keycode = 4194329
+filled = ExtResource("44_b0ybj")
+outline = ExtResource("45_esvn2")
+
+[sub_resource type="Resource" id="Resource_caqx0"]
+script = ExtResource("1_2q236")
+keycode = 58
+filled = ExtResource("46_uswex")
+outline = ExtResource("47_srufg")
+
+[sub_resource type="Resource" id="Resource_cfr61"]
+script = ExtResource("1_2q236")
+keycode = 44
+filled = ExtResource("48_fmo3j")
+outline = ExtResource("49_r0oor")
+
+[sub_resource type="Resource" id="Resource_pgg6k"]
+script = ExtResource("1_2q236")
+keycode = 4194326
+filled = ExtResource("50_l5ykw")
+outline = ExtResource("51_o4hou")
+
+[sub_resource type="Resource" id="Resource_6cgld"]
+script = ExtResource("1_2q236")
+keycode = 68
+filled = ExtResource("52_j0afe")
+outline = ExtResource("53_pvvhy")
+
+[sub_resource type="Resource" id="Resource_igyhm"]
+script = ExtResource("1_2q236")
+keycode = 4194312
+filled = ExtResource("54_8o4wt")
+outline = ExtResource("55_2l35k")
+
+[sub_resource type="Resource" id="Resource_kjhyo"]
+script = ExtResource("1_2q236")
+keycode = 69
+filled = ExtResource("56_bpyoy")
+outline = ExtResource("57_fr42i")
+
+[sub_resource type="Resource" id="Resource_fjegb"]
+script = ExtResource("1_2q236")
+keycode = 4194318
+filled = ExtResource("58_tqmke")
+outline = ExtResource("59_o2vc5")
+
+[sub_resource type="Resource" id="Resource_xqb6y"]
+script = ExtResource("1_2q236")
+keycode = 4194309
+filled = ExtResource("60_u54kw")
+outline = ExtResource("61_f8k65")
+
+[sub_resource type="Resource" id="Resource_sqphy"]
+script = ExtResource("1_2q236")
+keycode = 4194305
+filled = ExtResource("62_p5c1t")
+outline = ExtResource("63_i55bu")
+
+[sub_resource type="Resource" id="Resource_e10er"]
+script = ExtResource("1_2q236")
+keycode = 70
+filled = ExtResource("64_pj1of")
+outline = ExtResource("65_wpblp")
+
+[sub_resource type="Resource" id="Resource_1t0k3"]
+script = ExtResource("1_2q236")
+keycode = 4194332
+filled = ExtResource("66_0do0v")
+outline = ExtResource("67_gm2lk")
+
+[sub_resource type="Resource" id="Resource_33hp8"]
+script = ExtResource("1_2q236")
+keycode = 4194341
+filled = ExtResource("68_koxc2")
+outline = ExtResource("69_id5io")
+
+[sub_resource type="Resource" id="Resource_kksal"]
+script = ExtResource("1_2q236")
+keycode = 4194342
+filled = ExtResource("70_gr2ww")
+outline = ExtResource("71_x341a")
+
+[sub_resource type="Resource" id="Resource_dhk11"]
+script = ExtResource("1_2q236")
+keycode = 4194343
+filled = ExtResource("72_gqrl3")
+outline = ExtResource("73_4hj8e")
+
+[sub_resource type="Resource" id="Resource_s8c4s"]
+script = ExtResource("1_2q236")
+keycode = 4194333
+filled = ExtResource("74_uh6co")
+outline = ExtResource("75_ev7p4")
+
+[sub_resource type="Resource" id="Resource_kk131"]
+script = ExtResource("1_2q236")
+keycode = 4194334
+filled = ExtResource("76_bvqde")
+outline = ExtResource("77_aivdc")
+
+[sub_resource type="Resource" id="Resource_o2yn4"]
+script = ExtResource("1_2q236")
+keycode = 4194335
+filled = ExtResource("78_tibv1")
+outline = ExtResource("79_0fu1r")
+
+[sub_resource type="Resource" id="Resource_n3rv7"]
+script = ExtResource("1_2q236")
+keycode = 4194336
+filled = ExtResource("80_g5ahk")
+outline = ExtResource("81_0t4p3")
+
+[sub_resource type="Resource" id="Resource_0mhms"]
+script = ExtResource("1_2q236")
+keycode = 4194337
+filled = ExtResource("82_3thwb")
+outline = ExtResource("83_882py")
+
+[sub_resource type="Resource" id="Resource_5d3m7"]
+script = ExtResource("1_2q236")
+keycode = 4194338
+filled = ExtResource("84_w2kj1")
+outline = ExtResource("85_t1gmc")
+
+[sub_resource type="Resource" id="Resource_fkmnl"]
+script = ExtResource("1_2q236")
+keycode = 4194339
+filled = ExtResource("86_if7xu")
+outline = ExtResource("87_v3hju")
+
+[sub_resource type="Resource" id="Resource_vi1nd"]
+script = ExtResource("1_2q236")
+keycode = 4194340
+filled = ExtResource("88_rko3n")
+outline = ExtResource("89_ca8vu")
+
+[sub_resource type="Resource" id="Resource_ff0f2"]
+script = ExtResource("1_2q236")
+keycode = 71
+filled = ExtResource("90_g0162")
+outline = ExtResource("91_fsdiv")
+
+[sub_resource type="Resource" id="Resource_8dibm"]
+script = ExtResource("1_2q236")
+keycode = 72
+filled = ExtResource("92_fug7t")
+outline = ExtResource("93_8a6mo")
+
+[sub_resource type="Resource" id="Resource_ygg2n"]
+script = ExtResource("1_2q236")
+keycode = 4194317
+filled = ExtResource("94_k4suj")
+outline = ExtResource("95_vkyax")
+
+[sub_resource type="Resource" id="Resource_byikb"]
+script = ExtResource("1_2q236")
+keycode = 73
+filled = ExtResource("96_7nq4v")
+outline = ExtResource("97_psct0")
+
+[sub_resource type="Resource" id="Resource_rrofd"]
+script = ExtResource("1_2q236")
+keycode = 4194311
+filled = ExtResource("98_xi7is")
+outline = ExtResource("99_4dcuh")
+
+[sub_resource type="Resource" id="Resource_7nl73"]
+script = ExtResource("1_2q236")
+keycode = 74
+filled = ExtResource("100_yxivj")
+outline = ExtResource("101_xmuio")
+
+[sub_resource type="Resource" id="Resource_nftf6"]
+script = ExtResource("1_2q236")
+keycode = 75
+filled = ExtResource("102_wqm0c")
+outline = ExtResource("103_pbqyg")
+
+[sub_resource type="Resource" id="Resource_koall"]
+script = ExtResource("1_2q236")
+keycode = 76
+filled = ExtResource("104_swegt")
+outline = ExtResource("105_gusng")
+
+[sub_resource type="Resource" id="Resource_fptie"]
+script = ExtResource("1_2q236")
+keycode = 77
+filled = ExtResource("106_3m480")
+outline = ExtResource("107_j68n0")
+
+[sub_resource type="Resource" id="Resource_he7qu"]
+script = ExtResource("1_2q236")
+keycode = 45
+filled = ExtResource("108_mulpr")
+outline = ExtResource("109_wrlw7")
+
+[sub_resource type="Resource" id="Resource_jvglq"]
+script = ExtResource("1_2q236")
+keycode = 78
+filled = ExtResource("110_5ico6")
+outline = ExtResource("111_ymgbu")
+
+[sub_resource type="Resource" id="Resource_xha60"]
+script = ExtResource("1_2q236")
+keycode = 4194330
+filled = ExtResource("112_6k5wc")
+outline = ExtResource("113_6gt7y")
+
+[sub_resource type="Resource" id="Resource_5g3sk"]
+script = ExtResource("1_2q236")
+keycode = 79
+filled = ExtResource("114_w2vxl")
+outline = ExtResource("115_he3qh")
+
+[sub_resource type="Resource" id="Resource_0mmgu"]
+script = ExtResource("1_2q236")
+keycode = 80
+filled = ExtResource("116_caxvn")
+outline = ExtResource("117_jol65")
+
+[sub_resource type="Resource" id="Resource_e4uqk"]
+script = ExtResource("1_2q236")
+keycode = 4194313
+filled = ExtResource("118_y371i")
+outline = ExtResource("119_28e6i")
+
+[sub_resource type="Resource" id="Resource_l7g5x"]
+script = ExtResource("1_2q236")
+keycode = 46
+filled = ExtResource("120_52qrh")
+outline = ExtResource("121_y31i8")
+
+[sub_resource type="Resource" id="Resource_dc0n1"]
+script = ExtResource("1_2q236")
+keycode = 43
+filled = ExtResource("122_axs4j")
+outline = ExtResource("123_t2exx")
+
+[sub_resource type="Resource" id="Resource_7nsol"]
+script = ExtResource("1_2q236")
+keycode = 81
+filled = ExtResource("124_6px74")
+outline = ExtResource("125_psd41")
+
+[sub_resource type="Resource" id="Resource_hkd5c"]
+script = ExtResource("1_2q236")
+keycode = 63
+filled = ExtResource("126_cpssl")
+outline = ExtResource("127_jq73m")
+
+[sub_resource type="Resource" id="Resource_x7ruw"]
+script = ExtResource("1_2q236")
+keycode = 82
+filled = ExtResource("128_0nx1r")
+outline = ExtResource("129_j1mlu")
+
+[sub_resource type="Resource" id="Resource_0milf"]
+script = ExtResource("1_2q236")
+keycode = 83
+filled = ExtResource("130_cixgi")
+outline = ExtResource("131_oe8jf")
+
+[sub_resource type="Resource" id="Resource_3bvkm"]
+script = ExtResource("1_2q236")
+keycode = 59
+filled = ExtResource("132_jcwgy")
+outline = ExtResource("133_sdeec")
+
+[sub_resource type="Resource" id="Resource_5po3h"]
+script = ExtResource("1_2q236")
+keycode = 4194325
+filled = ExtResource("134_1yc7f")
+outline = ExtResource("135_tsnso")
+
+[sub_resource type="Resource" id="Resource_03oqr"]
+script = ExtResource("1_2q236")
+keycode = 32
+filled = ExtResource("136_kfwlp")
+outline = ExtResource("137_smbb1")
+
+[sub_resource type="Resource" id="Resource_2n4is"]
+script = ExtResource("1_2q236")
+keycode = 84
+filled = ExtResource("138_6xvan")
+outline = ExtResource("139_mh8s4")
+
+[sub_resource type="Resource" id="Resource_tidkv"]
+script = ExtResource("1_2q236")
+keycode = 4194306
+filled = ExtResource("140_8l1bh")
+outline = ExtResource("141_omnow")
+
+[sub_resource type="Resource" id="Resource_cmhup"]
+script = ExtResource("1_2q236")
+keycode = 85
+filled = ExtResource("142_y8q82")
+outline = ExtResource("143_opvit")
+
+[sub_resource type="Resource" id="Resource_6vjbt"]
+script = ExtResource("1_2q236")
+keycode = 95
+filled = ExtResource("144_7gyx5")
+outline = ExtResource("145_wu2kr")
+
+[sub_resource type="Resource" id="Resource_0bayx"]
+script = ExtResource("1_2q236")
+keycode = 86
+filled = ExtResource("146_0dt6d")
+outline = ExtResource("147_0oen4")
+
+[sub_resource type="Resource" id="Resource_ftnmx"]
+script = ExtResource("1_2q236")
+keycode = 87
+filled = ExtResource("148_fqkdv")
+outline = ExtResource("149_r5t83")
+
+[sub_resource type="Resource" id="Resource_pq1jr"]
+script = ExtResource("1_2q236")
+keycode = 88
+filled = ExtResource("150_1tim6")
+outline = ExtResource("151_1h4mg")
+
+[sub_resource type="Resource" id="Resource_icmi1"]
+script = ExtResource("1_2q236")
+keycode = 89
+filled = ExtResource("152_q7geo")
+outline = ExtResource("153_51ric")
+
+[sub_resource type="Resource" id="Resource_eiq6g"]
+script = ExtResource("1_2q236")
+keycode = 90
+filled = ExtResource("154_c6ya1")
+outline = ExtResource("155_hkbst")
+
+[resource]
+script = ExtResource("156_7st04")
+icons = Array[ExtResource("1_2q236")]([SubResource("Resource_ei6cw"), SubResource("Resource_awj8f"), SubResource("Resource_f0w5k"), SubResource("Resource_2bt2s"), SubResource("Resource_tiqdq"), SubResource("Resource_lqrv6"), SubResource("Resource_cwfiu"), SubResource("Resource_5ii75"), SubResource("Resource_7u84b"), SubResource("Resource_wivgr"), SubResource("Resource_32psi"), SubResource("Resource_xjyxj"), SubResource("Resource_s42h1"), SubResource("Resource_g4ecw"), SubResource("Resource_onx7i"), SubResource("Resource_rq0gh"), SubResource("Resource_76hs3"), SubResource("Resource_75r8a"), SubResource("Resource_1m62i"), SubResource("Resource_a1pa8"), SubResource("Resource_i3dvx"), SubResource("Resource_x678d"), SubResource("Resource_caqx0"), SubResource("Resource_cfr61"), SubResource("Resource_pgg6k"), SubResource("Resource_6cgld"), SubResource("Resource_igyhm"), SubResource("Resource_kjhyo"), SubResource("Resource_fjegb"), SubResource("Resource_xqb6y"), SubResource("Resource_sqphy"), SubResource("Resource_e10er"), SubResource("Resource_1t0k3"), SubResource("Resource_33hp8"), SubResource("Resource_kksal"), SubResource("Resource_dhk11"), SubResource("Resource_s8c4s"), SubResource("Resource_kk131"), SubResource("Resource_o2yn4"), SubResource("Resource_n3rv7"), SubResource("Resource_0mhms"), SubResource("Resource_5d3m7"), SubResource("Resource_fkmnl"), SubResource("Resource_vi1nd"), SubResource("Resource_ff0f2"), SubResource("Resource_8dibm"), SubResource("Resource_ygg2n"), SubResource("Resource_byikb"), SubResource("Resource_rrofd"), SubResource("Resource_7nl73"), SubResource("Resource_nftf6"), SubResource("Resource_koall"), SubResource("Resource_fptie"), SubResource("Resource_he7qu"), SubResource("Resource_jvglq"), SubResource("Resource_xha60"), SubResource("Resource_5g3sk"), SubResource("Resource_0mmgu"), SubResource("Resource_e4uqk"), SubResource("Resource_l7g5x"), SubResource("Resource_dc0n1"), SubResource("Resource_7nsol"), SubResource("Resource_hkd5c"), SubResource("Resource_x7ruw"), SubResource("Resource_0milf"), SubResource("Resource_3bvkm"), SubResource("Resource_5po3h"), SubResource("Resource_03oqr"), SubResource("Resource_2n4is"), SubResource("Resource_tidkv"), SubResource("Resource_cmhup"), SubResource("Resource_6vjbt"), SubResource("Resource_0bayx"), SubResource("Resource_ftnmx"), SubResource("Resource_pq1jr"), SubResource("Resource_icmi1"), SubResource("Resource_eiq6g")])

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://e410cds7rf8c" path="res://Cup-n-Ball/Ball.tscn" id="2_lik7q"]
 [ext_resource type="PackedScene" path="res://Cup-n-Ball/Systems/CupDetector/cup_detector.tscn" id="3_detector"]
 [ext_resource type="PackedScene" path="res://Cup-n-Ball/Effects/Electric/electric_zap.tscn" id="4_zap"]
+[ext_resource type="PackedScene" uid="uid://b7x6vnhce33gw" path="res://Cup-n-Ball/cup_tazer.tscn" id="5_3ogc1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jv608"]
 radius = 4.25
@@ -274,6 +275,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="CupVisual" type="Polygon2D" parent="." unique_id=634917670]
+visible = false
 position = Vector2(-94.75, -218.5)
 scale = Vector2(0.5, 0.5)
 color = Color(0.85, 0.55, 0.28, 1)
@@ -284,6 +286,12 @@ position = Vector2(-1, -180)
 
 [node name="ElectricZap" parent="." unique_id=308502296 instance=ExtResource("4_zap")]
 position = Vector2(-1, -198.5)
+
+[node name="Cup-tazer" parent="." unique_id=1021961193 instance=ExtResource("5_3ogc1")]
+position = Vector2(0, 0)
+offset = Vector2(0, -400)
+region_enabled = true
+region_rect = Rect2(578.1748, 1185.709, 915.8076, 1480.0103)
 
 [connection signal="ball_caught" from="CupDetector" to="Balllll" method="on_caught"]
 [connection signal="ball_caught" from="CupDetector" to="ElectricZap" method="zap"]

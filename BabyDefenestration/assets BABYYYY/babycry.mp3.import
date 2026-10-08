@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b26pc0347uwt6"
+path="res://.godot/imported/babycry.mp3-b3d0477975d313a955bf0955dc621853.mp3str"
+
+[deps]
+
+source_file="res://BabyDefenestration/assets BABYYYY/babycry.mp3"
+dest_files=["res://.godot/imported/babycry.mp3-b3d0477975d313a955bf0955dc621853.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
