@@ -1,7 +1,7 @@
 class_name DifficultyManager extends Node
 
 ## Number of [MicrogameQueue] stages until the difficulty plateaus
-const DIFFICULTY_PLATEAU_NUM : int = 4
+const DIFFICULTY_PLATEAU_NUM : int = 20
 
 signal difficulty_changed(difficulty : float)
 
