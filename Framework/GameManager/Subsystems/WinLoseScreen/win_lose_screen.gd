@@ -53,16 +53,14 @@ func play_anim() -> void:
 	chatter_label.visible = true
 	chatter_label.modulate = Color.WHITE
 	if new_save_data.lives < old_save_data.lives:
-		chatter_label.dialogue_lines = ChatterParser.read_lines(lose_voicelines)
+		chatter_label.dialogue_lines = chatter_label.LOSE_STRINGS
 	else:
-		chatter_label.dialogue_lines = ChatterParser.read_lines(win_voicelines)
+		chatter_label.dialogue_lines = chatter_label.WIN_STRINGS
 	chatter_label.reset_temp_lines()
 	chatter_label._on_timer_timeout()
 	await lives_stat_display.do_anim(new_save_data.lives)
 	await wins_stat_display.do_anim(new_save_data.wins)
 	await difficulty_stat_display.do_anim(new_save_data.current_difficulty)
-	if chatter_label.is_talking:
-		await chatter_label.ended_talking
 	
 	await get_tree().create_timer(1.0).timeout
 	var tween : Tween = get_tree().create_tween()
