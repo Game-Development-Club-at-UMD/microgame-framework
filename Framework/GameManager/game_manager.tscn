@@ -41,7 +41,7 @@ end_modulate = Color(1, 1, 1, 0)
 metadata/_custom_type_script = "uid://dby7depabb4fv"
 
 [sub_resource type="Curve" id="Curve_bl30x"]
-_data = [Vector2(0, 0.04494381), 0.0, 0.0, 0, 0, Vector2(0.2659176, 0.5), 0.0, 0.0, 0, 0, Vector2(0.7265917, 0.86923075), 1.0269226, 1.0269226, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.04494381), 0.0, 0.0, 0, 0, Vector2(0.39325842, 0.49230772), 1.1890688, 1.1890688, 0, 0, Vector2(0.7265917, 0.86923075), 1.0269226, 1.0269226, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [node name="GameManager" type="Node" unique_id=1254119700]
