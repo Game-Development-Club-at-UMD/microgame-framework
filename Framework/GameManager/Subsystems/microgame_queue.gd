@@ -4,6 +4,7 @@ class_name MicrogameQueue extends Node
 
 var _microgames_in_stage : Array[PackedScene]
 var _num_completed_stages : int = 0
+var _num_completed_games : int = 0
 
 @warning_ignore("unused_signal")
 ## Emits once each [MicroGame] has been finished in a given stage
@@ -27,7 +28,12 @@ func finish_game() -> void:
 
 func get_next_game() -> PackedScene:
 	var next_game : PackedScene = _microgames_in_stage.pop_front()
+	_num_completed_games += 1
 	# player finished all levels in stage
+	print(_num_completed_games)
+	print(_num_completed_games % 4)
+	if _num_completed_games % 4 == 0:
+		stage_finished.emit(_num_completed_games)
 	if next_game == null:
 		printerr("%s: next microgame was null, this means get_next_game() was run before finish_stage()")
 		await _finish_stage()
@@ -47,7 +53,7 @@ func _setup_new_stage() -> void:
 
 func _finish_stage() -> void:
 	_num_completed_stages += 1
-	stage_finished.emit(_num_completed_stages)
+	#stage_finished.emit(_num_completed_stages)
 	_setup_new_stage()
 	await get_tree().process_frame
 
