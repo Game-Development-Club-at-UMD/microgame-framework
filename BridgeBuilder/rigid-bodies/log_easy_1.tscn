@@ -1,0 +1,44 @@
+[gd_scene format=4 uid="uid://by4gfh75cwxrt"]
+
+[ext_resource type="Script" uid="uid://c3umuq58amdff" path="res://BridgeBuilder/rigid-bodies/log_easy_1.gd" id="1_d1nsp"]
+[ext_resource type="Texture2D" uid="uid://c8t3shriuheab" path="res://BridgeBuilder/assets/environment/sprites/tilemap.png" id="1_qgbai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqvtf"]
+size = Vector2(84, 12)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1nsp"]
+texture = ExtResource("1_qgbai")
+texture_region_size = Vector2i(12, 12)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2838g"]
+tile_size = Vector2i(12, 12)
+sources/1 = SubResource("TileSetAtlasSource_d1nsp")
+
+[node name="LogEasy1" type="RigidBody2D" unique_id=149041970]
+input_pickable = true
+script = ExtResource("1_d1nsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2096582361]
+position = Vector2(54, 18)
+shape = SubResource("RectangleShape2D_qqvtf")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=664652597]
+tile_map_data = PackedByteArray("AAABAAEAAQADAAEAAAACAAEAAQABAAEAAAADAAEAAQABAAEAAAAEAAEAAQABAAEAAAAFAAEAAQABAAEAAAAGAAEAAQABAAEAAAAHAAEAAQACAAEAAAA=")
+tile_set = SubResource("TileSet_2838g")

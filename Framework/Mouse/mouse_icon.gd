@@ -9,8 +9,6 @@ var current_mouse_texture : Texture2D = null
 var previous_mouse_texture : Texture2D = null
 
 
-func _ready() -> void:
-	set_paw_mouse()
 
 
 func get_previous_mouse_icon() -> void:

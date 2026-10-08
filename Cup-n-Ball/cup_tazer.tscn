@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b7x6vnhce33gw"]
+
+[ext_resource type="Texture2D" uid="uid://cqa72crjig6le" path="res://Cup-n-Ball/Cup.png" id="1_lbntr"]
+
+[node name="Cup-tazer" type="Sprite2D" unique_id=1021961193]
+position = Vector2(395.99997, 284)
+scale = Vector2(0.20667069, 0.20667072)
+texture = ExtResource("1_lbntr")
+offset = Vector2(0, -400)
+region_enabled = true
+region_rect = Rect2(578.1748, 1185.709, 915.8076, 1480.0103)

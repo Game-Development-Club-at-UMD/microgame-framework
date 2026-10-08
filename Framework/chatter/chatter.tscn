@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dcu3mtx14hp28"]
+
+[ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_7vwhb"]
+[ext_resource type="Script" uid="uid://88khsbfgvnjf" path="res://Framework/chatter/chatter_label.gd" id="2_o5qrj"]
+
+[node name="MarginContainer" type="MarginContainer" unique_id=1547677923]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="ChatterLabel" type="RichTextLabel" parent="." unique_id=326574450 node_paths=PackedStringArray("timer")]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_7vwhb")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "You can try again, but you'll never get your pride back."
+fit_content = true
+script = ExtResource("2_o5qrj")
+file = "res://Framework/Assets/dialogue/menu-chatter.txt"
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="ChatterLabel" unique_id=896631091]
+wait_time = 8.0
+one_shot = true
+
+[connection signal="timeout" from="ChatterLabel/Timer" to="ChatterLabel" method="_on_timer_timeout"]

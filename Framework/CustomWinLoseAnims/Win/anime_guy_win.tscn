@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://ekqj5khl46g2"]
+
+[ext_resource type="PackedScene" uid="uid://c0j7rxry5fr2s" path="res://Framework/CustomWinLoseAnims/custom_animation_screen.tscn" id="1_n6oi0"]
+[ext_resource type="Texture2D" uid="uid://be0j1lpcqn42i" path="res://Framework/Assets/guy but anime.png" id="2_xirid"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/TweenTool/Scripts/Components/control_tween.gd" id="3_0o45h"]
+[ext_resource type="Script" uid="uid://cdere083tmmuo" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/offset_transform_tween.gd" id="4_kppoe"]
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("4_kppoe")
+start_offset_position_ratio = Vector2(-1, inf)
+end_offset_position_ratio = Vector2(0, inf)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Curve" id="Curve_yf5fn"]
+_data = [Vector2(0, 0), 0.0, 3.555878, 0, 0, Vector2(1, 1), -0.2248452, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("4_kppoe")
+start_offset_rotation = -20.0
+end_offset_rotation = 0.0
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Curve" id="Curve_57qmd"]
+_data = [Vector2(0, 0), 0.0, 0.026676336, 0, 0, Vector2(0.80662984, 0.26521742), 0.7869561, 0.7869561, 0, 0, Vector2(1, 1), 3.322701, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_o2a6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a51p8"]
+resource_name = "default"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlideIn")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"do_tween"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RotateIn")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"do_tween"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yy4t"]
+_data = {
+&"RESET": SubResource("Animation_o2a6l"),
+&"default": SubResource("Animation_a51p8")
+}
+
+[node name="CustomAnimationScreen" unique_id=22007565 node_paths=PackedStringArray("sprite_frame_animator") instance=ExtResource("1_n6oi0")]
+sprite_frame_animator = NodePath("AnimationPlayer")
+do_zoom_anims = false
+
+[node name="Expand" parent="ControlTweenSequencer" parent_id_path=PackedInt32Array(103528410) index="0" unique_id=134944977 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../../TextureRect")
+
+[node name="Shrink" parent="ControlTweenSequencer" parent_id_path=PackedInt32Array(103528410) index="1" unique_id=514298524 node_paths=PackedStringArray("affected_node")]
+affected_node = NodePath("../../TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." index="2" unique_id=60957729]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-1, 0)
+texture = ExtResource("2_xirid")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SlideIn" type="Node" parent="." index="3" unique_id=378754301 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_0o45h")
+affected_node = NodePath("../TextureRect")
+offset_transform_tween = SubResource("Resource_g4v7s")
+use_custom_curve = true
+transition_curve = SubResource("Curve_yf5fn")
+tween_duration = 0.4
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="RotateIn" type="Node" parent="." index="4" unique_id=238082845 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("3_0o45h")
+affected_node = NodePath("../TextureRect")
+offset_transform_tween = SubResource("Resource_yf5fn")
+use_custom_curve = true
+transition_curve = SubResource("Curve_57qmd")
+tween_duration = 0.4
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1938886073]
+libraries/ = SubResource("AnimationLibrary_1yy4t")

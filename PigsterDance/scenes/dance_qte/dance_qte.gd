@@ -3,10 +3,16 @@ extends Node2D
 
 signal qte_won
 signal qte_failed
+signal key_succeeded
+signal try_failed
+signal retry_started
 
 @onready var hit_box: Area2D = $HitBox
 @onready var key_handler: DanceKeyHandler = $KeyHandler
 @onready var result_label: Label = $ResultLabel
+@onready var duration_timer: Timer = $DurationTimer
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
+
 
 var tries_left: int = 0
 var is_qte_active: bool = false
@@ -16,7 +22,9 @@ var current_level_stats: DanceLevelStats
 func _ready() -> void:
 	key_handler.key_succeeded.connect(_on_key_succeeded)
 	key_handler.key_failed.connect(_on_key_failed)
-	key_handler.all_keys_succeeded.connect(_on_all_keys_succeeded)
+	key_handler.all_keys_succeeded.connect(_on_all_keys_succeeded) 
+	duration_timer.one_shot = true
+	duration_timer.timeout.connect(_on_duration_timer_timeout)
 	_qte_debug("Waiting For Input")
 
 
@@ -24,20 +32,33 @@ func start_qte() -> void:
 	if current_level_stats.key_pool.is_empty():
 		push_error("Key Pool is Empty")
 		return
-	
+
 	tries_left = current_level_stats.max_tries
 	_start_round()
+
 
 func _start_round() -> void:
 	is_qte_active = true
 	_qte_debug("Waiting For Input")
 	key_handler.start_round(current_level_stats, hit_box)
+	duration_timer.start(current_level_stats.qte_duration)
+	_play_music()
+
+
+# DanceQte
+func _play_music() -> void:
+	music_player.stream = current_level_stats.music
+	if music_player.stream != null:
+		music_player.play(current_level_stats.music_start_offset)
 
 
 func _input(event: InputEvent) -> void:
 	if not is_qte_active or not event.is_pressed() or event.is_echo():
 		return
-
+	if get_tree().paused:
+		return
+	if event.is_action_pressed("ui_cancel") or (event is InputEventKey and event.keycode == KEY_ESCAPE):
+		return
 	key_handler.handle_input(event)
 
 
@@ -48,6 +69,8 @@ func _qte_debug(text: String) -> void:
 func _end_qte() -> void:
 	is_qte_active = false
 	key_handler.stop()
+	duration_timer.stop()
+	music_player.stop()
 
 
 func _fail_qte(reason: String) -> void:
@@ -61,18 +84,29 @@ func _fail_qte(reason: String) -> void:
 		return
 
 	_qte_debug("%s - %d tries left" % [reason, tries_left])
+	try_failed.emit()
 	await get_tree().create_timer(current_level_stats.retry_delay).timeout
+	retry_started.emit()
 	_start_round()
 
 
+func _on_duration_timer_timeout() -> void:
+	if not is_qte_active: 
+		return
+	_qte_debug("Finish the last keys!")
+	key_handler.stop_spawning() 
+
 func _on_key_succeeded(_key: InputEvent) -> void:
 	_qte_debug("SUCCESS")
+	key_succeeded.emit()
 
 
 func _on_key_failed(reason: String) -> void:
 	_fail_qte(reason)
 
-
 func _on_all_keys_succeeded() -> void:
+	if not is_qte_active:
+		return
 	_end_qte()
+	_qte_debug("YOU WIN")
 	qte_won.emit()

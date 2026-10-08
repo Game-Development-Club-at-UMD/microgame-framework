@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cv8hnm205d7o3"]
+
+[ext_resource type="Script" uid="uid://cdpvuaq472nhi" path="res://BridgeBuilder/Game/visible_timer.gd" id="1_ann4v"]
+
+[node name="VisibleTimer" type="Node2D" unique_id=460483255]
+script = ExtResource("1_ann4v")
+
+[node name="Timer" type="Timer" parent="." unique_id=1369501718]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1389230068]
+offset_right = 40.0
+offset_bottom = 23.0

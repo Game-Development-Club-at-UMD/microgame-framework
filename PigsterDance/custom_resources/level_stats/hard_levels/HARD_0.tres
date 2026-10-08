@@ -1,24 +1,81 @@
 [gd_resource type="Resource" script_class="DanceLevelStats" format=3 uid="uid://bspn0ldx5ophw"]
 
 [ext_resource type="PackedScene" uid="uid://cgm8nshwkqev3" path="res://PigsterDance/scenes/dance_qte/keyboard_key/QteKey.tscn" id="1_0hj07"]
+[ext_resource type="AudioStream" uid="uid://dceu2autcgweo" path="res://PigsterDance/assets/audio/goofy_beat.mp3" id="2_gaxk0"]
 [ext_resource type="Script" uid="uid://1mravwtv8td" path="res://PigsterDance/custom_resources/level_stats/dance_level_stats.gd" id="2_t5pcx"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_0hj07"]
+[sub_resource type="InputEventKey" id="InputEventKey_41qgv"]
 device = -1
-keycode = 47
-unicode = 47
+keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_1ej3x"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_6ksnw"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_xxmnr"]
+device = -1
+keycode = 68
+unicode = 100
 
 [sub_resource type="InputEventKey" id="InputEventKey_t5pcx"]
 device = -1
-keycode = 46
-unicode = 46
+keycode = 70
+unicode = 102
+
+[sub_resource type="InputEventKey" id="InputEventKey_d3e6j"]
+device = -1
+keycode = 90
+unicode = 122
+
+[sub_resource type="InputEventKey" id="InputEventKey_rs8vy"]
+device = -1
+keycode = 88
+unicode = 120
+
+[sub_resource type="InputEventKey" id="InputEventKey_4y2cj"]
+device = -1
+keycode = 67
+unicode = 99
+
+[sub_resource type="InputEventKey" id="InputEventKey_hqqki"]
+device = -1
+keycode = 78
+unicode = 110
+
+[sub_resource type="InputEventKey" id="InputEventKey_u8xt4"]
+device = -1
+keycode = 77
+unicode = 109
+
+[sub_resource type="InputEventKey" id="InputEventKey_fsnqa"]
+device = -1
+keycode = 79
+unicode = 111
 
 [sub_resource type="InputEventKey" id="InputEventKey_gaxk0"]
 device = -1
-keycode = 44
-unicode = 44
+keycode = 75
+unicode = 107
 
 [resource]
 script = ExtResource("2_t5pcx")
-key_pool = Array[InputEvent]([SubResource("InputEventKey_0hj07"), SubResource("InputEventKey_t5pcx"), SubResource("InputEventKey_gaxk0")])
+key_pool = Array[InputEvent]([SubResource("InputEventKey_41qgv"), SubResource("InputEventKey_1ej3x"), SubResource("InputEventKey_6ksnw"), SubResource("InputEventKey_xxmnr"), SubResource("InputEventKey_t5pcx"), SubResource("InputEventKey_d3e6j"), SubResource("InputEventKey_rs8vy"), SubResource("InputEventKey_4y2cj"), SubResource("InputEventKey_hqqki"), SubResource("InputEventKey_u8xt4"), SubResource("InputEventKey_fsnqa"), SubResource("InputEventKey_gaxk0")])
+max_tries = 2
+music = ExtResource("2_gaxk0")
+music_start_offset = 0.3
+key_speed_start = 420.0
+key_speed_end = 500.0
+spawn_interval_start = 0.8
+spawn_interval_end = 0.6
+qte_duration_start = 12.0
+qte_duration_end = 14.0
+retry_delay_start = 1.0
+retry_delay_end = 0.75
 metadata/_custom_type_script = "uid://1mravwtv8td"

@@ -14,6 +14,7 @@ class_name MainMenu extends Control
 func _ready() -> void:
 	# stagger buttons on begin
 	MainMenuButton.intro_all_buttons(buttons)
+	GameManager.mouse_paw.set_paw_mouse()
 
 
 func _on_start_pressed() -> void:

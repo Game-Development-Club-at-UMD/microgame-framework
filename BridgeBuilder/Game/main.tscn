@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://buhmj4x6onqxa"]
+
+[ext_resource type="Script" uid="uid://d1v8vgughiu51" path="res://BridgeBuilder/Game/main.gd" id="1_ylxma"]
+[ext_resource type="PackedScene" uid="uid://bvr5ke1y16j4j" path="res://BridgeBuilder/player/player.tscn" id="2_gcm7p"]
+[ext_resource type="PackedScene" uid="uid://buntwooqwlcp3" path="res://BridgeBuilder/map/base_map.tscn" id="3_b5vju"]
+[ext_resource type="PackedScene" uid="uid://cv8hnm205d7o3" path="res://BridgeBuilder/Game/visible_timer.tscn" id="3_gph0v"]
+[ext_resource type="PackedScene" uid="uid://ymk33bbsdkpa" path="res://BridgeBuilder/map/killzone.tscn" id="3_hn2i7"]
+[ext_resource type="PackedScene" uid="uid://b0ieexy21ft5c" path="res://BridgeBuilder/Game/instructions.tscn" id="4_ctg4p"]
+[ext_resource type="PackedScene" uid="uid://vflueasu6rcv" path="res://BridgeBuilder/map/winzone.tscn" id="4_o6ixb"]
+[ext_resource type="PackedScene" uid="uid://by4gfh75cwxrt" path="res://BridgeBuilder/rigid-bodies/log_easy_1.tscn" id="5_46bv3"]
+[ext_resource type="PackedScene" uid="uid://dwhmu6bmimet1" path="res://BridgeBuilder/Game/bg_music.tscn" id="5_duo7w"]
+[ext_resource type="PackedScene" uid="uid://dwe86ashsf4p1" path="res://BridgeBuilder/Game/layout_selection.tscn" id="5_gph0v"]
+[ext_resource type="PackedScene" uid="uid://cgehk0qwf74fk" path="res://BridgeBuilder/rigid-bodies/log_med.tscn" id="6_m6uti"]
+[ext_resource type="PackedScene" uid="uid://dj7jyxai45b81" path="res://BridgeBuilder/rigid-bodies/log_hard.tscn" id="7_xvxqi"]
+
+[node name="Main" type="Node2D" unique_id=582879533]
+script = ExtResource("1_ylxma")
+
+[node name="Player" parent="." unique_id=521260164 instance=ExtResource("2_gcm7p")]
+position = Vector2(44, 214)
+scale = Vector2(0.75, 0.75)
+
+[node name="GameElements" type="Node" parent="." unique_id=891765246]
+
+[node name="Camera2D" type="Camera2D" parent="GameElements" unique_id=1134167570]
+anchor_mode = 0
+zoom = Vector2(1.8, 1.8)
+
+[node name="VisibleTimer" parent="GameElements" unique_id=460483255 instance=ExtResource("3_gph0v")]
+
+[node name="Instructions" parent="GameElements" unique_id=1810523693 instance=ExtResource("4_ctg4p")]
+
+[node name="BGMusic" parent="GameElements" unique_id=4555998 instance=ExtResource("5_duo7w")]
+volume_db = -20.0
+
+[node name="Maps" type="Node" parent="." unique_id=1432266559]
+
+[node name="LayoutSelection" parent="Maps" unique_id=387250219 node_paths=PackedStringArray("main") instance=ExtResource("5_gph0v")]
+main = NodePath("../..")
+
+[node name="BaseMap" parent="Maps" unique_id=518282382 instance=ExtResource("3_b5vju")]
+
+[node name="Logs" type="Node" parent="." unique_id=1623633657]
+
+[node name="Log1" parent="Logs" unique_id=149041970 instance=ExtResource("5_46bv3")]
+position = Vector2(80, 27)
+
+[node name="LogMed" parent="Logs" unique_id=3768532 instance=ExtResource("6_m6uti")]
+position = Vector2(265, 14)
+
+[node name="LogHard" parent="Logs" unique_id=2015151661 instance=ExtResource("7_xvxqi")]
+position = Vector2(428, -2)
+
+[node name="WinLose" type="Node" parent="." unique_id=1268966658]
+
+[node name="WinZone" parent="WinLose" unique_id=1616924239 instance=ExtResource("4_o6ixb")]
+position = Vector2(590, 2)
+
+[node name="Killzone" parent="WinLose" unique_id=1355364477 instance=ExtResource("3_hn2i7")]
+position = Vector2(315, 414)
+
+[connection signal="input_event" from="Logs/Log1" to="Logs/Log1" method="_on_input_event"]
+[connection signal="body_entered" from="WinLose/WinZone" to="WinLose/WinZone" method="_on_body_entered"]
+[connection signal="body_entered" from="WinLose/Killzone" to="WinLose/Killzone" method="_on_body_entered"]

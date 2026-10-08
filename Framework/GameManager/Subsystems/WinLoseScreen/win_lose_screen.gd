@@ -10,6 +10,10 @@ class_name WinLoseScreen extends Control
 
 @export var win_anims_pool : Array[PackedScene]
 @export var lose_anims_pool : Array[PackedScene]
+@export var chatter_label : ChatterLabel
+
+@export_file("*.txt") var win_voicelines
+@export_file("*.txt") var lose_voicelines
 
 var old_save_data : SaveData = SaveData.new()
 var new_save_data : SaveData = SaveData.new()
@@ -27,6 +31,7 @@ func _ready() -> void:
 
 func play_anim() -> void:
 	# setting the stat displays up
+	chatter_label.visible = false
 	lives_stat_display.set_ui_with_no_anim(old_save_data.lives)
 	wins_stat_display.set_ui_with_no_anim(old_save_data.wins)
 	difficulty_stat_display.set_ui_with_no_anim(old_save_data.current_difficulty)
@@ -45,17 +50,28 @@ func play_anim() -> void:
 		await play_silly_anim(win_anims_pool.front())
 	
 	# do stat change anims
+	chatter_label.visible = true
+	chatter_label.modulate = Color.WHITE
+	if new_save_data.lives < old_save_data.lives:
+		chatter_label.dialogue_lines = ChatterParser.read_lines(lose_voicelines)
+	else:
+		chatter_label.dialogue_lines = ChatterParser.read_lines(win_voicelines)
+	chatter_label.reset_temp_lines()
+	chatter_label._on_timer_timeout()
 	await lives_stat_display.do_anim(new_save_data.lives)
 	await wins_stat_display.do_anim(new_save_data.wins)
 	await difficulty_stat_display.do_anim(new_save_data.current_difficulty)
+	if chatter_label.is_talking:
+		await chatter_label.ended_talking
 	
-	
-	#get_tree().create_timer(0.5)
-	
+	await get_tree().create_timer(1.0).timeout
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_property(chatter_label, "modulate", Color.BLACK, 0.5)
 	lives_stat_display.fade_out()
 	wins_stat_display.fade_out()
-	await difficulty_stat_display.fade_out()
 	
+	await difficulty_stat_display.fade_out()
+	chatter_label.visible = false
 	self.visible = false
 	
 	old_save_data.lives = new_save_data.lives

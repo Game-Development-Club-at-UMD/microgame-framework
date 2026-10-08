@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ymk33bbsdkpa"]
+
+[ext_resource type="Script" uid="uid://c57gal58sv7e4" path="res://BridgeBuilder/map/killzone.gd" id="1_imdf1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qqvtf"]
+
+[node name="Area2D" type="Area2D" unique_id=1355364477]
+script = ExtResource("1_imdf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495468314]
+shape = SubResource("WorldBoundaryShape2D_qqvtf")

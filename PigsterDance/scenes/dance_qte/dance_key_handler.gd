@@ -13,14 +13,15 @@ var remaining_keys: Array[InputEvent] = []
 var level_stats: DanceLevelStats
 var hit_box: Area2D
 var is_active: bool = false
+var is_spawning: bool = false
 
 
 func start_round(stats: DanceLevelStats, new_hit_box: Area2D) -> void:
 	level_stats = stats
 	hit_box = new_hit_box
-	remaining_keys.assign(level_stats.key_pool)
-	remaining_keys.shuffle()
+	remaining_keys.clear()
 	is_active = true
+	is_spawning = true
 	start_spawn_timer()
 
 
@@ -29,8 +30,16 @@ func stop() -> void:
 	stop_spawn_timer()
 
 
+func stop_spawning() -> void:
+	is_spawning = false
+	stop_spawn_timer()
+	
+	if not _has_pending_keys():
+		all_keys_succeeded.emit()
+
+
 func start_spawn_timer() -> void:
-	spawn_timer.start(1)
+	spawn_timer.start(level_stats.spawn_interval)
 
 
 func stop_spawn_timer() -> void:
@@ -38,25 +47,28 @@ func stop_spawn_timer() -> void:
 
 
 func _on_spawn_timer_timeout() -> void:
+	if not is_spawning:
+		return
 	_spawn_key()
-	if remaining_keys.is_empty():
-		stop_spawn_timer()
-	else:
-		start_spawn_timer()
+	start_spawn_timer()
 
 
 func _spawn_key() -> void:
-	if remaining_keys.is_empty():
-		return
 	if level_stats.key_visuals == null:
 		push_error("Key Scene is empty")
 		return
+	if remaining_keys.is_empty():
+		_refill_keys()
 
 	var key: QteKey = level_stats.key_visuals.instantiate()
 	add_child(key)
 	key.global_position = Vector2(get_viewport_rect().end.x + spawn_offset, hit_box.global_position.y)
 	key.set_key(remaining_keys.pop_front(), level_stats.key_speed)
 	key.key_press_finished.connect(_on_key_press_finished)
+
+func _refill_keys() -> void:
+	remaining_keys.assign(level_stats.key_pool)
+	remaining_keys.shuffle()
 
 
 func _on_key_press_finished(key: QteKey, success: bool) -> void:
@@ -68,7 +80,7 @@ func _on_key_press_finished(key: QteKey, success: bool) -> void:
 
 	key_succeeded.emit(key.key)
 
-	if remaining_keys.is_empty() and not _has_pending_keys():
+	if not is_spawning and not _has_pending_keys():
 		all_keys_succeeded.emit()
 
 

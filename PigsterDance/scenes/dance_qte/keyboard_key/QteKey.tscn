@@ -1,18 +1,16 @@
 [gd_scene format=3 uid="uid://cgm8nshwkqev3"]
 
 [ext_resource type="Script" uid="uid://0sdcnaak3gxu" path="res://PigsterDance/scenes/dance_qte/keyboard_key/qte_key.gd" id="1_d35ew"]
-
-[sub_resource type="Gradient" id="Gradient_1tejk"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g6afx"]
-gradient = SubResource("Gradient_1tejk")
+[ext_resource type="Texture2D" uid="uid://cw4g8vowriq5w" path="res://PigsterDance/assets/pngs/keys/keyboard_1.png" id="1_s5k76"]
+[ext_resource type="Resource" uid="uid://cqxf5i6f0frqo" path="res://PigsterDance/custom_resources/qte_key_icons.tres" id="2_liwuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6afx"]
 size = Vector2(16, 16)
 
 [node name="QteKey" type="Sprite2D" unique_id=616332112]
-texture = SubResource("GradientTexture2D_g6afx")
+texture = ExtResource("1_s5k76")
 script = ExtResource("1_d35ew")
+icon_set = ExtResource("2_liwuw")
 
 [node name="Label" type="Label" parent="." unique_id=1232479027]
 offset_left = -32.0

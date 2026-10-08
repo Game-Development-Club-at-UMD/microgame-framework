@@ -76,5 +76,7 @@ offset_right = 77.77771
 offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_scale = Vector2(0.9365498, 0.9365498)
+offset_transform_rotation = -0.016611231
 expand_mode = 3
 stretch_mode = 5

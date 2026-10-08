@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://e410cds7rf8c"]
 
-[ext_resource type="Script" path="res://Cup-n-Ball/ball.gd" id="1_ball"]
-[ext_resource type="PackedScene" path="res://Cup-n-Ball/Systems/FuseTimer/fuse_timer.tscn" id="2_fuse"]
+[ext_resource type="Script" uid="uid://pe7vbno6dd67" path="res://Cup-n-Ball/ball.gd" id="1_ball"]
+[ext_resource type="PackedScene" uid="uid://bwol7527fufgx" path="res://Cup-n-Ball/Systems/FuseTimer/fuse_timer.tscn" id="2_fuse"]
 [ext_resource type="PackedScene" path="res://Cup-n-Ball/Effects/Explosion/explosion.tscn" id="3_explosion"]
-[ext_resource type="PackedScene" path="res://Cup-n-Ball/Effects/Confetti/confetti_burst.tscn" id="4_confetti"]
+[ext_resource type="PackedScene" uid="uid://dllobsqoifpjq" path="res://Cup-n-Ball/Effects/Confetti/confetti_burst.tscn" id="4_confetti"]
+[ext_resource type="PackedScene" uid="uid://dkgjtmq56mm7" path="res://Cup-n-Ball/bomb.tscn" id="5_5dg84"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jv608"]
 radius = 30.0
@@ -39,20 +40,27 @@ script = ExtResource("1_ball")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461875033]
 shape = SubResource("CircleShape2D_jv608")
 
-[node name="Visual" type="Node2D" parent="."]
+[node name="Visual" type="Node2D" parent="." unique_id=736016594]
 
-[node name="Body" type="Sprite2D" parent="Visual"]
+[node name="Body" type="Sprite2D" parent="Visual" unique_id=771824046]
 texture = SubResource("GradientTexture2D_body")
 
-[node name="Shine" type="Sprite2D" parent="Visual"]
+[node name="Shine" type="Sprite2D" parent="Visual" unique_id=1302131209]
 position = Vector2(-10, -10)
 texture = SubResource("GradientTexture2D_shine")
 
-[node name="FuseTimer" parent="." instance=ExtResource("2_fuse")]
+[node name="FuseTimer" parent="." unique_id=951288713 instance=ExtResource("2_fuse")]
 
-[node name="Explosion" parent="." instance=ExtResource("3_explosion")]
+[node name="Explosion" parent="." unique_id=1595319640 instance=ExtResource("3_explosion")]
 
-[node name="ConfettiBurst" parent="." instance=ExtResource("4_confetti")]
+[node name="ConfettiBurst" parent="." unique_id=117345479 instance=ExtResource("4_confetti")]
+
+[node name="Bomb" parent="." unique_id=1221585428 instance=ExtResource("5_5dg84")]
+position = Vector2(2.1329777, -1.8048607)
+scale = Vector2(0.09468085, 0.094680846)
+offset = Vector2(25, -200)
+region_enabled = true
+region_rect = Rect2(1081.5898, 1296.3158, 940.33813, 1249.9877)
 
 [connection signal="expired" from="FuseTimer" to="." method="explode"]
 [connection signal="finished" from="Explosion" to="." method="_on_explosion_finished"]

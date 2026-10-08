@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cppjd1vfjrc7g"]
+
+[ext_resource type="Script" uid="uid://7d70bor6q562" path="res://Shiver/objects/ground_detector.gd" id="1_u0mqd"]
+
+[node name="Ground Detector" type="RayCast3D" unique_id=1382923552]
+target_position = Vector3(0, -64, 0)
+script = ExtResource("1_u0mqd")

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cqvdms8viuatx"]
+
+[ext_resource type="Script" uid="uid://28na5qin3vjx" path="res://BabyDefenestration/rigid_body_2d.gd" id="1_lr6q2"]
+[ext_resource type="Texture2D" uid="uid://jys15o4ete4k" path="res://BabyDefenestration/assets BABYYYY/baby.png" id="2_mkmh0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lr6q2"]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c18sk"]
+radius = 16.0
+height = 56.0
+
+[node name="Rigidbaby" type="Node2D" unique_id=1077690374]
+z_index = 5
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1181130616]
+physics_material_override = SubResource("PhysicsMaterial_lr6q2")
+contact_monitor = true
+script = ExtResource("1_lr6q2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1065472336]
+rotation = 0.5235988
+scale = Vector2(1.4664109, 1.4664109)
+shape = SubResource("CapsuleShape2D_c18sk")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=267400417]
+position = Vector2(0.99999976, -10)
+scale = Vector2(5.5837507, 5.5837507)
+texture = ExtResource("2_mkmh0")
+
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
+[connection signal="input_event" from="RigidBody2D" to="RigidBody2D" method="_on_input_event"]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://vflueasu6rcv"]
+
+[ext_resource type="Script" uid="uid://bwjqf5pvvsvdp" path="res://BridgeBuilder/map/winzone.gd" id="1_pfpck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt1fr"]
+size = Vector2(20, 236)
+
+[node name="WinZone" type="Area2D" unique_id=1355364477]
+script = ExtResource("1_pfpck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495468314]
+position = Vector2(0, 108)
+shape = SubResource("RectangleShape2D_pt1fr")

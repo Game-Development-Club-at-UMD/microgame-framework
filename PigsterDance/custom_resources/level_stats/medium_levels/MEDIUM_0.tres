@@ -1,24 +1,61 @@
 [gd_resource type="Resource" script_class="DanceLevelStats" format=3 uid="uid://cce3ko5m8ar8t"]
 
 [ext_resource type="PackedScene" uid="uid://cgm8nshwkqev3" path="res://PigsterDance/scenes/dance_qte/keyboard_key/QteKey.tscn" id="1_twlfw"]
+[ext_resource type="AudioStream" uid="uid://dceu2autcgweo" path="res://PigsterDance/assets/audio/goofy_beat.mp3" id="2_1h3au"]
 [ext_resource type="Script" uid="uid://1mravwtv8td" path="res://PigsterDance/custom_resources/level_stats/dance_level_stats.gd" id="2_04teq"]
 
-[sub_resource type="InputEventKey" id="InputEventKey_twlfw"]
+[sub_resource type="InputEventKey" id="InputEventKey_0urcc"]
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_7f30f"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_oqyj7"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_0x2xd"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_1i840"]
 device = -1
 keycode = 90
 unicode = 122
 
-[sub_resource type="InputEventKey" id="InputEventKey_04teq"]
+[sub_resource type="InputEventKey" id="InputEventKey_87s20"]
 device = -1
 keycode = 88
 unicode = 120
 
-[sub_resource type="InputEventKey" id="InputEventKey_1h3au"]
+[sub_resource type="InputEventKey" id="InputEventKey_1dhfb"]
 device = -1
 keycode = 67
 unicode = 99
 
+[sub_resource type="InputEventKey" id="InputEventKey_da8gr"]
+device = -1
+keycode = 81
+unicode = 113
+
 [resource]
 script = ExtResource("2_04teq")
-key_pool = Array[InputEvent]([SubResource("InputEventKey_twlfw"), SubResource("InputEventKey_04teq"), SubResource("InputEventKey_1h3au")])
+key_pool = Array[InputEvent]([SubResource("InputEventKey_0urcc"), SubResource("InputEventKey_7f30f"), SubResource("InputEventKey_oqyj7"), SubResource("InputEventKey_0x2xd"), SubResource("InputEventKey_1i840"), SubResource("InputEventKey_87s20"), SubResource("InputEventKey_1dhfb"), SubResource("InputEventKey_da8gr")])
+max_tries = 2
+music = ExtResource("2_1h3au")
+music_start_offset = 0.3
+key_speed_start = 320.0
+key_speed_end = 400.0
+spawn_interval_start = 1.0
+spawn_interval_end = 0.85
+qte_duration_start = 10.0
+qte_duration_end = 12.0
+retry_delay_start = 1.25
+retry_delay_end = 1.15
 metadata/_custom_type_script = "uid://1mravwtv8td"

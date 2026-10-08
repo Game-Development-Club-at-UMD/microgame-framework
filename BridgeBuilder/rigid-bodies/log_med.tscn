@@ -1,0 +1,45 @@
+[gd_scene format=4 uid="uid://cgehk0qwf74fk"]
+
+[ext_resource type="Script" uid="uid://ck4kfmyrxxtlu" path="res://BridgeBuilder/rigid-bodies/log_med.gd" id="1_krvjh"]
+[ext_resource type="Texture2D" uid="uid://c8t3shriuheab" path="res://BridgeBuilder/assets/environment/sprites/tilemap.png" id="2_j3yxc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1nsp"]
+texture = ExtResource("2_j3yxc")
+texture_region_size = Vector2i(12, 12)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2838g"]
+tile_size = Vector2i(12, 12)
+sources/1 = SubResource("TileSetAtlasSource_d1nsp")
+
+[node name="LogMed" type="RigidBody2D" unique_id=149041970]
+input_pickable = true
+center_of_mass_mode = 1
+center_of_mass = Vector2(64, 18)
+script = ExtResource("1_krvjh")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=664652597]
+position = Vector2(-1, 0)
+tile_map_data = PackedByteArray("AAABAAEAAQADAAEAAAACAAEAAQABAAEAAAADAAEAAQABAAEAAAAFAAEAAQABAAEAAAAGAAEAAQABAAEAAAAGAAMAAQACAAEAAFAGAAIAAQABAAEAAFAEAAEAAQABAAEAAAA=")
+tile_set = SubResource("TileSet_2838g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1538915914]
+position = Vector2(-0.04122162, -0.11221933)
+scale = Vector2(1, 1.0034722)
+polygon = PackedVector2Array(11.041222, 11.908371, 83.04122, 11.908371, 83.04122, 47.90837, 71.04122, 47.90837, 71.04122, 23.908371, 11.041222, 23.908371)

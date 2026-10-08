@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dwhmu6bmimet1"]
+
+[ext_resource type="AudioStream" uid="uid://dra3dr7hiuhgl" path="res://BridgeBuilder/assets/environment/sfx/duality_chiptune.mp3" id="1_blm7j"]
+[ext_resource type="Script" uid="uid://64qsomhqd848" path="res://BridgeBuilder/Game/bg_music.gd" id="2_htuy6"]
+
+[node name="BGMusic" type="AudioStreamPlayer" unique_id=4555998]
+stream = ExtResource("1_blm7j")
+autoplay = true
+script = ExtResource("2_htuy6")

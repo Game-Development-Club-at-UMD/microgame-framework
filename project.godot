@@ -14,7 +14,6 @@ config/name="Microgame Framework"
 run/main_scene="uid://da4hhvghhnoi8"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://dowbc4oitb623"
-<<<<<<<Updatedupstreamrun/main_scene="uid://tc87a4f6227j"
 
 [autoload]
 
@@ -27,7 +26,6 @@ TheWorld="*uid://dwe225sybkguo"
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="uid://m8s5co63k7ex"
 mouse_cursor/custom_image_hotspot=Vector2(10, 20)
 
 [dotnet]
@@ -37,6 +35,13 @@ project/assembly_name="Microgame Framework"
 [file_customization]
 
 folder_colors={
+"res://BridgeBuilder/": "purple",
+"res://BridgeBuilder/Game/": "blue",
+"res://BridgeBuilder/assets/": "red",
+"res://BridgeBuilder/assets/environment/sprites/": "orange",
+"res://BridgeBuilder/assets/player/": "purple",
+"res://BridgeBuilder/assets/player/sprites/": "orange",
+"res://BridgeBuilder/rigid-bodies/": "yellow",
 "res://ExampleGame/": "pink",
 "res://Framework/": "gray",
 "res://Framework/Assets/": "purple",
@@ -44,6 +49,10 @@ folder_colors={
 "res://Framework/GameManager/": "yellow",
 "res://Framework/MainMenu/": "green",
 "res://Framework/Microgame/": "blue",
+"res://Framework/chatter/": "orange",
+"res://Shiver/": "teal",
+"res://Shiver/RileySFX/": "purple",
+"res://Shiver/RileySprites/": "red",
 "res://SimpleExampleGame/": "orange",
 "res://SwordSticker/": "blue",
 "res://SwordSticker/SFX/": "purple",

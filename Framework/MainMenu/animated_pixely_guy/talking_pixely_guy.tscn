@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ci2kkvigehftd" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-11.png" id="14_uf4w4"]
 [ext_resource type="Texture2D" uid="uid://dmgdfh8ux85h6" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-13.png" id="15_lvp21"]
 [ext_resource type="Texture2D" uid="uid://bj65k6mti4qw0" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-15.png" id="16_wxr70"]
+[ext_resource type="PackedScene" uid="uid://dcu3mtx14hp28" path="res://Framework/chatter/chatter.tscn" id="20_0wjfl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ekk2y"]
 animations = [{
@@ -84,11 +85,6 @@ animations = [{
 "speed": 8.0
 }]
 
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yrkv6"]
-radius = 37.999996
-height = 165.59999
-
 [sub_resource type="Resource" id="Resource_yf5fn"]
 script = ExtResource("5_0j46w")
 start_offset_scale = Vector2(1.6, 0.8)
@@ -99,13 +95,17 @@ metadata/_custom_type_script = "uid://cdere083tmmuo"
 _data = [Vector2(0, 0), 0.0, -3.0748649, 0, 0, Vector2(1, 1), -2.951872, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yrkv6"]
+radius = 37.999996
+height = 165.59999
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(134.4, 198.4)
 
-
-[node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375]
+[node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375 node_paths=PackedStringArray("chatter_label")]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_freyk")
+chatter_label = NodePath("CanvasLayer2/CanvasLayer/ChatterLabel")
 
 [node name="Control" type="Control" parent="." unique_id=2131250458]
 layout_mode = 3
@@ -141,13 +141,6 @@ scale = Vector2(0.99999976, 0.99999976)
 sprite_frames = SubResource("SpriteFrames_itup8")
 animation = &"talking-body"
 
-
-[node name="GuyHoverArea" type="Area2D" parent="." unique_id=303071852]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuyHoverArea" unique_id=1085094554]
-position = Vector2(4.7999997, 1.2)
-shape = SubResource("CapsuleShape2D_yrkv6")
-
 [node name="Squish" type="Node" parent="Control" unique_id=187843858 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("4_tp5iy")
 affected_node = NodePath("..")
@@ -157,9 +150,25 @@ transition_curve = SubResource("Curve_yf5fn")
 tween_duration = 0.2
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
+[node name="GuyHoverArea" type="Area2D" parent="." unique_id=303071852]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuyHoverArea" unique_id=1085094554]
+position = Vector2(4.7999997, 1.2)
+shape = SubResource("CapsuleShape2D_yrkv6")
+
 [node name="ClickableArea" type="Area2D" parent="." unique_id=1817162997]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=221331649]
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_g4v7s")
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=113409394]
+
+[node name="CanvasLayer" parent="CanvasLayer2" unique_id=1131578579 instance=ExtResource("20_0wjfl")]
+offset_top = 3.0
+mouse_filter = 2
+
+[node name="ChatterLabel" parent="CanvasLayer2/CanvasLayer" index="0" unique_id=326574450]
+mouse_filter = 2
+
+[editable path="CanvasLayer2/CanvasLayer"]
