@@ -19,8 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ci2kkvigehftd" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-11.png" id="14_uf4w4"]
 [ext_resource type="Texture2D" uid="uid://dmgdfh8ux85h6" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-13.png" id="15_lvp21"]
 [ext_resource type="Texture2D" uid="uid://bj65k6mti4qw0" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-15.png" id="16_wxr70"]
-[ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="20_tp5iy"]
-[ext_resource type="Script" uid="uid://88khsbfgvnjf" path="res://Framework/chatter/chatter_label.gd" id="21_0j46w"]
+[ext_resource type="PackedScene" uid="uid://dcu3mtx14hp28" path="res://Framework/chatter/chatter.tscn" id="20_0wjfl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ekk2y"]
 animations = [{
@@ -103,9 +102,10 @@ height = 165.59999
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(134.4, 198.4)
 
-[node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375]
+[node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375 node_paths=PackedStringArray("chatter_label")]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_freyk")
+chatter_label = NodePath("CanvasLayer2/CanvasLayer/ChatterLabel")
 
 [node name="Control" type="Control" parent="." unique_id=2131250458]
 layout_mode = 3
@@ -162,33 +162,13 @@ shape = SubResource("CapsuleShape2D_yrkv6")
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1891638029]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=113409394]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=48399529]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 50
+[node name="CanvasLayer" parent="CanvasLayer2" unique_id=1131578579 instance=ExtResource("20_0wjfl")]
+offset_top = 3.0
+mouse_filter = 2
 
-[node name="ChatterLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer" unique_id=1124965250 node_paths=PackedStringArray("timer")]
-layout_mode = 2
-size_flags_vertical = 0
-theme = ExtResource("20_tp5iy")
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-text = "You can try again, but you'll never get your pride back."
-fit_content = true
-script = ExtResource("21_0j46w")
-file = "res://Framework/Assets/dialogue/menu-chatter.txt"
-timer = NodePath("Timer")
+[node name="ChatterLabel" parent="CanvasLayer2/CanvasLayer" index="0" unique_id=326574450]
+mouse_filter = 2
 
-[node name="Timer" type="Timer" parent="CanvasLayer/MarginContainer/ChatterLabel" unique_id=648931689]
-wait_time = 8.0
-one_shot = true
-
-[connection signal="timeout" from="CanvasLayer/MarginContainer/ChatterLabel/Timer" to="CanvasLayer/MarginContainer/ChatterLabel" method="_on_timer_timeout"]
+[editable path="CanvasLayer2/CanvasLayer"]

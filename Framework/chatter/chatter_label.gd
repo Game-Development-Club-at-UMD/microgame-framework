@@ -23,6 +23,7 @@ signal ended_talking
 
 @export_file("*.txt") var file
 @export var timer : Timer
+@export var play_once : bool = false
 
 var dialogue_lines : Array[String]
 
@@ -35,7 +36,13 @@ func _ready() -> void:
 		printerr("%s: file is null, cannot read lines from null text file!" % self)
 	dialogue_lines = ChatterParser.read_lines(file)
 	reset_temp_lines()
-	_on_timer_timeout()
+	if !play_once:
+		_on_timer_timeout()
+
+
+func load_from_file() -> void:
+	dialogue_lines = ChatterParser.read_lines(file)
+	reset_temp_lines()
 
 
 func char_causes_sentence_pause(character : String) -> bool:
@@ -82,4 +89,5 @@ func _on_timer_timeout() -> void:
 	text = format_text(text)
 	is_talking = false
 	ended_talking.emit()
-	timer.start()
+	if !play_once:
+		timer.start()
