@@ -25,6 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://dxp3q863k74ap" path="res://Framework/CustomWinLoseAnims/Lose/shinji_guy.tscn" id="17_o7nxi"]
 [ext_resource type="PackedScene" uid="uid://cbwxhfl8st730" path="res://ScrabbleScore/Scenes/TheScrabbler.tscn" id="18_51jlu"]
 [ext_resource type="PackedScene" uid="uid://chcbx7cftx5bq" path="res://Shiver/shiver-game.tscn" id="19_cfl1f"]
+[ext_resource type="PackedScene" uid="uid://d2qrnj35of28g" path="res://Framework/CustomWinLoseAnims/Win/castle_crasher_win.tscn" id="20_cfl1f"]
+[ext_resource type="PackedScene" uid="uid://bt7yymp71dp5b" path="res://Framework/CustomWinLoseAnims/Win/computer_guy_scaleable.tscn" id="21_1f277"]
+[ext_resource type="PackedScene" uid="uid://ekqj5khl46g2" path="res://Framework/CustomWinLoseAnims/Win/anime_guy_win.tscn" id="22_2rbr6"]
 
 [sub_resource type="Resource" id="Resource_yf5fn"]
 script = ExtResource("3_bl30x")
@@ -88,6 +91,7 @@ metadata/_custom_type_script = "uid://cxpxg24xypn71"
 [node name="WinLoseScreen" parent="." unique_id=449922744 instance=ExtResource("8_vy41y")]
 unique_name_in_owner = true
 visible = false
+win_anims_pool = Array[PackedScene]([ExtResource("20_cfl1f"), ExtResource("21_1f277"), ExtResource("22_2rbr6")])
 lose_anims_pool = Array[PackedScene]([ExtResource("16_3f7dy"), ExtResource("17_o7nxi")])
 
 [node name="Background" type="ColorRect" parent="." unique_id=1445678169]
