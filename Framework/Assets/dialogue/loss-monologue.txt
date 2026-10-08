@@ -1,30 +1,30 @@
-Cope! Mald! Seethe! Et cetera!
-The catnip just hit, I can't ******* aim!
-Your win streak... whateva happened there?
-You never had the makings of a varsity gamer.
-There goes your esports career, genius.
-Do I smell the litterbox or your gameplay?
-Is it a "coup de grace" if you already sucked?
-Try pressing buttons next time.
-Mom said it's my turn with the controller!
-Good lord, that was just... sad...
-That high score's not happenin', champ.
-Great, now you can go outside! Seriously, go outside.
-...but that backflip, tho!
-My dead granny could play better. Scary ghost granny.
-It's time to t-t-t, t-t-touch grass!
-Your fly's down AND you lost? Tragic.
-PWNED... what do you mean, nobody says that anymore?
-You can try again, but you'll never get your pride back.
-Failure is the business of losers. Loser!
-You're supposed to *follow* the instructions.
-38 dead, 172 wounded, zero games won.
-Every time you lose, they take one of my teeth...
-LOCK IN ALREADY, IT'S A SIMPLE GAME!
-It wasn't lag, it wasn't the mouse, it was YOU.
-You're supposed to go next when you lose, not cry.
-That's it, I'm voting for whoever you don't like now.
-Perseverance is good, but winning is *actually* good.
-My disappointment is immeasurable, and my day is ruined.
-Are you even trying? No? Oh, that makes sense then.
-You suck. Plain and simple!
+["Cope! Mald! Seethe! Et cetera!",
+"The catnip just hit, I can't ******* aim!",
+"Your win streak... whateva happened there?",
+"You never had the makings of a varsity gamer.",
+"There goes your esports career, genius.
+"Do I smell the litterbox or your gameplay?",
+"Is it a "coup de grace" if you already sucked?",
+"Try pressing buttons next time.
+"Mom said it's my turn with the controller!","
+"Good lord, that was just... sad...","
+"That high score's not happenin', champ.","
+"Great, now you can go outside! Seriously, go outside.","
+""...but that backflip, tho!
+"My dead granny could play better. Scary ghost granny.","
+"It's time to t-t-t, t-t-touch grass!
+"Your fly's down AND you lost? Tragic.","
+"PWNED... what do you mean, nobody says that anymore?","
+"You can try again, but you'll never get your pride back.",
+"Failure is the business of losers. Loser!",
+"You're supposed to *follow* the instructions.","
+"38 dead, 172 wounded, zero games won.","
+"Every time you lose, they take one of my teeth...","
+"LOCK IN ALREADY, IT'S A SIMPLE GAME!
+"It wasn't lag, it wasn't the mouse, it was YOU.",
+"You're supposed to go next when you lose, not cry.","
+"That's it, I'm voting for whoever you don't like now.",
+"Perseverance is good, but winning is *actually* good.",
+"My disappointment is immeasurable, and my day is ruined.",
+"Are you even trying? No? Oh, that makes sense then.",
+"You suck. Plain and simple!"]
